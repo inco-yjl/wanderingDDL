@@ -1,0 +1,10 @@
+.menu-btn {
+    -fx-background-color: rgb(40, 43, 51);
+    -fx-text-fill: rgb(191, 192, 194);
+}
+
+
+.menu-btn:hover {
+    -fx-background-color:#363e52;
+    -fx-text-fill: #fff;
+}
