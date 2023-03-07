@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane prefHeight="800.0" prefWidth="700.0" styleClass="window" stylesheets="@style/window.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController">
+   <top>
+
+   </top>
+   <left>
+      <VBox prefHeight="786.0" prefWidth="176.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="107.0" prefWidth="185.0" styleClass="menu-btn" stylesheets="@style/menu.css" onAction="#ToWanderingPage">
+               <graphic>
+                  <ImageView fitHeight="84.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@source/wanderingDDL.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="187.0" styleClass="menu-btn" stylesheets="@style/menu.css">
+               <graphic>
+                  <ImageView fitHeight="84.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
+               <graphic>
+                  <ImageView fitHeight="84.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <right>
+
+   </right>
+</BorderPane>

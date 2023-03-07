@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox prefHeight="24.0" prefWidth="695.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController">
+    <children>
+        <MenuBar id="windowMenu" prefHeight="23.0" prefWidth="597.0" stylesheets="@style/window.css">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <Button minWidth="53.0" mnemonicParsing="false" onAction="#minizeWindow" prefHeight="24.0" prefWidth="37.0" styleClass="buttons" stylesheets="@style/window.css" text="—" />
+        <Button layoutX="557.0" layoutY="10.0" minWidth="53.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="37.0" prefWidth="53.0" styleClass="buttons" stylesheets="@style/window.css" text="X" />
+    </children>
+</HBox>
