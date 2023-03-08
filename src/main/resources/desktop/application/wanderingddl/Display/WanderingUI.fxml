@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="30.0" prefHeight="347.0" prefWidth="570.0">
+         <children>
+            <VBox prefHeight="347.0" prefWidth="262.0">
+               <children>
+                  <Label prefHeight="47.0" prefWidth="284.0" styleClass="zn-text" stylesheets="@style/font.css" text="距离DDL11111" />
+                  <Label alignment="TOP_RIGHT" prefHeight="57.0" prefWidth="265.0" styleClass="zn-text" stylesheets="@style/font.css" text="大概还有" />
+               </children>
+            </VBox>
+            <Label prefHeight="116.0" prefWidth="116.0" styleClass="eng-test" stylesheets="@style/font.css" text="30" />
+            <Label prefHeight="148.0" prefWidth="42.0" styleClass="zn-text" stylesheets="@style/font.css" text="天" />
+         </children>
+      </HBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="148.0" layoutX="133.0" layoutY="53.0" stroke="#ffffff00" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="8.0" />
+      <TextArea layoutX="146.0" layoutY="99.0" prefHeight="100.0" prefWidth="309.0" stylesheets="@style/font.css" text="111111111111&#10;1111111111111&#10;111111" />
+      <TilePane prefHeight="394.0" prefWidth="590.0" />
+   </children>
+</Pane>

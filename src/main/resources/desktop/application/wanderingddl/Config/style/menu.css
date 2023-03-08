@@ -3,6 +3,8 @@
     -fx-text-fill: rgb(191, 192, 194);
     -fx-background-radius: 0;
     -fx-border-radius: 0;
+    -fx-border-width: 0 3 0 0;
+    -fx-border-color:#4eb3d3;
 }
 
 
@@ -11,6 +13,6 @@
     -fx-text-fill: #fff;
 }
 .menu-btn:pressed {
-    -fx-background-color:#7bccc4;
+    -fx-background-color:#bae2c4;
     -fx-text-fill: #fff;
 }

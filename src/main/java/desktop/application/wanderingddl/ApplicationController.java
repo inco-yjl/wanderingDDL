@@ -2,30 +2,39 @@ package desktop.application.wanderingddl;
 
 import desktop.application.wanderingddl.navigation.PageFactory;
 import desktop.application.wanderingddl.tools.DragUtil;
+
+import desktop.application.wanderingddl.tools.FontLoader;
 import javafx.application.Application;
 import javafx.fxml.FXML;
+
 import javafx.scene.Node;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
-public class ApplicationController extends Application {
-    static Stage stage;
-    static BorderPane window;
-    @Override
+    public class ApplicationController extends Application {
+        static Stage stage;
+        static BorderPane window;
+        public Button wanderingPage;
+
+
+        @Override
     public void start(Stage stage) throws IOException {
         ApplicationController.stage = stage;
         Parent root = FXMLLoader.load(getClass().getResource("Config/Window.fxml"));
         HBox windowMenu = (HBox) FXMLLoader.load(getClass().getResource("Config/Menubar.fxml"));
         VBox mainContent = (VBox) FXMLLoader.load(getClass().getResource("Config/Content.fxml"));
-        Pane  wanderingPage = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
-        Node[] pages = {wanderingPage};
+        Pane  wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
+
+        Node[] pages = {wanderingPageContent};
 
         createScene(root,windowMenu,mainContent);
         PageFactory.setPages(pages);
@@ -53,14 +62,16 @@ public class ApplicationController extends Application {
         stage.setIconified(true);
     }
     @FXML
-    protected void ToWanderingPage() {
+    protected void ToWanderingPage(){
+        wanderingPage.setStyle("-fx-border-color: #a8ddb5;");
         routePage(0);
+        try {
+            new WanderingController().start(new Stage());
+        }catch (IOException e){}
     }
     private void routePage(int index) {
-
             Node node = PageFactory.createPageService(index);
             window.setRight(node);
-
     }
     public static void main(String[] args) {
         launch();
