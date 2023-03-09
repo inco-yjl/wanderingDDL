@@ -65,9 +65,16 @@ import java.io.IOException;
     protected void ToWanderingPage(){
         wanderingPage.setStyle("-fx-border-color: #a8ddb5;");
         routePage(0);
+        //此处直接打开了第一个
+        openWanderingUI();
+    }
+    protected void openWanderingUI(){
+            WanderingController wanderingController = new WanderingController();
         try {
-            new WanderingController().start(new Stage());
-        }catch (IOException e){}
+            wanderingController.start(new Stage());
+        }catch (IOException e){
+            //
+        }
     }
     private void routePage(int index) {
             Node node = PageFactory.createPageService(index);
