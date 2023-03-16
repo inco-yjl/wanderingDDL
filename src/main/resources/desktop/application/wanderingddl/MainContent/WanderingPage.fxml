@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="539.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TextField layoutX="182.0" layoutY="58.0" prefHeight="23.0" prefWidth="209.0" />
-      <TextField layoutX="182.0" layoutY="98.0" prefHeight="23.0" prefWidth="209.0" />
-   </children>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0"
+      prefWidth="539.0"
+      fx:controller="desktop.application.wanderingddl.ApplicationController" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TextField fx:id="0" layoutX="182.0" layoutY="58.0" prefHeight="23.0" prefWidth="209.0"/>
+        <TextField fx:id="1" layoutX="182.0" layoutY="98.0" prefHeight="23.0" prefWidth="209.0"/>
+        <TextField fx:id="2" layoutX="182.0" layoutY="138.0" prefHeight="23.0" prefWidth="209.0"/>
+        <TextField fx:id="3" layoutX="182.0" layoutY="178.0" prefHeight="23.0" prefWidth="209.0"/>
+        <Button layoutX="270.0" layoutY="264.0" mnemonicParsing="false" text="OK" onAction="#openWanderingUI"/>
+    </children>
 </Pane>
