@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -18,28 +19,33 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import java.io.IOException;
-    public class ApplicationController extends Application {
-        static Stage stage;
-        static BorderPane window;
-        public Button wanderingPage;
+
+public class ApplicationController extends Application {
+    static Stage stage;
+    static BorderPane window;
+    public Button wanderingPage;
+
+    public Pane wanderingPageContent;
 
 
-        @Override
+    @Override
     public void start(Stage stage) throws IOException {
         ApplicationController.stage = stage;
         Parent root = FXMLLoader.load(getClass().getResource("Config/Window.fxml"));
         HBox windowMenu = (HBox) FXMLLoader.load(getClass().getResource("Config/Menubar.fxml"));
         VBox mainContent = (VBox) FXMLLoader.load(getClass().getResource("Config/Content.fxml"));
-        Pane  wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
+        this.wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
 
         Node[] pages = {wanderingPageContent};
 
-        createScene(root,windowMenu,mainContent);
+        createScene(root, windowMenu, mainContent);
         PageFactory.setPages(pages);
     }
+
     public void createScene(Parent root, HBox windowMenu, VBox mainContent) {
-        BorderPane window = (BorderPane)root;
+        BorderPane window = (BorderPane) root;
         ApplicationController.window = window;
         window.setTop(windowMenu);
         window.setRight(mainContent);
@@ -48,32 +54,40 @@ import java.io.IOException;
         stage.initStyle(StageStyle.TRANSPARENT);//隐藏头标题); //去除窗口样式
         scene.setFill(null);
         stage.setScene(scene);
-        DragUtil.addDragListener(stage,root); //窗口拖拽
+        DragUtil.addDragListener(stage, root); //窗口拖拽
         stage.show();
     }
     @FXML
     protected void closeWindow() {
         stage.hide();
     }
+
     @FXML
     protected void minizeWindow() {
         stage.setIconified(true);
     }
+
     @FXML
-    protected void ToWanderingPage(){
+    protected void ToWanderingPage() {
         wanderingPage.setStyle("-fx-border-color: #a8ddb5;");
         routePage(0);
         System.out.println(1);
-        //此处直接打开了第一个，实际需填参数后按钮控制
-        openWanderingUI();
     }
-    protected void openWanderingUI(){
-        WanderingController.getInstance().newInit();
+
+    @FXML
+    protected void openWanderingUI() {
+        String[] sentences = new String[5];
+        for (int i = 0; i < 4; i++)
+            sentences[i] = ((TextField) window.getRight().lookup("#" + Integer.toString(i))).getText();
+        sentences[4] = "deadline comes in 5 days, wait for it patiently";
+            WanderingController.getInstance().newInit(sentences);
     }
+
     private void routePage(int index) {
-            Node node = PageFactory.createPageService(index);
-            window.setRight(node);
+        Node node = PageFactory.createPageService(index);
+        window.setRight(node);
     }
+
     public static void main(String[] args) {
         launch();
     }
