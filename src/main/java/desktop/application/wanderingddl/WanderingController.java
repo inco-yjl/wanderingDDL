@@ -1,10 +1,7 @@
 package desktop.application.wanderingddl;
 
 import desktop.application.wanderingddl.tools.DragUtil;
-import desktop.application.wanderingddl.tools.FontLoader;
 import javafx.application.Application;
-import javafx.css.Style;
-import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -16,26 +13,48 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Random;
 
-
+//TODO:联系时钟
 public class WanderingController extends Application {
     private Font w_engFont;
     private Font w_znFont;
     private Font w_engTextFont;
     private String[] strings;
+    private final Stage stage = new Stage();
+    static private WanderingController wanderingController;
     private Label[] texts = new Label[5]; //距离xxx,还有大概,30,space,天
 
-    public WanderingController(){
+    private WanderingController(){
         super();
         this.loadFont();
-        this.initText();
+        this.setStage();
+    }
+    public static WanderingController getInstance(){
+        if(wanderingController==null){
+            wanderingController=new WanderingController();
+        }
+        return wanderingController;
+    }
+    private void setStage(){
+        //给外层套一个透明的以不显示任务栏图标
+        Stage transparentStage = new Stage();
+        transparentStage.initStyle(StageStyle.UTILITY);
+        //将stage的透明度设置为0
+        transparentStage.setOpacity(0);
+        //stage展示出来，此步骤不可少，缺少此步骤stage还是会存在任务栏
+        transparentStage.show();
+        stage.initOwner(transparentStage);
+        stage.initStyle(StageStyle.TRANSPARENT);//隐藏头标题); //去除窗口样式
+        stage.setX(Screen.getPrimary().getBounds().getWidth()-480);
+        stage.setY(Screen.getPrimary().getBounds().getHeight()-262);
+        stage.setAlwaysOnTop(true);
     }
     private void loadFont(){
         w_engFont= Font.loadFont(Objects.requireNonNull(getClass().getResource("Alte DIN 1451 Mittelschrift gepraegt Regular.ttf")).toExternalForm(), 84);
@@ -44,7 +63,7 @@ public class WanderingController extends Application {
     }
     //传参初始化
     private void initText(){
-        strings = new String[]{"距离某一科作业","还有","30","天","deadline comes in 5 days, wait for it patiently"};
+        strings = new String[]{"距离云计算作业","还有","3","天","deadline comes in 3 days, wait for it patiently"};
         for(int i=0;i<4;i++){
             texts[i] = new Label(strings[i]);
         }
@@ -52,7 +71,15 @@ public class WanderingController extends Application {
         setZnFont(new Label[]{texts[0],texts[1],texts[3],texts[4]});//text4是空的占位label
         setNumFont(texts[2]);
     }
+    public void newInit(){
+        try {
+            this.start(stage);
+        }catch (Exception e){
+            //
+        }
+    }
     public void start(Stage stage) throws IOException {
+        this.initText();//新建标签
         //建立节点
         Pane all = new Pane();
         //载入字体，设置字体
@@ -61,12 +88,13 @@ public class WanderingController extends Application {
 
         Scene scene = new Scene(all, 480,262);
         scene.setFill(null);
-        stage.initStyle(StageStyle.TRANSPARENT);//隐藏头标题); //去除窗口样式
+
         stage.setScene(scene);
-        stage.setX(Screen.getPrimary().getBounds().getWidth()-480);
-        stage.setY(Screen.getPrimary().getBounds().getHeight()-262);
+
         DragUtil.addDragListener(stage,all);
-        stage.show();
+        if(!stage.isShowing())
+            stage.show();
+        MinWindow.getInstance().listen(stage);
     }
     private HBox getHbox() {
         HBox hbox= new HBox();
@@ -146,10 +174,9 @@ public class WanderingController extends Application {
         if(len<=0) {
             label.setLayoutX(10);
         }else {
-            label.setLayoutX(len*36+10);
+            label.setLayoutX(len*36+30);
         }
         label.setLayoutY(96);
-        System.out.println(label.getHeight());
         return label;
     }
 }

@@ -6,7 +6,6 @@ import desktop.application.wanderingddl.tools.DragUtil;
 import desktop.application.wanderingddl.tools.FontLoader;
 import javafx.application.Application;
 import javafx.fxml.FXML;
-
 import javafx.scene.Node;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -52,10 +51,9 @@ import java.io.IOException;
         DragUtil.addDragListener(stage,root); //窗口拖拽
         stage.show();
     }
-
     @FXML
     protected void closeWindow() {
-        stage.close();
+        stage.hide();
     }
     @FXML
     protected void minizeWindow() {
@@ -65,16 +63,12 @@ import java.io.IOException;
     protected void ToWanderingPage(){
         wanderingPage.setStyle("-fx-border-color: #a8ddb5;");
         routePage(0);
-        //此处直接打开了第一个
+        System.out.println(1);
+        //此处直接打开了第一个，实际需填参数后按钮控制
         openWanderingUI();
     }
     protected void openWanderingUI(){
-            WanderingController wanderingController = new WanderingController();
-        try {
-            wanderingController.start(new Stage());
-        }catch (IOException e){
-            //
-        }
+        WanderingController.getInstance().newInit();
     }
     private void routePage(int index) {
             Node node = PageFactory.createPageService(index);
