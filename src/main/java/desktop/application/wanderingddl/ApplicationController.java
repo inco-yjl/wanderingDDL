@@ -5,13 +5,14 @@ import desktop.application.wanderingddl.tools.DragUtil;
 
 import desktop.application.wanderingddl.tools.FontLoader;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -37,11 +38,33 @@ public class ApplicationController extends Application {
         HBox windowMenu = (HBox) FXMLLoader.load(getClass().getResource("Config/Menubar.fxml"));
         VBox mainContent = (VBox) FXMLLoader.load(getClass().getResource("Config/Content.fxml"));
         this.wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
-
+        initWanderingSelect();
         Node[] pages = {wanderingPageContent};
 
         createScene(root, windowMenu, mainContent);
         PageFactory.setPages(pages);
+    }
+
+    public void initWanderingSelect() {
+        MenuButton select_ddl = new MenuButton();
+        MenuItem hours = new MenuItem("小时");
+        MenuItem days = new MenuItem("天");
+        MenuItem weeks = new MenuItem("星期");
+        MenuItem months = new MenuItem("月");
+        select_ddl.getItems().addAll(hours, days, weeks, months);
+        select_ddl.setId("3");
+        select_ddl.setLayoutX(391);
+        select_ddl.setLayoutY(138);
+        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
+                select_ddl.setText(((MenuItem) e.getSource()).getText());
+            }
+        };
+        hours.setOnAction(event);
+        days.setOnAction(event);
+        weeks.setOnAction(event);
+        months.setOnAction(event);
+        this.wanderingPageContent.getChildren().add(select_ddl);
     }
 
     public void createScene(Parent root, HBox windowMenu, VBox mainContent) {
@@ -57,6 +80,7 @@ public class ApplicationController extends Application {
         DragUtil.addDragListener(stage, root); //窗口拖拽
         stage.show();
     }
+
     @FXML
     protected void closeWindow() {
         stage.hide();
@@ -77,10 +101,29 @@ public class ApplicationController extends Application {
     @FXML
     protected void openWanderingUI() {
         String[] sentences = new String[5];
-        for (int i = 0; i < 4; i++)
-            sentences[i] = ((TextField) window.getRight().lookup("#" + Integer.toString(i))).getText();
-        sentences[4] = "deadline comes in 5 days, wait for it patiently";
-            WanderingController.getInstance().newInit(sentences);
+        sentences[0] = ((TextField) window.getRight().lookup("#" + Integer.toString(0))).getText();//某某作业
+        sentences[1] = ((TextField) window.getRight().lookup("#" + Integer.toString(1))).getText();//还有
+        sentences[2] = ((Spinner) window.getRight().lookup("#" + Integer.toString(2))).getValue().toString();//x
+        sentences[3] = ((MenuButton) window.getRight().lookup("#" + Integer.toString(3))).getText();//天
+        String strings_3 = "";
+        switch (sentences[3]) {
+            case "小时":
+                strings_3 = " hours";
+                break;
+            case "天":
+                strings_3 = " days";
+                break;
+            case "星期":
+                strings_3 = " weeks";
+                break;
+            case "月":
+                strings_3 = " months";
+                break;
+            default:
+                break;
+        }
+        sentences[4] = "deadline comes in " + sentences[2] + strings_3 + ", wait for it patiently";
+        WanderingController.getInstance().newInit(sentences);
     }
 
     private void routePage(int index) {
