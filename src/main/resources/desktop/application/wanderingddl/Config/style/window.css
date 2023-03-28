@@ -1,8 +1,8 @@
 .window {
-    -fx-background-color:rgb(247,252,240);
+    -fx-background-color:rgba(248,248,255, 0.98);
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-   -fx-border-color:#95AFA6;
+   -fx-border-color: rgba(70,130,180,0.2);
     -fx-border-width:1px;
     -fx-opacity: 0.95;
 }
@@ -10,6 +10,8 @@
     -fx-background-color:transparent;
     -fx-border-radius: 50px;
     -fx-background-radius: 50px;
+    -fx-max-height: 320px;
+    -fx-max-width: 500px;
 }
 .buttons {
     -fx-background-color:transparent;

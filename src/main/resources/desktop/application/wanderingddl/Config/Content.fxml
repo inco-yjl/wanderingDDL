@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.layout.*?>
 
-<VBox prefHeight="798.0" prefWidth="539.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController"/>
+<VBox prefHeight="798.0" prefWidth="539.0" style="-fx-max-width: 500px; -fx-max-height: 320px;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController" />

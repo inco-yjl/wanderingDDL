@@ -1,0 +1,31 @@
+.start-btn {
+    -fx-background-color:rgba(176,196,222,0.6);
+    -fx-text-fill: rgba(47,79,79,0.8);
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-width: 3 3 3 3;
+    -fx-border-color: rgba(70,130,180,0.2);
+}
+.start-textField {
+    -fx-background-color: #F0F8FF;
+    -fx-text-fill: rgba(47,79,79,0.95);
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: rgba(112,128,144,0.6);
+}
+.start-textField2 {
+    -fx-text-fill: rgba(47,79,79,0.95);
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-border-width: 1 1 1 1;
+}
+
+.start-btn:hover {
+    -fx-background-color:rgba(70,130,180,0.3);
+    -fx-text-fill: rgba(47,79,79);
+}
+.start-btn:pressed {
+    -fx-background-color:rgba(70,130,180,0.3);
+    -fx-text-fill: rgba(47,79,79);
+}

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox prefHeight="24.0" prefWidth="695.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController">
+<HBox maxWidth="600.0" prefHeight="25.0" prefWidth="600.0" style="-fx-min-width: 650px;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController">
     <children>
         <MenuBar id="windowMenu" prefHeight="23.0" prefWidth="597.0" stylesheets="@style/window.css">
             <menus>

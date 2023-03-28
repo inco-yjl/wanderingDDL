@@ -53,8 +53,8 @@ public class ApplicationController extends Application {
         MenuItem months = new MenuItem("月");
         select_ddl.getItems().addAll(hours, days, weeks, months);
         select_ddl.setId("3");
-        select_ddl.setLayoutX(391);
-        select_ddl.setLayoutY(138);
+        select_ddl.setLayoutX(388);
+        select_ddl.setLayoutY(149);
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 select_ddl.setText(((MenuItem) e.getSource()).getText());
@@ -72,7 +72,7 @@ public class ApplicationController extends Application {
         ApplicationController.window = window;
         window.setTop(windowMenu);
         window.setRight(mainContent);
-        Scene scene = new Scene(root, 700, 800);
+        Scene scene = new Scene(root, 700, 350);
         stage.setResizable(false); //固定大小
         stage.initStyle(StageStyle.TRANSPARENT);//隐藏头标题); //去除窗口样式
         scene.setFill(null);
@@ -93,7 +93,7 @@ public class ApplicationController extends Application {
 
     @FXML
     protected void ToWanderingPage() {
-        wanderingPage.setStyle("-fx-border-color: #a8ddb5;");
+        wanderingPage.setStyle("-fx-border-color: rgba(70,130,180,0.2);");
         routePage(0);
         System.out.println(1);
     }
