@@ -100,7 +100,8 @@ public class ApplicationController extends Application {
 
     @FXML
     protected void ToWanderingPage() {
-        wanderingPage.setStyle("-fx-border-color: rgba(70,130,180,0.2);");
+        //选中
+        wanderingPage.setStyle("-fx-background-color: #7c9fcc;");
         routePage(0);
         System.out.println(1);
     }

@@ -1,18 +1,12 @@
 .menu-btn {
-    -fx-background-color:rgba(176,196,222,0.8);
+    -fx-background-color:rgba(176,196,222,1);
     -fx-text-fill: rgb(191, 192, 194);
     -fx-background-radius: 0;
     -fx-border-radius: 0;
-    -fx-border-width: 2 4 4 4;
-    -fx-border-color: rgba(	70,130,180,0.2);
 }
 
 
 .menu-btn:hover {
-    -fx-background-color:#B0C4DE;
-    -fx-text-fill: #fff;
-}
-.menu-btn:pressed {
-    -fx-background-color:#B0C4DE;
+    -fx-background-color:#94b2d7;
     -fx-text-fill: #fff;
 }

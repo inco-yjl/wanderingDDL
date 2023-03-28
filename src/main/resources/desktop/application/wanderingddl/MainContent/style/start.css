@@ -1,9 +1,11 @@
 .start-btn {
-    -fx-background-color:rgba(176,196,222,0.6);
-    -fx-text-fill: rgba(47,79,79,0.8);
+    -fx-background-color:rgba(176,196,222,1);
+    -fx-text-fill: rgba(47,79,79,1);
     -fx-background-radius: 5;
     -fx-border-radius: 5;
     -fx-border-width: 3 3 3 3;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
     -fx-border-color: rgba(70,130,180,0.2);
     -fx-cursor: hand;
 }
@@ -44,16 +46,18 @@
 
 TextField {
     -fx-background-color: white;
-    -fx-text-fill: rgba(47,79,79,0.95);
+    -fx-text-fill: rgba(47,79,79,1);
     -fx-background-radius: 0;
     -fx-border-radius: 0;
     -fx-border-width: 1 1 1 1;
+    -fx-font-weight: bold;
     -fx-border-color: rgba(112,128,144,0.6);
 }
 
 .start-btn:hover {
-    -fx-background-color: -fx-focus-color;
+    -fx-background-color: #94b2d7;
     -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 .start-btn:pressed {
     -fx-background-color:rgba(70,130,180,0.3);
@@ -61,4 +65,5 @@ TextField {
 }
 .hint {
     -fx-font-family: Microsoft YaHei;
+    -fx-font-size: 14px;
 }
