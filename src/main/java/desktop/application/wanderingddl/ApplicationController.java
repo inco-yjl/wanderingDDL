@@ -5,18 +5,19 @@ import desktop.application.wanderingddl.tools.DragUtil;
 
 import desktop.application.wanderingddl.tools.FontLoader;
 import javafx.application.Application;
+import javafx.css.Style;
+import javafx.css.Stylesheet;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -53,8 +54,14 @@ public class ApplicationController extends Application {
         MenuItem months = new MenuItem("月");
         select_ddl.getItems().addAll(hours, days, weeks, months);
         select_ddl.setId("3");
-        select_ddl.setLayoutX(388);
+        select_ddl.setLayoutX(264);
         select_ddl.setLayoutY(149);
+        select_ddl.setPrefHeight(38);
+        select_ddl.setPrefWidth(120);
+        select_ddl.setBackground(new Background(new BackgroundFill(Color.valueOf("white"),null,null)));
+        select_ddl.setStyle("-fx-border-color: rgba(112,128,144,0.6); -fx-border-radius: 0;\n" +
+                "-fx-border-width: 1 1 1 1;");
+        select_ddl.setCursor(Cursor.HAND);
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 select_ddl.setText(((MenuItem) e.getSource()).getText());
@@ -72,14 +79,14 @@ public class ApplicationController extends Application {
         ApplicationController.window = window;
         window.setTop(windowMenu);
         window.setRight(mainContent);
-        Scene scene = new Scene(root, 700, 350);
+        Scene scene = new Scene(root, 700, 450);
         stage.setResizable(false); //固定大小
         stage.initStyle(StageStyle.TRANSPARENT);//隐藏头标题); //去除窗口样式
         scene.setFill(null);
         stage.setScene(scene);
-        DragUtil.addDragListener(stage, root); //窗口拖拽
+        DragUtil.addDragListener(stage, window); //窗口拖拽
         stage.show();
-    }
+}
 
     @FXML
     protected void closeWindow() {

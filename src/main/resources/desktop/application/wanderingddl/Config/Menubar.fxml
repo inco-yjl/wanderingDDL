@@ -6,10 +6,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
 
 <HBox maxWidth="600.0" prefHeight="25.0" prefWidth="600.0" style="-fx-min-width: 650px;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController">
     <children>
-        <MenuBar id="windowMenu" prefHeight="23.0" prefWidth="597.0" stylesheets="@style/window.css">
+        <MenuBar id="windowMenu" prefHeight="25.0" prefWidth="139.0" stylesheets="@style/window.css">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
@@ -28,7 +29,8 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <Button minWidth="53.0" mnemonicParsing="false" onAction="#minizeWindow" prefHeight="24.0" prefWidth="37.0" styleClass="buttons" stylesheets="@style/window.css" text="—" />
-        <Button layoutX="557.0" layoutY="10.0" minWidth="53.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="37.0" prefWidth="53.0" styleClass="buttons" stylesheets="@style/window.css" text="X" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="25.0" stroke="TRANSPARENT" strokeType="INSIDE" width="434.0" />
+        <Button minWidth="40.0" mnemonicParsing="false" onAction="#minizeWindow" prefHeight="24.0" prefWidth="37.0" styleClass="buttons" stylesheets="@style/window.css" text="—" />
+        <Button layoutX="557.0" layoutY="10.0" minWidth="40.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="40.0" styleClass="buttons" stylesheets="@style/window.css" text="X" />
     </children>
 </HBox>
