@@ -16,6 +16,12 @@
                     <items>
                         <MenuItem mnemonicParsing="false" text="Close" />
                     </items>
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="导入" onAction="#importJson"/>
+                    </items>
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="导出" onAction="#exportJson"/>
+                    </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>

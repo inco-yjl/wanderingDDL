@@ -87,14 +87,15 @@ public class WanderingController extends Application {
         }
     }
     public void start(Stage stage) throws IOException {
+        //设置字体
         this.initText();
         //建立节点
         Pane all = new Pane();
         //获取实际宽度
-        initLengths();
+        initLengths(all);
 
-        //载入字体，设置字体
-        all.getChildren().addAll(getHbox(), getEngText(), getSeparater());
+
+        all.getChildren().addAll(getEngText(), getSeparater());
 
         all.setStyle("-fx-background-color: transparent;");
 
@@ -173,8 +174,7 @@ public class WanderingController extends Application {
     }
 
     //此方法为快速设置一遍文字的显示，以获取文字的实际长度和位置，从而设置分割线和英文的位置
-    private void initLengths() {
-        Pane pane = new Pane();
+    private void initLengths(Pane pane) {
         HBox hBox = getHbox();
         pane.getChildren().add(hBox);
 
@@ -185,7 +185,6 @@ public class WanderingController extends Application {
         VBox vBox = (VBox)hBox.getChildren().get(0);
         startX = vBox.getChildren().get(1).getBoundsInParent().getMaxX()-vBox.getChildren().get(1).getLayoutBounds().getWidth();
         System.out.println(startX);
-        stage.close();
     }
     private Rectangle getSeparater() {
         Rectangle rectangle = new Rectangle();

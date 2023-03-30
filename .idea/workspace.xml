@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09214f62-5812-4f0d-b883-d2c7d2f41e29" name="Changes" comment="">
+    <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/DataFormat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/tools/ExportCsvUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/toDoList.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/start.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/start.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Menubar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Menubar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +31,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -39,18 +51,26 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Sass File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2NahCT1ic1VQhGzIoWI60AHTVAJ" />
+  <component name="ProjectId" id="2NZsLAFcMTCW1IlDPdqbjdC0jAr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -58,21 +78,30 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/W/Desktop/wanderingDDL_new/wanderingDDL",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+    "list.type.of.created.stylesheet": "Sass",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\projects\wanderingDDL" />
+      <recent name="E:\projects\wanderingDDL\lib" />
+      <recent name="E:\projects\wanderingDDL\src\main" />
+      <recent name="E:\projects\wanderingDDL\gradle\wrapper" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\projects\wanderingDDL\src" />
+      <recent name="E:\projects\wanderingDDL\src\main" />
+      <recent name="E:\projects\wanderingDDL" />
+      <recent name="E:\projects\wanderingDDL\src\main\java" />
+      <recent name="E:\projects\wanderingDDL\lib" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ApplicationController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="desktop.application.wanderingddl.ApplicationController" />
       <module name="wanderingDDL.main" />
+      <option name="VM_PARAMETERS" value="-Dfile.encoding=UTF-8" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="desktop.application.wanderingddl.*" />
@@ -83,26 +112,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.ApplicationController" />
-      </list>
-    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="09214f62-5812-4f0d-b883-d2c7d2f41e29" name="Changes" comment="" />
-      <created>1679907972260</created>
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="" />
+      <created>1679882880852</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1679907972260</updated>
-      <workItem from="1680161238244" duration="10000" />
-      <workItem from="1680185328165" duration="552000" />
+      <updated>1679882880852</updated>
     </task>
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
