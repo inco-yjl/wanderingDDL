@@ -22,7 +22,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="187.0" styleClass="menu-btn" stylesheets="@style/menu.css">
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ToDoListPage" prefHeight="107.0" prefWidth="187.0" styleClass="menu-btn" stylesheets="@style/menu.css">
                <graphic>
                   <ImageView fitHeight="84.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>

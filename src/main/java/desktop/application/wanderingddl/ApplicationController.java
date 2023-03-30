@@ -103,9 +103,13 @@ public class ApplicationController extends Application {
         //选中
         wanderingPage.setStyle("-fx-background-color: #7c9fcc;");
         routePage(0);
-        System.out.println(1);
+        System.out.println("wanderingDDL");
     }
-
+    @FXML
+    private void ToDoListPage() {
+        routePage(1);
+        System.out.println("todoList");
+    }
     @FXML
     protected void openWanderingUI() {
         String[] sentences = new String[5];
