@@ -9,7 +9,10 @@
     -fx-border-color: rgba(70,130,180,0.2);
     -fx-cursor: hand;
 }
-.spinner {    -fx-border-radius: 0;    -fx-background-radius: 0;}
+.spinner {    -fx-border-radius: 0;    -fx-background-radius: 0;
+    -fx-text-fill: rgba(47,79,79,1);
+    -fx-font-weight: bold;
+}
 
 .spinner:focused {
     -fx-background-color:   rgba(112,128,144,0.6);

@@ -48,7 +48,8 @@ public class ApplicationController extends Application {
 
     public void initWanderingSelect() {
         MenuButton select_ddl = new MenuButton();
-        MenuItem hours = new MenuItem("小时");
+        //  没什么意义，拉长一点
+        MenuItem hours = new MenuItem("小时              ");
         MenuItem days = new MenuItem("天");
         MenuItem weeks = new MenuItem("星期");
         MenuItem months = new MenuItem("月");
@@ -60,7 +61,8 @@ public class ApplicationController extends Application {
         select_ddl.setPrefWidth(120);
         select_ddl.setBackground(new Background(new BackgroundFill(Color.valueOf("white"),null,null)));
         select_ddl.setStyle("-fx-border-color: rgba(112,128,144,0.6); -fx-border-radius: 0;\n" +
-                "-fx-border-width: 1 1 1 1;");
+                "-fx-border-width: 1 1 1 1;     -fx-text-fill: rgba(47,79,79,1);\n" +
+                "    -fx-font-weight: bold;");
         select_ddl.setCursor(Cursor.HAND);
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
