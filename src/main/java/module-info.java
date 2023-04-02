@@ -8,6 +8,7 @@ module desktop.application.wanderingddl {
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
     requires com.alibaba.fastjson2;
+    requires javafx.media;
 
     opens desktop.application.wanderingddl to javafx.fxml;
     exports desktop.application.wanderingddl;

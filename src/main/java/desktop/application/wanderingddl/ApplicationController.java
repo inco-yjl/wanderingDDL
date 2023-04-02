@@ -31,8 +31,11 @@ import javafx.stage.StageStyle;
 
 import javax.swing.*;
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import javafx.scene.media.*;
 
 //import net.sf.json.JSONArray;
 //import net.sf.json.JSONObject;
@@ -357,6 +360,19 @@ public class ApplicationController extends Application {
         String strings_5 = ((TextField) window.getRight().lookup("#7")).getText();
         sentences[4] = strings_4 + " " + sentences[2] + strings_3 + " " + strings_5;
         WanderingController.getInstance().newInit(sentences);
+    }
+
+    @FXML
+    protected void openWanderingUI_with_ji() {
+        openWanderingUI();
+        play_ji();
+    }
+
+    public void play_ji() {
+        URL url = getClass().getResource("ji.mp3");
+        Media media = new Media(url.toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
     }
 
     private String Chi2Eng(String sentences) {
