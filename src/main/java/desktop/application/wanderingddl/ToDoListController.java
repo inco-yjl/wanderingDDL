@@ -7,12 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -21,6 +17,8 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.LinkedList;
 
+//  TODO:两种模式，完成的移除/完成的仍显示
+//  多种模板
 public class ToDoListController extends Application {
     static private ToDoListController toDoListController;
     private final Stage stage = new Stage();
@@ -118,7 +116,11 @@ public class ToDoListController extends Application {
         Node root= stage.getScene().getRoot();
         Pane all = (Pane) root;
         if(toDoItems.get(i).isChecked()) {
-            all.getChildren().remove(deleters[i]);
+            for(Node node:all.getChildren()) {
+                System.out.println(node.getId());
+            }
+            System.out.println(root.lookup("deleter"+i));
+            all.getChildren().remove(root.lookup("#deleter"+i));
             toDoItems.get(i).setUnCheckd();
         }else {
             all.getChildren().add(deleters[i]);
@@ -129,23 +131,19 @@ public class ToDoListController extends Application {
     //  删除线，样式的删除线有问题，遂手写
     //  根据checked判断
     private void setDeleters() {
-        int number = 0;
         deleters = new Rectangle[toDoItems.size()];
         for(int i=0;i<toDoItems.size();i++) {
-            if(toDoItems.get(i).isChecked()) {
-                number ++;
-            }
             deleters[i] = new Rectangle();
             deleters[i].setX(50);
             deleters[i].setY(124+i*50+20);
             deleters[i].setWidth(texts[i].getLayoutBounds().getWidth());
             deleters[i].setHeight(2);
+            deleters[i].setId("deleter"+i);
         }
         Node root= stage.getScene().getRoot();
         Pane all = (Pane) root;
         for(int i=0,j=0;i<toDoItems.size();i++) {
-            if(!toDoItems.get(i).isChecked()) {
-
+            if(toDoItems.get(i).isChecked()) {
                all.getChildren().add(deleters[i]);
             }
         }
@@ -165,10 +163,6 @@ public class ToDoListController extends Application {
             square.setPrefHeight(42);
             square.setPrefWidth(50);
             items[i] = new HBox(square,texts[i]);
-            int now_index =i;
-            items[i].setOnMouseClicked(event->{
-                done(now_index);
-            });
             items[i].setPrefWidth(350);
             items[i].setPrefHeight(50);
             items[i].setBackground(new Background(bImg));
@@ -183,7 +177,11 @@ public class ToDoListController extends Application {
         for(int i=0;i<texts.length;i++){
             texts[i] = new Text(toDoItems.get(i).getText());
             texts[i].setFont(qfont);
-            texts[i].setStyle("-fx-font-size: 30px;");
+            texts[i].setStyle("-fx-font-size: 30px;-fx-cursor: hand");
+            int now_index =i;
+            texts[i].setOnMouseClicked(event->{
+                done(now_index);
+            });
         }
     }
 
