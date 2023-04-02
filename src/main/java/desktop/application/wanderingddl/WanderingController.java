@@ -99,10 +99,6 @@ public class WanderingController extends Application {
 
         all.setStyle("-fx-background-color: transparent;");
 
-        Scene scene = new Scene(all, 480, 262);
-        scene.setFill(null);
-
-        stage.setScene(scene);
         DragUtil.addDragListener(stage,all);
         if(!stage.isShowing())
             stage.show();
