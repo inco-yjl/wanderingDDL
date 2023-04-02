@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/DataFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/tools/ExportCsvUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/toDoList.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/todoList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Menubar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Menubar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/toDoList.sass" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/todoImg/head-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/todoImg/head-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/todoImg/line-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/todoImg/line-1.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +47,7 @@
       <list>
         <option value="Class" />
         <option value="Sass File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -78,8 +73,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "list.type.of.created.stylesheet": "Sass",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -90,11 +91,11 @@
       <recent name="E:\projects\wanderingDDL\gradle\wrapper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc" />
       <recent name="E:\projects\wanderingDDL\src" />
       <recent name="E:\projects\wanderingDDL\src\main" />
       <recent name="E:\projects\wanderingDDL" />
       <recent name="E:\projects\wanderingDDL\src\main\java" />
-      <recent name="E:\projects\wanderingDDL\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -121,8 +122,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679882880852</updated>
+      <workItem from="1680272810626" duration="637000" />
+      <workItem from="1680323785628" duration="1205000" />
+      <workItem from="1680421996271" duration="6739000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
