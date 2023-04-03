@@ -4,6 +4,7 @@ import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONPathTypedMultiNamesPrefixIndex1;
 import desktop.application.wanderingddl.navigation.PageFactory;
+import desktop.application.wanderingddl.tools.CreateFileUtil;
 import desktop.application.wanderingddl.tools.DragUtil;
 
 import desktop.application.wanderingddl.tools.FontLoader;
@@ -33,6 +34,7 @@ import javax.swing.*;
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javafx.scene.media.*;
@@ -75,6 +77,10 @@ public class ApplicationController extends Application {
 
         //  时间额度钮
         MenuButton select_ddl = new MenuButton();
+
+        //导入文件选择按钮
+        MenuButton import_btn = new MenuButton();
+
         //  没什么意义，拉长一点
         MenuItem hours = new MenuItem("小时              ");
         MenuItem days = new MenuItem("天");
@@ -91,6 +97,26 @@ public class ApplicationController extends Application {
                 "-fx-border-width: 1 1 1 1;     -fx-text-fill: rgba(47,79,79,1);\n" +
                 "    -fx-font-weight: bold;");
         select_ddl.setCursor(Cursor.HAND);
+
+
+        String basePath="src/main/resources/desktop/application/wanderingddl/MyModels";
+        String[] list=new File(basePath).list();
+        ArrayList<MenuItem> mlist=new ArrayList<>();
+        for(String el:list){
+            MenuItem m=new MenuItem(el);
+            mlist.add(m);
+            import_btn.getItems().add(m);
+        }
+        import_btn.setId("8");
+        import_btn.setLayoutX(150);
+        import_btn.setLayoutY(300);
+        import_btn.setPrefHeight(38);
+        import_btn.setPrefWidth(120);
+        import_btn.setBackground(new Background(new BackgroundFill(Color.valueOf("white"), null, null)));
+        import_btn.setStyle("-fx-border-color: rgba(112,128,144,0.6); -fx-border-radius: 0;\n" +
+                "-fx-border-width: 1 1 1 1;     -fx-text-fill: rgba(47,79,79,1);\n" +
+                "    -fx-font-weight: bold;");
+        import_btn.setCursor(Cursor.HAND);
 
         //
         //  预设一排 ———— 英文|数字|单位|英文
@@ -143,12 +169,21 @@ public class ApplicationController extends Application {
                 label_days.setText(Chi2Eng(((MenuItem) e.getSource()).getText()));
             }
         };
+        EventHandler<ActionEvent> eventimport = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
+                import_btn.setText(((MenuItem) e.getSource()).getText());
+            }
+        };
         hours.setOnAction(event);
         days.setOnAction(event);
         weeks.setOnAction(event);
         months.setOnAction(event);
+        for(MenuItem el:mlist){
+            el.setOnAction(eventimport);
+        }
         this.wanderingPageContent.getChildren().add(spinner);
         this.wanderingPageContent.getChildren().add(select_ddl);
+        this.wanderingPageContent.getChildren().add(import_btn);
         this.wanderingPageContent.getChildren().add(textField_1);
         this.wanderingPageContent.getChildren().add(label_x);
         this.wanderingPageContent.getChildren().add(label_days);
@@ -190,21 +225,20 @@ public class ApplicationController extends Application {
     @FXML
     private void importJson() throws Exception {
 
-
+//      import1.0版
+        /*
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("选择需要的打开的文件");
         Stage s = new Stage();
         File inputFile = fileChooser.showOpenDialog(s);
-
-//        JFileChooser fileChooser = new JFileChooser(".");
-//        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-//        fileChooser.setDialogTitle("选择输入Excel文件");
-
-//        int ret = fileChooser.showOpenDialog(null);
-//        if (ret == JFileChooser.APPROVE_OPTION) {
-//            File inputFile = fileChooser.getSelectedFile().getAbsoluteFile();
         FileInputStream input = new FileInputStream(inputFile);
-
+        */
+//      import2.0版本
+        String filename=((MenuButton) window.getRight().lookup("#" + Integer.toString(8))).getText();//导入文件名称
+        String path="src/main/resources/desktop/application/wanderingddl/MyModels/"+filename;
+        System.out.println(path);
+        File inputFile = new File(path);
+        FileInputStream input = new FileInputStream(inputFile);
 
         StringBuilder text = new StringBuilder("");
 
@@ -276,11 +310,13 @@ public class ApplicationController extends Application {
 
     @FXML
     void exportJson() throws IOException {
-        String[] sentences = new String[5];
+        String[] sentences = new String[6];
         sentences[0] = ((TextField) window.getRight().lookup("#" + Integer.toString(0))).getText();//某某作业
         sentences[1] = ((TextField) window.getRight().lookup("#" + Integer.toString(1))).getText();//还有
         sentences[2] = ((Spinner) window.getRight().lookup("#" + Integer.toString(2))).getValue().toString();//x
         sentences[3] = ((MenuButton) window.getRight().lookup("#" + Integer.toString(3))).getText();//天
+        sentences[4] = ((TextField) window.getRight().lookup("#" + Integer.toString(6))).getText();//导出文件名称
+        sentences[5] = ((MenuButton) window.getRight().lookup("#" + Integer.toString(8))).getText();//导入文件名称
         String strings_3 = "";
         switch (sentences[3]) {
             case "小时":
@@ -298,7 +334,7 @@ public class ApplicationController extends Application {
             default:
                 break;
         }
-        // 制造假数据，模拟JSON数据
+
         List<DataFormat> list = new ArrayList<>();
         DataFormat f = new DataFormat(0, sentences[0]);
         list.add(new DataFormat(0, sentences[0]));
@@ -309,7 +345,16 @@ public class ApplicationController extends Application {
 
         String jsonstr = JSON.toJSONString(list);
         System.out.println(jsonstr);
-//        JSONArray jsonArray1 =JSONArray.fromObject(sentences);
+
+
+
+
+//        导出file名称
+        String filename="wangderingDDL-"+sentences[4];
+
+//        导出1.0版
+
+        /*
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
@@ -323,9 +368,21 @@ public class ApplicationController extends Application {
         String exportFilePath = file.getAbsolutePath();
         System.out.println("导出文件的路径" + exportFilePath);
         fileWriterMethod(exportFilePath, jsonstr.toString());
-//        FileWriteUtil.WriteDocument(exportFilePath, jsonArray1);
-//        ShowDialog.showMessageDialog(FXRobotHelper.getStages().get(0), "导出成功!保存路径:\n"+exportFilePath, "提示");
+        */
+
+//     导出2.0版
+        CreateFileUtil.createJsonFile(jsonstr, "src/main/resources/desktop/application/wanderingddl/MyModels", filename);
+        MenuItem m = new MenuItem(filename+".json");
+        ((MenuButton) window.getRight().lookup("#" + Integer.toString(8))).getItems().add(m);
+        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
+                ((MenuButton) window.getRight().lookup("#" + Integer.toString(8))).setText(((MenuItem) e.getSource()).getText());
+            }
+        };
+        m.setOnAction(event);
     }
+
+
 
     public static void fileWriterMethod(String filepath, String content) throws IOException {
         try (FileWriter fileWriter = new FileWriter(filepath)) {
