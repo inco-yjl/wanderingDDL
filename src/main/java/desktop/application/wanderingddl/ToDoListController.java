@@ -5,8 +5,11 @@ import javafx.application.Application;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -26,6 +29,7 @@ public class ToDoListController extends Application {
     private LinkedList<ToDoItem> toDoItems ;
     private Text[] texts;
     private Rectangle[] deleters;
+    private Color textColor;
     private ToDoListController(){
         super();
         this.loadFont();
@@ -69,7 +73,10 @@ public class ToDoListController extends Application {
     }
     //  设置背景色，可透明
     public void setColor() {
-        this.bgColor = "#fffaef";
+        //this.bgColor = "#fffaef";
+        //this.textColor = Color.BLACK;
+        this.bgColor = "transparent";
+        this.textColor=Color.valueOf("rgb(210,207,164)");
     }
 
     public void start(Stage stage) throws IOException {
@@ -82,7 +89,7 @@ public class ToDoListController extends Application {
         vBox.getChildren().add(getHeader());
         vBox.getChildren().addAll(getListItems());
         all.getChildren().addAll(vBox);
-        Scene scene = new Scene(all, 350, 124+toDoItems.size()*50+20);
+        Scene scene = new Scene(all, 300, 106+toDoItems.size()*43+43);
         scene.setFill(null);
 
         stage.setScene(scene);
@@ -106,8 +113,8 @@ public class ToDoListController extends Application {
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(50,50,true,true,true,false));
-        header.setPrefWidth(350);
-        header.setPrefHeight(124);
+        header.setPrefWidth(300);
+        header.setPrefHeight(106);
         header.setBackground(new Background(bImg));
 
         return header;
@@ -134,11 +141,12 @@ public class ToDoListController extends Application {
         deleters = new Rectangle[toDoItems.size()];
         for(int i=0;i<toDoItems.size();i++) {
             deleters[i] = new Rectangle();
-            deleters[i].setX(50);
-            deleters[i].setY(124+i*50+20);
+            deleters[i].setX(43);
+            deleters[i].setY(106+i*43+17);
             deleters[i].setWidth(texts[i].getLayoutBounds().getWidth());
             deleters[i].setHeight(2);
             deleters[i].setId("deleter"+i);
+            deleters[i].setFill(textColor);
         }
         Node root= stage.getScene().getRoot();
         Pane all = (Pane) root;
@@ -160,11 +168,11 @@ public class ToDoListController extends Application {
                 new BackgroundSize(50,50,true,true,true,false));
         for (int i=0;i<texts.length;i++) {
             HBox square = new HBox();
-            square.setPrefHeight(42);
-            square.setPrefWidth(50);
+            square.setPrefHeight(43);
+            square.setPrefWidth(43);
             items[i] = new HBox(square,texts[i]);
-            items[i].setPrefWidth(350);
-            items[i].setPrefHeight(50);
+            items[i].setPrefWidth(300);
+            items[i].setPrefHeight(43);
             items[i].setBackground(new Background(bImg));
         }
        return items;
@@ -173,11 +181,15 @@ public class ToDoListController extends Application {
     private void setTexts() {
         texts = new Text[toDoItems.size()];
         Font qfont = Font.loadFont(getClass().getResource("todoListQfont.ttf").toExternalForm() ,80);
-
         for(int i=0;i<texts.length;i++){
             texts[i] = new Text(toDoItems.get(i).getText());
             texts[i].setFont(qfont);
-            texts[i].setStyle("-fx-font-size: 30px;-fx-cursor: hand");
+            if(this.bgColor.equals("transparent")){
+                texts[i].setFill(textColor);
+                texts[i].setStrokeWidth(0.6);
+                texts[i].setStroke(textColor);
+            }
+            texts[i].setStyle("-fx-font-size: 26px;-fx-cursor: hand;");
             int now_index =i;
             texts[i].setOnMouseClicked(event->{
                 done(now_index);
