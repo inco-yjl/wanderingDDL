@@ -3,6 +3,7 @@ package desktop.application.wanderingddl;
 import desktop.application.wanderingddl.tools.DragUtil;
 import javafx.application.Application;
 import javafx.geometry.Bounds;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -33,6 +34,7 @@ public class WanderingController extends Application {
     static private WanderingController wanderingController;
     private Label[] texts = new Label[5]; //距离xxx,还有大概,30,space,天
     private  double startX ;
+    private double engLength;
 
     private WanderingController(){
         super();
@@ -61,7 +63,7 @@ public class WanderingController extends Application {
     }
 
     private void loadFont() {
-        w_engFont = Font.loadFont(Objects.requireNonNull(getClass().getResource("Alte DIN 1451 Mittelschrift gepraegt Regular.ttf")).toExternalForm(), 84);
+        w_engFont = Font.loadFont(Objects.requireNonNull(getClass().getResource("Alte DIN 1451 Mittelschrift gepraegt Regular.ttf")).toExternalForm(), 90);
         w_znFont = Font.loadFont(getClass().getResource("znFont.ttf").toExternalForm(), 36);
         w_engTextFont = Font.loadFont(getClass().getResource("znFont.ttf").toExternalForm(), 18);
     }
@@ -87,21 +89,18 @@ public class WanderingController extends Application {
         }
     }
     public void start(Stage stage) throws IOException {
+        //设置字体
         this.initText();
         //建立节点
         Pane all = new Pane();
         //获取实际宽度
-        initLengths();
+        initLengths(all);
 
-        //载入字体，设置字体
-        all.getChildren().addAll(getHbox(), getEngText(), getSeparater());
+
+        all.getChildren().addAll(getEngText(),getSeparater());
 
         all.setStyle("-fx-background-color: transparent;");
 
-        Scene scene = new Scene(all, 480, 262);
-        scene.setFill(null);
-
-        stage.setScene(scene);
         DragUtil.addDragListener(stage,all);
         if(!stage.isShowing())
             stage.show();
@@ -113,7 +112,7 @@ public class WanderingController extends Application {
 
     private HBox getHbox() {
         HBox hbox = new HBox();
-        hbox.setAlignment(Pos.BOTTOM_RIGHT);
+        hbox.setAlignment(Pos.TOP_RIGHT);
         hbox.getChildren().addAll(getLeft());
         hbox.getChildren().addAll(texts[2]);
         hbox.getChildren().addAll(getRight());
@@ -121,18 +120,21 @@ public class WanderingController extends Application {
 
         return hbox;
     }
-
     private VBox getLeft() {
         VBox left = new VBox();
-        left.setAlignment(Pos.TOP_RIGHT);
-        left.getChildren().addAll(texts[0], texts[1]);
+        Rectangle bottom = new Rectangle();
+        bottom.setHeight(17);
+        left.setAlignment(Pos.BOTTOM_RIGHT);
+        left.getChildren().addAll(texts[0], texts[1],bottom);
         return left;
     }
 
     private VBox getRight() {
         VBox right = new VBox();
-        right.setAlignment(Pos.TOP_RIGHT);
-        right.getChildren().addAll(texts[4], texts[3]);
+        Rectangle bottom = new Rectangle();
+        bottom.setHeight(17);
+        right.setAlignment(Pos.BOTTOM_RIGHT);
+        right.getChildren().addAll(texts[4], texts[3],bottom);
         return right;
     }
 
@@ -140,6 +142,8 @@ public class WanderingController extends Application {
         for (Label label :
                 labels) {
             label.setFont(w_znFont);
+            label.setAlignment(Pos.TOP_RIGHT);
+            label.setPrefHeight(36);
             label.setTextFill(Color.valueOf("#ffffff"));
         }
         setEffect(labels);
@@ -147,7 +151,9 @@ public class WanderingController extends Application {
     }
 
     private void setNumFont(Label label) {
+        label.setAlignment(Pos.TOP_RIGHT);
         label.setFont(w_engFont);
+        label.setPrefHeight(80);
         label.setTextFill(Color.valueOf("#ff0000"));
         setEffect(label);
     }
@@ -173,8 +179,7 @@ public class WanderingController extends Application {
     }
 
     //此方法为快速设置一遍文字的显示，以获取文字的实际长度和位置，从而设置分割线和英文的位置
-    private void initLengths() {
-        Pane pane = new Pane();
+    private void initLengths(Pane pane) {
         HBox hBox = getHbox();
         pane.getChildren().add(hBox);
 
@@ -182,25 +187,27 @@ public class WanderingController extends Application {
         scene.setFill(null);
         stage.setScene(scene);
         stage.show();
-        VBox vBox = (VBox)hBox.getChildren().get(0);
-        startX = vBox.getChildren().get(1).getBoundsInParent().getMaxX()-vBox.getChildren().get(1).getLayoutBounds().getWidth();
-        System.out.println(startX);
-        stage.close();
+        VBox leftVbox = (VBox)hBox.getChildren().get(0);//left
+        VBox rightbox = (VBox)hBox.getChildren().get(2);
+        startX = leftVbox.getChildren().get(1).getBoundsInParent().getMaxX()-leftVbox.getChildren().get(1).getLayoutBounds().getWidth();
+        engLength = rightbox.getBoundsInParent().getMaxX()-startX;
+
     }
     private Rectangle getSeparater() {
         Rectangle rectangle = new Rectangle();
-        int evH = strings[4].length() * 18 * 20 / (strings[1].length() * 36 + strings[3].length() * 36 + strings[2].length() * 84);
+        double evH = strings[4].length() * 18/ (engLength+30);
         //计算理想高度
-        rectangle.setHeight(evH + 40);
+        rectangle.setHeight(evH  * 18 + 30);
         rectangle.setWidth(6);
         rectangle.setFill(Paint.valueOf("#ff0000"));
+
         if (startX <= 0) {
             rectangle.setX(0);
         } else {
             rectangle.setX(startX-10);
         }
 
-        rectangle.setY(48);
+        rectangle.setY(58);
         return rectangle;
     }
 
@@ -208,14 +215,13 @@ public class WanderingController extends Application {
         Label label = new Label(strings[4].toUpperCase());
         setTextFont(label);
         label.setWrapText(true);
-        label.setAlignment(Pos.TOP_LEFT);
-        label.setPrefWidth(strings[1].length() * 36 + strings[3].length() * 36 + strings[2].length() * 84);//设置固定宽度，以控制自动换行
+        label.setPrefWidth(engLength+30);//设置固定宽度，以控制自动换行
         if (startX <= 0) {
             label.setLayoutX(10);
         }else {
             label.setLayoutX(startX);
         }
-        label.setLayoutY(96);
+        label.setLayoutY(86);
         return label;
     }
 }

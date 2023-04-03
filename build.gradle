@@ -31,7 +31,7 @@ application {
 
 javafx {
     version = '17.0.2'
-    modules = ['javafx.controls', 'javafx.fxml']
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.media']
 }
 
 dependencies {
@@ -47,6 +47,10 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation 'com.alibaba.fastjson2:fastjson2:2.0.26'
+//    implementation files('lib/json-lib-2.4-jdk15.jar')
+
+
 }
 
 test {
