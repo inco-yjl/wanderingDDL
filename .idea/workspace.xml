@@ -7,6 +7,9 @@
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/todoImg/line-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/todoImg/line-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/todoImg/line.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/todoList.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +141,8 @@
       <workItem from="1680443269846" duration="1438000" />
       <workItem from="1680495372675" duration="4000" />
       <workItem from="1680528708862" duration="667000" />
+      <workItem from="1680534727489" duration="840000" />
+      <workItem from="1680584793999" duration="5526000" />
     </task>
     <servers />
   </component>
