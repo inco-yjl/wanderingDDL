@@ -25,12 +25,11 @@ import java.util.Objects;
 import java.util.Random;
 
 //TODO:联系时钟
-public class WanderingController extends Application {
+public class WanderingController extends ContentController {
     private Font w_engFont;
     private Font w_znFont;
     private Font w_engTextFont;
     private String[] strings=new String[5];
-    private final Stage stage = new Stage();
     static private WanderingController wanderingController;
     private Label[] texts = new Label[5]; //距离xxx,还有大概,30,space,天
     private  double startX ;
@@ -46,20 +45,6 @@ public class WanderingController extends Application {
             wanderingController=new WanderingController();
         }
         return wanderingController;
-    }
-    private void setStage(){
-        //给外层套一个透明的以不显示任务栏图标
-        Stage transparentStage = new Stage();
-        transparentStage.initStyle(StageStyle.UTILITY);
-        //将stage的透明度设置为0
-        transparentStage.setOpacity(0);
-        //stage展示出来，此步骤不可少，缺少此步骤stage还是会存在任务栏
-        transparentStage.show();
-        stage.initOwner(transparentStage);
-        stage.initStyle(StageStyle.TRANSPARENT);//隐藏头标题); //去除窗口样式
-        stage.setX(Screen.getPrimary().getBounds().getWidth()-480);
-        stage.setY(Screen.getPrimary().getBounds().getHeight()-262);
-        stage.setAlwaysOnTop(true);
     }
 
     private void loadFont() {
@@ -79,6 +64,7 @@ public class WanderingController extends Application {
         setZnFont(new Label[]{texts[0], texts[1], texts[3], texts[4]});//text4是空的占位label
         setNumFont(texts[2]);
     }
+    @Override
     public void newInit(String[] sentences){
         try {
             for(int i =0;i<5;i++)
@@ -88,6 +74,7 @@ public class WanderingController extends Application {
             System.out.println(e);
         }
     }
+    @Override
     public void start(Stage stage) throws IOException {
         //设置字体
         this.initText();

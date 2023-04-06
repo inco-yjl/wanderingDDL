@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="800.0" prefWidth="700.0" style="-fx-max-height: 320px;" styleClass="window" stylesheets="@style/window.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController">
+<BorderPane maxHeight="453.0" prefHeight="453.0" prefWidth="700.0" style="-fx-max-height: 320px;" styleClass="window" stylesheets="@style/window.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController">
    <top>
 
    </top>
@@ -24,10 +24,18 @@
             </Button>
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ToDoListPage" prefHeight="107.0" prefWidth="187.0" styleClass="menu-btn" stylesheets="@style/menu.css">
                <graphic>
+                  <ImageView fitHeight="75.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@source/todoList.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#ToRipplePage" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
+               <graphic>
                   <ImageView fitHeight="84.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
-            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
+            <Button layoutX="10.0" layoutY="222.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
                <graphic>
                   <ImageView fitHeight="84.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>

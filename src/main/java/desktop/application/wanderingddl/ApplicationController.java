@@ -73,7 +73,7 @@ public class ApplicationController extends Application {
         spinner.setPrefHeight(38);
         spinner.setPrefWidth(116);
         spinner.getStyleClass().add("spinner");
-        spinner.getStylesheets().add("@style/start.css");
+        spinner.getStylesheets().addAll((getClass().getResource("MainContent/style/start.css").toExternalForm()));
 
         //  时间额度钮
         MenuButton select_ddl = new MenuButton();
@@ -127,14 +127,14 @@ public class ApplicationController extends Application {
         textField_1.setPrefHeight(25);
         textField_1.setPrefWidth(140);
         textField_1.getStyleClass().add("start-textField");
-        textField_1.getStylesheets().add("@style/start.css");
+        textField_1.getStylesheets().addAll((getClass().getResource("MainContent/style/start.css").toExternalForm()));
 
         Label label_x = new Label("x");
         label_x.setId("5");
         label_x.setLayoutX(203);
         label_x.setLayoutY(205);
         label_x.getStyleClass().add("hint");
-        label_x.getStylesheets().add("@style/start.css");
+        label_x.getStylesheets().addAll((getClass().getResource("MainContent/style/start.css").toExternalForm()));
         label_x.setTextFill(Paint.valueOf("#092053"));
         //label_x.setFont(Font.loadFont("Consolas", 13.0));
 
@@ -143,7 +143,7 @@ public class ApplicationController extends Application {
         label_days.setLayoutX(230);
         label_days.setLayoutY(205);
         label_days.getStyleClass().add("hint");
-        label_days.getStylesheets().add("@style/start.css");
+        label_days.getStylesheets().addAll((getClass().getResource("MainContent/style/start.css").toExternalForm()));
         label_days.setTextFill(Paint.valueOf("#092053"));
         //label_x.setFont(Font.loadFont("Consolas", 13.0));
 
@@ -154,7 +154,7 @@ public class ApplicationController extends Application {
         textField_2.setPrefHeight(25);
         textField_2.setPrefWidth(150);
         textField_2.getStyleClass().add("start-textField");
-        textField_2.getStylesheets().add("@style/start.css");
+        textField_2.getStylesheets().addAll((getClass().getResource("MainContent/style/start.css").toExternalForm()));
 
         spinner.valueProperty().addListener(new ChangeListener<Integer>() {
             @Override
@@ -202,7 +202,7 @@ public class ApplicationController extends Application {
         ApplicationController.window = window;
         window.setTop(windowMenu);
         window.setRight(mainContent);
-        Scene scene = new Scene(root, 700, 450);
+        Scene scene = new Scene(root, 700, 600);
         stage.setResizable(false); //固定大小
         stage.initStyle(StageStyle.TRANSPARENT);//隐藏头标题); //去除窗口样式
         scene.setFill(null);
@@ -397,11 +397,15 @@ public class ApplicationController extends Application {
         routePage(0);
         System.out.println("wanderingDDL");
     }
+    @FXML
+    protected void ToRipplePage() {
+    }
 
     @FXML
     private void ToDoListPage() {
         //  routePage(1);
-        ToDoListController.getInstance().newInit();
+        String[] strings = new String[]{"条目1","条目2写作业"};
+        ToDoListController.getInstance().newInit(strings);
         System.out.println("todoList");
     }
 

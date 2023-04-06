@@ -10,7 +10,6 @@
     -fx-cursor: hand;
 }
 .spinner {    -fx-border-radius: 0;    -fx-background-radius: 0;
-    -fx-text-fill: rgba(47,79,79,1);
     -fx-font-weight: bold;
 }
 
@@ -49,7 +48,6 @@
 
 TextField {
     -fx-background-color: white;
-    -fx-text-fill: rgba(47,79,79,1);
     -fx-background-radius: 0;
     -fx-border-radius: 0;
     -fx-border-width: 1 1 1 1;

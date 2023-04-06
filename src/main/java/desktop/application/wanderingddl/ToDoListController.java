@@ -22,9 +22,8 @@ import java.util.LinkedList;
 
 //  TODO:两种模式，完成的移除/完成的仍显示
 //  多种模板
-public class ToDoListController extends Application {
+public class ToDoListController extends ContentController {
     static private ToDoListController toDoListController;
-    private final Stage stage = new Stage();
 
     private LinkedList<ToDoItem> toDoItems ;
     private Text[] texts;
@@ -48,28 +47,14 @@ public class ToDoListController extends Application {
         }
         return toDoListController;
     }
-
-    private void setStage(){
-        //给外层套一个透明的以不显示任务栏图标
-        Stage transparentStage = new Stage();
-        transparentStage.initStyle(StageStyle.UTILITY);
-        //将stage的透明度设置为0
-        transparentStage.setOpacity(0);
-        //stage展示出来，此步骤不可少，缺少此步骤stage还是会存在任务栏
-        transparentStage.show();
-        stage.initOwner(transparentStage);
-        stage.initStyle(StageStyle.TRANSPARENT);//隐藏头标题); //去除窗口样式
-        stage.setX(Screen.getPrimary().getBounds().getWidth()-480);
-        stage.setY(Screen.getPrimary().getBounds().getHeight()-262);
-        stage.setAlwaysOnTop(true);//变成可选项
-    }
     //设置完启动入口
-    public void newInit(){
+    @Override
+    public void newInit(String[] sentences){
         try {
             //获取传参
             toDoItems = new LinkedList<>();
-            toDoItems.push(new ToDoItem("条目1"));
-            toDoItems.push(new ToDoItem("条目2写作业"));
+            toDoItems.push(new ToDoItem(sentences[0]));
+            toDoItems.push(new ToDoItem(sentences[1]));
 
             setMode(1);
             setWidth(300);
@@ -88,7 +73,7 @@ public class ToDoListController extends Application {
         this.width = width;
     }
 
-
+    @Override
     public void start(Stage stage) throws IOException {
         Pane all = new Pane();
         VBox vBox = new VBox();
