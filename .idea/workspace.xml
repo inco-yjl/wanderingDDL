@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ContentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ReadVoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/ToDoList.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/ToDoListPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/ToDoListPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/start.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/start.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +140,7 @@
       <workItem from="1680534727489" duration="840000" />
       <workItem from="1680584793999" duration="5526000" />
       <workItem from="1680606179183" duration="13588000" />
-      <workItem from="1680774028822" duration="896000" />
+      <workItem from="1680774028822" duration="1279000" />
     </task>
     <servers />
   </component>
