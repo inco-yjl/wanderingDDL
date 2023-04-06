@@ -1,0 +1,72 @@
+.start-btn {
+    -fx-background-color:rgba(176,196,222,1);
+    -fx-text-fill: rgba(47,79,79,1);
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-width: 3 3 3 3;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-border-color: rgba(70,130,180,0.2);
+    -fx-cursor: hand;
+}
+.spinner {    -fx-border-radius: 0;    -fx-background-radius: 0;
+    -fx-text-fill: rgba(47,79,79,1);
+    -fx-font-weight: bold;
+}
+
+.spinner:focused {
+    -fx-background-color:   rgba(112,128,144,0.6);
+}
+
+* {
+    -fx-primary-color: rgba(176,196,222,1);
+    -fx-secondary-color: #4B6EAF;
+
+    -fx-focus-color: -fx-secondary-color;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+}
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+    -fx-background-color: -fx-secondary-color;
+}
+.spinner .increment-arrow-button:hover:pressed,
+.spinner .decrement-arrow-button:hover:pressed,
+.spinner .increment-arrow-button:pressed,
+.spinner .decrement-arrow-button:pressed {
+    -fx-background-color: -fx-secondary-color;
+}
+.spinner .increment-arrow-button .increment-arrow,
+.spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color: white;
+}
+
+
+TextField {
+    -fx-background-color: white;
+    -fx-text-fill: rgba(47,79,79,1);
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 1 1 1 1;
+    -fx-font-weight: bold;
+    -fx-border-color: rgba(112,128,144,0.6);
+}
+
+.start-btn:hover {
+    -fx-background-color: #94b2d7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.start-btn:pressed {
+    -fx-background-color:rgba(70,130,180,0.3);
+    -fx-text-fill: rgba(47,79,79);
+}
+.hint {
+    -fx-font-family: Microsoft YaHei;
+    -fx-font-size: 14px;
+}
