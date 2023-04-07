@@ -56,7 +56,7 @@ public class ToDoListController extends ContentController {
             toDoItems.push(new ToDoItem(sentences[0]));
             toDoItems.push(new ToDoItem(sentences[1]));
 
-            setMode(1);
+            setMode(2);
             setWidth(300);
             setTexts();
             this.start(stage);

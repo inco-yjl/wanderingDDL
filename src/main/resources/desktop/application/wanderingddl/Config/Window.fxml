@@ -35,11 +35,14 @@
                   <ImageView fitHeight="84.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
-            <Button layoutX="10.0" layoutY="222.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
+            <!--    add Muyu jump    -->
+            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#MuyuPage" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
                <graphic>
                   <ImageView fitHeight="84.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
+
+
          </children>
       </VBox>
    </left>
