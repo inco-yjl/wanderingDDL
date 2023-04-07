@@ -449,10 +449,11 @@ public class ApplicationController extends Application {
     }
     @FXML
     private void MuyuPage(){
+
         System.out.println("tomuyu");
 //        muyuPage.setStyle("-fx-background-color: #7c9fcc;");
 //        routePage(2);
-        ContentController.getInstance().newInit();
+        MuYuController.getInstance().newInit();
         System.out.println("tomuyu2");
     }
     @FXML
