@@ -48,15 +48,15 @@ public class ToDoListController extends ContentController {
         return toDoListController;
     }
     //设置完启动入口
-    @Override
-    public void newInit(String[] sentences){
+    public void newInit(String[] sentences,int mode){
         try {
             //获取传参
             toDoItems = new LinkedList<>();
-            toDoItems.push(new ToDoItem(sentences[0]));
-            toDoItems.push(new ToDoItem(sentences[1]));
-
-            setMode(2);
+            for(int i=sentences.length-1;i>=0;i--) {
+                String string = sentences[i];
+                toDoItems.push(new ToDoItem(string));
+            }
+            setMode(mode);
             setWidth(300);
             setTexts();
             this.start(stage);
@@ -196,14 +196,10 @@ public class ToDoListController extends ContentController {
             square.setPrefHeight(nowMode.lineRatio*width);
             square.setPrefWidth(nowMode.lineRatio*width+10);
             items[i] = new HBox(square,texts[i]);
+
             items[i].setPrefWidth(width);
             items[i].setPrefHeight(nowMode.lineRatio*width);
             items[i].setBackground(new Background(bImg));
-            items[i].setStyle("-fx-cursor: hand;");
-            int now_index =i;
-            items[i].setOnMouseClicked(event->{
-                done(now_index);
-            });
         }
        return items;
     }
@@ -219,7 +215,11 @@ public class ToDoListController extends ContentController {
                 texts[i].setStrokeWidth(0.6);
                 texts[i].setStroke(textColor);
             }
-            texts[i].setStyle("-fx-font-size: 26px;");
+            texts[i].setStyle("-fx-font-size: 26px;-fx-cursor: hand;");
+            int now_index =i;
+            texts[i].setOnMouseClicked(event->{
+                done(now_index);
+            });
         }
     }
 
