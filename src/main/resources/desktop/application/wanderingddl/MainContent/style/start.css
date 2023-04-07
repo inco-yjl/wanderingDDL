@@ -9,6 +9,15 @@
     -fx-border-color: rgba(70,130,180,0.2);
     -fx-cursor: hand;
 }
+.add-btn {
+    -fx-background-color: rgba(176, 196, 222, 1);
+    -fx-text-fill: rgba(47, 79, 79, 1);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
 .spinner {    -fx-border-radius: 0;    -fx-background-radius: 0;
     -fx-font-weight: bold;
 }
@@ -45,7 +54,12 @@
     -fx-background-color: white;
 }
 
-
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+.scroll-pane {
+    -fx-background-color: transparent;
+}
 TextField {
     -fx-background-color: white;
     -fx-background-radius: 0;

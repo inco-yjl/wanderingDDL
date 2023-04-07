@@ -46,9 +46,7 @@ public class ApplicationController extends Application {
     static Stage stage;
     static BorderPane window;
     public Button wanderingPage;
-
-    public Pane wanderingPageContent;
-
+    public Button toDoListPage;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -57,13 +55,19 @@ public class ApplicationController extends Application {
         HBox windowMenu = (HBox) FXMLLoader.load(getClass().getResource("Config/Menubar.fxml"));
 
         VBox mainContent = (VBox) FXMLLoader.load(getClass().getResource("Config/Content.fxml"));
-        this.wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
+        Pane wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
+        Pane toDoListPageContent = new ToDoPageContent().getToDoPageContent();
+
+
+        Node[] pages = {wanderingPageContent, toDoListPageContent};
+        PageFactory.setPages(pages);
+
         initWanderingSelect();
-        Node[] pages = {wanderingPageContent};
+
 
 
         createScene(root, windowMenu, mainContent);
-        PageFactory.setPages(pages);
+
     }
 
     public void initWanderingSelect() {
@@ -185,13 +189,7 @@ public class ApplicationController extends Application {
             el.setOnAction(eventimport);
         }
 
-        this.wanderingPageContent.getChildren().add(spinner);
-        this.wanderingPageContent.getChildren().add(select_ddl);
-        this.wanderingPageContent.getChildren().add(import_btn);
-        this.wanderingPageContent.getChildren().add(textField_1);
-        this.wanderingPageContent.getChildren().add(label_x);
-        this.wanderingPageContent.getChildren().add(label_days);
-        this.wanderingPageContent.getChildren().add(textField_2);
+        PageFactory.addNode(0,spinner,select_ddl,import_btn,textField_1,label_x,label_days,textField_2);
     }
 
     private String connectSentences(String[] sentences) {
@@ -436,6 +434,7 @@ public class ApplicationController extends Application {
     protected void ToWanderingPage() {
         //选中
         wanderingPage.setStyle("-fx-background-color: #7c9fcc;");
+        toDoListPage.setStyle("-fx-background-color: rgba(176,196,222,1);");
         routePage(0);
         System.out.println("wanderingDDL");
     }
@@ -445,10 +444,9 @@ public class ApplicationController extends Application {
 
     @FXML
     private void ToDoListPage() {
-        //  routePage(1);
-        String[] strings = new String[]{"条目1","条目2写作业"};
-        ToDoListController.getInstance().newInit(strings);
-        System.out.println("todoList");
+        toDoListPage.setStyle("-fx-background-color: #7c9fcc;");
+        wanderingPage.setStyle("-fx-background-color: rgba(176,196,222,1);");
+        routePage(1);
     }
 
     @FXML

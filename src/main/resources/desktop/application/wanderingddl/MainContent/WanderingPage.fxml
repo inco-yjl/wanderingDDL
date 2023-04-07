@@ -12,16 +12,6 @@
         <TextField fx:id="1" layoutX="144.0" layoutY="95.0" prefHeight="38.0" prefWidth="241.0" styleClass="start-textField" stylesheets="@style/start.css" />
 
 
-        <!---Spinner cache="true" editable="true" layoutX="144.0" layoutY="149.0" prefHeight="38.0" prefWidth="116.0"
-                 styleClass="spinner" stylesheets="@style/start.css">
-            <valueFactory>
-                <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" max="999" min="0"/>
-            </valueFactory>
-        </Spinner-->
-
-
-
-
         <Button layoutX="104.0" layoutY="243.0" mnemonicParsing="false" onAction="#openWanderingUI" prefHeight="30.0" prefWidth="116.0" styleClass="start-btn" stylesheets="@style/start.css" text="确定" />
         <Label layoutX="52.0" layoutY="52.0" styleClass="hint" stylesheets="@style/start.css" text="第一排提示字" textFill="#092053">
             <font>
@@ -39,28 +29,6 @@
             </font>
         </Label>
       <Button layoutX="282.0" layoutY="243.0" mnemonicParsing="false" onAction="#openWanderingUI_with_ji" prefHeight="30.0" prefWidth="116.0" styleClass="start-btn" stylesheets="@style/start.css" text="大声地确定" />
-
-
-
-
-
-        <!--TextField fx:id="4" layoutX="52.0" layoutY="200.0" prefHeight="25.0" prefWidth="140.0"
-                   styleClass="start-textField" stylesheets="@style/start.css" text="Deadline comes in"/-->
-        <!--Label fx:id="5" layoutX="197.0" layoutY="202.0" styleClass="hint" stylesheets="@style/start.css" text="x"
-               textFill="#092053">
-            <font>
-                <Font name="Consolas" size="13.0"/>
-            </font>
-        </Label-->
-        <!--Label fx:id="6" layoutX="209.0" layoutY="202.0" styleClass="hint" stylesheets="@style/start.css" text="days"
-               textFill="#092053">
-            <font>
-                <Font name="Consolas" size="13.0"/>
-            </font>
-        </Label-->
-        <!--TextField fx:id="7" layoutX="245.0" layoutY="200.0" prefHeight="25.0" prefWidth="140.0"
-                   styleClass="start-textField" stylesheets="@style/start.css" text=",wait for it patiently"/-->
-
 
 
 

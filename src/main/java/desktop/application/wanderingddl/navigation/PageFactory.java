@@ -14,5 +14,9 @@ public class PageFactory {
     public static void setPages(Node[] pages) {
         PageFactory.pages = pages;
     }
+    public static void addNode(int index, Node... nodes) {
+        ((Pane)pages[index]).getChildren().addAll(nodes);
+    }
+
 }
 
