@@ -71,7 +71,7 @@ public class ToDoListController extends Application {
             toDoItems.push(new ToDoItem("条目1"));
             toDoItems.push(new ToDoItem("条目2写作业"));
 
-            setMode(1);
+            setMode(2);
             setWidth(300);
             setTexts();
             this.start(stage);

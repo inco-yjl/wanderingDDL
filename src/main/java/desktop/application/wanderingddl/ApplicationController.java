@@ -203,7 +203,6 @@ public class ApplicationController extends Application {
 
     public void createScene(Parent root, HBox windowMenu, VBox mainContent) {
 
-//        导入导出3.0
 
         BorderPane window = (BorderPane) root;
         ApplicationController.window = window;
@@ -274,7 +273,7 @@ public class ApplicationController extends Application {
         }
 
         String[] sentences = new String[5];
-        // 然后根据实际情况去操作input即可。
+
         JSONArray arr = JSON.parseArray(text.toString());
         for (int i = 0; i < arr.size(); i++) {
             System.out.println("arr:" + arr.get(i));
@@ -446,7 +445,14 @@ public class ApplicationController extends Application {
         ToDoListController.getInstance().newInit();
         System.out.println("todoList");
     }
-
+    @FXML
+    private void MuyuPage(){
+        System.out.println("tomuyu");
+//        muyuPage.setStyle("-fx-background-color: #7c9fcc;");
+//        routePage(2);
+        ContentController.getInstance().newInit();
+        System.out.println("tomuyu2");
+    }
     @FXML
     protected void openWanderingUI() {
         String[] sentences = new String[5];
