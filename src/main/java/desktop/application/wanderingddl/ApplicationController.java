@@ -55,10 +55,13 @@ public class ApplicationController extends Application {
         ApplicationController.stage = stage;
         Parent root = FXMLLoader.load(getClass().getResource("Config/Window.fxml"));
         HBox windowMenu = (HBox) FXMLLoader.load(getClass().getResource("Config/Menubar.fxml"));
+
         VBox mainContent = (VBox) FXMLLoader.load(getClass().getResource("Config/Content.fxml"));
         this.wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
         initWanderingSelect();
         Node[] pages = {wanderingPageContent};
+
+
         createScene(root, windowMenu, mainContent);
         PageFactory.setPages(pages);
     }
@@ -181,6 +184,7 @@ public class ApplicationController extends Application {
         for(MenuItem el:mlist){
             el.setOnAction(eventimport);
         }
+
         this.wanderingPageContent.getChildren().add(spinner);
         this.wanderingPageContent.getChildren().add(select_ddl);
         this.wanderingPageContent.getChildren().add(import_btn);
@@ -198,6 +202,9 @@ public class ApplicationController extends Application {
     }
 
     public void createScene(Parent root, HBox windowMenu, VBox mainContent) {
+
+//        导入导出3.0
+
         BorderPane window = (BorderPane) root;
         ApplicationController.window = window;
         window.setTop(windowMenu);
@@ -307,7 +314,42 @@ public class ApplicationController extends Application {
 
 
     }
+//  获取导出的jsonstr
+    String getSentences(){
+        String[] sentences = new String[6];
+        sentences[0] = ((TextField) window.getRight().lookup("#" + Integer.toString(0))).getText();//某某作业
+        sentences[1] = ((TextField) window.getRight().lookup("#" + Integer.toString(1))).getText();//还有
+        sentences[2] = ((Spinner) window.getRight().lookup("#" + Integer.toString(2))).getValue().toString();//x
+        sentences[3] = ((MenuButton) window.getRight().lookup("#" + Integer.toString(3))).getText();//天
+        String strings_3 = "";
+        switch (sentences[3]) {
+            case "小时":
+                strings_3 = " hours";
+                break;
+            case "天":
+                strings_3 = " days";
+                break;
+            case "星期":
+                strings_3 = " weeks";
+                break;
+            case "月":
+                strings_3 = " months";
+                break;
+            default:
+                break;
+        }
+        List<DataFormat> list = new ArrayList<>();
+        DataFormat f = new DataFormat(0, sentences[0]);
+        list.add(new DataFormat(0, sentences[0]));
+        list.add(new DataFormat(1, sentences[1]));
+        list.add(new DataFormat(2, sentences[2]));
+        list.add(new DataFormat(3, strings_3));
+        System.out.println("haha");
 
+        String jsonstr = JSON.toJSONString(list);
+        System.out.println(jsonstr);
+        return jsonstr;
+    }
     @FXML
     void exportJson() throws IOException {
         String[] sentences = new String[6];
@@ -457,6 +499,11 @@ public class ApplicationController extends Application {
         window.setRight(node);
     }
 
+    public void newWindow() throws IOException {
+        ExportWindow open  = new ExportWindow(getSentences());
+        open.start(new Stage());
+        //stage.hide(); //点开新的界面后，是否关闭此界面
+    }
     public static void main(String[] args) {
         launch();
     }

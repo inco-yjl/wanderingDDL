@@ -17,10 +17,14 @@
                         <MenuItem mnemonicParsing="false" text="Close" />
                     </items>
                     <items>
-                        <MenuItem mnemonicParsing="false" text="导入" onAction="#importJson"/>
+                        <Menu fx:id="import" mnemonicParsing="false" text="导入" onAction="#importJson">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="导入1" />
+                            </items>
+                        </Menu>
                     </items>
                     <items>
-                        <MenuItem mnemonicParsing="false" text="导出" onAction="#exportJson"/>
+                        <MenuItem mnemonicParsing="false" text="导出" onAction="#newWindow"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
