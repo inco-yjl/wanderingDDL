@@ -30,24 +30,5 @@
         </Label>
       <Button layoutX="282.0" layoutY="243.0" mnemonicParsing="false" onAction="#openWanderingUI_with_ji" prefHeight="30.0" prefWidth="116.0" styleClass="start-btn" stylesheets="@style/start.css" text="大声地确定" />
 
-
-
-        <!--   import/export panel     -->
-        <Label layoutX="52.0" layoutY="300.0" styleClass="hint" stylesheets="@style/start.css" text="选择模板" textFill="#092053">
-            <font>
-                <Font name="Consolas" size="13.0" />
-            </font>
-        </Label>
-        <Button layoutX="282.0" layoutY="300" mnemonicParsing="false" onAction="#importJson" prefHeight="30.0" prefWidth="116.0" styleClass="start-btn" stylesheets="@style/start.css" text="导入" />
-
-
-        <TextField fx:id="6" layoutX="150.0" layoutY="350.0" prefHeight="38.0" prefWidth="120.0" styleClass="start-textField" stylesheets="@style/start.css" />
-        <Label layoutX="52.0" layoutY="350.0" styleClass="hint" stylesheets="@style/start.css" text="创建模板" textFill="#092053">
-            <font>
-                <Font name="Consolas" size="13.0" />
-            </font>
-        </Label>
-        <Button layoutX="282.0" layoutY="350.0" mnemonicParsing="false" onAction="#exportJson" prefHeight="30.0" prefWidth="116.0" styleClass="start-btn" stylesheets="@style/start.css" text="导出" />
-
     </children>
 </Pane>
