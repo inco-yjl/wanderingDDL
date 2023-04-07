@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/MuYuPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MyModels/wangderingDDL-浏览量.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ContentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MyModels/wangderingDDL-.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MyModels/wangderingDDL-.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/MuyuImg/muyu2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/MuyuImg/muyu4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg/muyu5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/MuyuImg/muyu5.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,11 +105,11 @@
       <recent name="E:\projects\wanderingDDL\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc\" />
       <recent name="E:\projects\wanderingDDL\src" />
       <recent name="E:\projects\wanderingDDL\src\main" />
       <recent name="E:\projects\wanderingDDL" />
       <recent name="E:\projects\wanderingDDL\src\main\java" />
-      <recent name="E:\projects\wanderingDDL\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -155,7 +148,8 @@
       <workItem from="1680584793999" duration="5526000" />
       <workItem from="1680606179183" duration="13588000" />
       <workItem from="1680774028822" duration="1279000" />
-      <workItem from="1680838684706" duration="8069000" />
+      <workItem from="1680838684706" duration="8190000" />
+      <workItem from="1680853872580" duration="588000" />
     </task>
     <servers />
   </component>

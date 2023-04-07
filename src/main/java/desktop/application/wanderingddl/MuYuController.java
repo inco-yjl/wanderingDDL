@@ -32,9 +32,7 @@ public class MuYuController extends ContentController {
     static private MuYuController muYuController;
     private final Stage stage = new Stage();
     private MuYuMode nowMode;                   //木鱼模板：可选1,2
-    private Color textColor=Color.BLACK;
     private double width;
-    private Font qfont;
     int count;
     private int ifsumMode;                      //选择是否计数总功德，默认显示
     private Label cntlab;                       //功德数标签
@@ -42,13 +40,9 @@ public class MuYuController extends ContentController {
     private Button modebtn;
     private MuYuController(){
         super();
-        this.loadFont();
         this.setStage();
         this.count=0;
         this.ifsumMode=1;
-    }
-    private void loadFont(){
-        qfont = Font.loadFont(getClass().getResource("todoListQfont.ttf").toExternalForm() ,80);
     }
     public static MuYuController getInstance(){
         if(muYuController==null){
@@ -252,8 +246,8 @@ class MuYuMode {
         this.mode = index;
         this.count=0;
         switch (index) {
-            case 1 -> bgColor ="rgba(255,255,255,0.3)";
-            case 2 -> bgColor = "rgba(255,255,255,0.5)";
+            case 1 -> bgColor ="rgba(255,255,255,0)";
+            case 2 -> bgColor = "rgba(255,255,255,0)";
             default -> {
             }
         }
@@ -261,8 +255,8 @@ class MuYuMode {
         setSize();
     }
     public void loadImage(){
-        headImg = new Image(getClass().getResource("MuyuImg/muyu"+mode+".png").toExternalForm());
-        lineImg =  new Image(getClass().getResource("MuyuImg/muyu"+mode+".png").toExternalForm());
+        headImg = new Image(getClass().getResource("ContentSrc/MuyuImg/muyu"+mode+".png").toExternalForm());
+        lineImg =  new Image(getClass().getResource("ContentSrc/MuyuImg/muyu"+mode+".png").toExternalForm());
         try {
             bottomImg = new Image(getClass().getResource("ContentSrc/todoImg/bottom-"+mode+".png").toExternalForm());
         }catch (Exception e){
@@ -271,7 +265,7 @@ class MuYuMode {
     }
     public void updateMode(int mode){
         this.mode=mode;
-        headImg = new Image(getClass().getResource("MuyuImg/muyu"+mode+".png").toExternalForm());
+        headImg = new Image(getClass().getResource("ContentSrc/MuyuImg/muyu"+mode+".png").toExternalForm());
     }
     private void setSize(){
         picWidth = headImg.getWidth();
