@@ -26,6 +26,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Random;
 
 
 public class MuYuController extends ContentController {
@@ -86,7 +87,7 @@ public class MuYuController extends ContentController {
     //设置完启动入口
     public void newInit(){
         try {
-            setMode(1);
+            setMode("line1");
             setWidth(200);
             this.start(stage);
         }catch (Exception e){
@@ -94,16 +95,17 @@ public class MuYuController extends ContentController {
         }
     }
     //  设置背景色，可透明
-    private void setMode(int mode) {
+    private void setMode(String mode) {
         nowMode = new MuYuMode(mode);
     }
     private  void setWidth(double width) {
         this.width = width;
     }
-    private void changemode(int mode){
-        mode=(mode+1)%5;
-        if(mode==0) mode=5;
-        nowMode.updateMode(mode);
+    private void changemode(){
+
+        String[] modes = new String[]{"line1","line2","gold","red","wood"};
+        int index = new Random().nextInt(5);
+        nowMode.updateMode(modes[index]);
     }
 
     @Override
@@ -115,13 +117,11 @@ public class MuYuController extends ContentController {
         modebtn=new Button("随机木鱼");
         HBox hBox=new HBox();
         hBox.getChildren().addAll(titlab,cntlab);
-        //可修改颜色
-        all.setStyle("-fx-background-color: "+nowMode.bgColor+";");
 
         vBox.getChildren().addAll(hBox,modebtn,getHeader());
         modebtn.setOnAction(event -> {
             System.out.println("change"+nowMode.mode);
-            changemode(nowMode.mode);
+            changemode();
         });
         if(nowMode.bottomImg!=null){
             vBox.getChildren().add(getFooter());
@@ -239,33 +239,26 @@ class MuYuMode {
     double headRatio;
     double lineRatio;
     double bottomRatio;
-    int mode;
-    String bgColor;
-    public MuYuMode(int index) {
+    String mode;
+    public MuYuMode(String index) {
         super();
         this.mode = index;
         this.count=0;
-        switch (index) {
-            case 1 -> bgColor ="rgba(255,255,255,0)";
-            case 2 -> bgColor = "rgba(255,255,255,0)";
-            default -> {
-            }
-        }
         loadImage();
         setSize();
     }
     public void loadImage(){
-        headImg = new Image(getClass().getResource("ContentSrc/MuyuImg/muyu"+mode+".png").toExternalForm());
-        lineImg =  new Image(getClass().getResource("ContentSrc/MuyuImg/muyu"+mode+".png").toExternalForm());
+        headImg = new Image(getClass().getResource("ContentSrc/MuyuImg/muyu-"+mode+".png").toExternalForm());
+        lineImg =  new Image(getClass().getResource("ContentSrc/MuyuImg/muyu-"+mode+".png").toExternalForm());
         try {
             bottomImg = new Image(getClass().getResource("ContentSrc/todoImg/bottom-"+mode+".png").toExternalForm());
         }catch (Exception e){
             //no bottom
         }
     }
-    public void updateMode(int mode){
+    public void updateMode(String mode){
         this.mode=mode;
-        headImg = new Image(getClass().getResource("ContentSrc/MuyuImg/muyu"+mode+".png").toExternalForm());
+        headImg = new Image(getClass().getResource("ContentSrc/MuyuImg/muyu-"+mode+".png").toExternalForm());
     }
     private void setSize(){
         picWidth = headImg.getWidth();
