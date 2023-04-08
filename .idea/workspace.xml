@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/wanderingDDL.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/wanderingDDL.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/AnswerBooks/allAnswers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +146,8 @@
       <workItem from="1680774028822" duration="1279000" />
       <workItem from="1680838684706" duration="8190000" />
       <workItem from="1680853872580" duration="5663000" />
-      <workItem from="1680872762667" duration="7968000" />
+      <workItem from="1680872762667" duration="8159000" />
+      <workItem from="1680954415338" duration="2420000" />
     </task>
     <servers />
   </component>
