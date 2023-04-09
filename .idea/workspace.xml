@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/AnswerBooks/allAnswers.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ContentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,9 +75,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MuyuImg" />
-  </component>
+  <component name="PropertiesComponent">{
+    &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    }
+    }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\MuyuImg" />
@@ -86,11 +101,11 @@
       <recent name="E:\projects\wanderingDDL\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc\" />
       <recent name="E:\projects\wanderingDDL\src" />
       <recent name="E:\projects\wanderingDDL\src\main" />
       <recent name="E:\projects\wanderingDDL" />
       <recent name="E:\projects\wanderingDDL\src\main\java" />
-      <recent name="E:\projects\wanderingDDL\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -127,6 +142,12 @@
       <workItem from="1680528708862" duration="667000" />
       <workItem from="1680534727489" duration="840000" />
       <workItem from="1680584793999" duration="5526000" />
+      <workItem from="1680606179183" duration="13588000" />
+      <workItem from="1680774028822" duration="1279000" />
+      <workItem from="1680838684706" duration="8190000" />
+      <workItem from="1680853872580" duration="5663000" />
+      <workItem from="1680872762667" duration="8159000" />
+      <workItem from="1680954415338" duration="2420000" />
     </task>
     <servers />
   </component>

@@ -28,6 +28,7 @@ out/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
+!**/src/main/resources/desktop/application/wanderingddl/Cache/
 
 ### NetBeans ###
 /nbproject/private/

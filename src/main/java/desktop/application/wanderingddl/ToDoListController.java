@@ -22,9 +22,8 @@ import java.util.LinkedList;
 
 //  TODO:两种模式，完成的移除/完成的仍显示
 //  多种模板
-public class ToDoListController extends Application {
+public class ToDoListController extends ContentController {
     static private ToDoListController toDoListController;
-    private final Stage stage = new Stage();
 
     private LinkedList<ToDoItem> toDoItems ;
     private Text[] texts;
@@ -48,30 +47,16 @@ public class ToDoListController extends Application {
         }
         return toDoListController;
     }
-
-    private void setStage(){
-        //给外层套一个透明的以不显示任务栏图标
-        Stage transparentStage = new Stage();
-        transparentStage.initStyle(StageStyle.UTILITY);
-        //将stage的透明度设置为0
-        transparentStage.setOpacity(0);
-        //stage展示出来，此步骤不可少，缺少此步骤stage还是会存在任务栏
-        transparentStage.show();
-        stage.initOwner(transparentStage);
-        stage.initStyle(StageStyle.TRANSPARENT);//隐藏头标题); //去除窗口样式
-        stage.setX(Screen.getPrimary().getBounds().getWidth()-480);
-        stage.setY(Screen.getPrimary().getBounds().getHeight()-262);
-        stage.setAlwaysOnTop(true);//变成可选项
-    }
     //设置完启动入口
-    public void newInit(){
+    public void newInit(String[] sentences,int mode){
         try {
             //获取传参
             toDoItems = new LinkedList<>();
-            toDoItems.push(new ToDoItem("条目1"));
-            toDoItems.push(new ToDoItem("条目2写作业"));
-
-            setMode(2);
+            for(int i=sentences.length-1;i>=0;i--) {
+                String string = sentences[i];
+                toDoItems.push(new ToDoItem(string));
+            }
+            setMode(mode);
             setWidth(300);
             setTexts();
             this.start(stage);
@@ -88,7 +73,7 @@ public class ToDoListController extends Application {
         this.width = width;
     }
 
-
+    @Override
     public void start(Stage stage) throws IOException {
         Pane all = new Pane();
         VBox vBox = new VBox();
@@ -211,14 +196,10 @@ public class ToDoListController extends Application {
             square.setPrefHeight(nowMode.lineRatio*width);
             square.setPrefWidth(nowMode.lineRatio*width+10);
             items[i] = new HBox(square,texts[i]);
+
             items[i].setPrefWidth(width);
             items[i].setPrefHeight(nowMode.lineRatio*width);
             items[i].setBackground(new Background(bImg));
-            items[i].setStyle("-fx-cursor: hand;");
-            int now_index =i;
-            items[i].setOnMouseClicked(event->{
-                done(now_index);
-            });
         }
        return items;
     }
@@ -234,7 +215,11 @@ public class ToDoListController extends Application {
                 texts[i].setStrokeWidth(0.6);
                 texts[i].setStroke(textColor);
             }
-            texts[i].setStyle("-fx-font-size: 26px;");
+            texts[i].setStyle("-fx-font-size: 26px;-fx-cursor: hand;");
+            int now_index =i;
+            texts[i].setOnMouseClicked(event->{
+                done(now_index);
+            });
         }
     }
 
