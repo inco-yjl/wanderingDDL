@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MyModels/wangderingDDL-.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MyModels/wangderingDDL-.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ContentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
