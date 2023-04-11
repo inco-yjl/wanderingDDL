@@ -6,6 +6,7 @@ import javafx.animation.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -13,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
@@ -150,29 +153,47 @@ public class MuYuController extends ContentController {
         header.setPrefHeight(width*nowMode.headRatio);
         header.setBackground(new Background(bImg));
         header.setAlignment(Pos.CENTER);
-
-
+//        功德标签布局
+        FlowPane labels=new FlowPane(Orientation.VERTICAL);
+        labels.setHgap(0);
+        header.getChildren().add(labels);
         header.setOnMouseClicked(event -> {
             System.out.println("plus");
             count++;cntlab.setText(String.valueOf(count));
+            System.out.println("X:"+header.getLayoutX());
+            System.out.println("y:"+header.getLayoutY());
+            System.out.println("xl:"+header.getWidth());;
+            System.out.println("yl:"+header.getHeight());
+            header.setPrefHeight(200);
+            header.setPrefWidth(200);
+//            敲击声音
+            dadada();
 //            木鱼点击放缩动画
             ScaleTransition st = new ScaleTransition(Duration.millis(100), header);
-            st.setByX(0.15f);
-            st.setByY(0.15f);
+            st.setFromX(1);
+            st.setFromY(1);
+            st.setToX(0.9);
+            st.setToY(0.9);
             st.setCycleCount(2);
             st.setAutoReverse(true);
             st.play();
 
             Label label = new Label("功德+1");
-            header.getChildren().add(label);
+            labels.getChildren().add(label);
+            label.setLayoutX(40);
+            label.setLayoutY(0);
+//            label.setPrefWidth(100);
+//            header.getChildren().add(label);
             lineAnimate(header,label);
+//            label.setTranslateY(100);
+
 //            延迟1000ms删掉功德+1标签
             Timeline timeline = new Timeline();
             timeline.setCycleCount(1);
             timeline.setAutoReverse(false);
             KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent t) {
-                    header.getChildren().remove(label);
+                    labels.getChildren().remove(label);
                 }
             });
             timeline.getKeyFrames().clear();
@@ -181,7 +202,13 @@ public class MuYuController extends ContentController {
         });
         return header;
     }
-
+    public void dadada(){
+        String url = getClass().getResource("muyu1.mp3").toString();
+        Media media = new Media(url);
+        MediaPlayer player = new MediaPlayer(media);
+        player.setCycleCount(1);
+        player.play();
+    }
     /**
      * 功德+1动画
      * @param header
@@ -190,22 +217,22 @@ public class MuYuController extends ContentController {
     public void lineAnimate(HBox header,Label label){
 
 
-        FadeTransition ft = new FadeTransition(Duration.millis(1000), label);
+        FadeTransition ft = new FadeTransition(Duration.millis(400), label);
         ft.setFromValue(1.0f);
-        ft.setToValue(0.1f);
+        ft.setToValue(0.4f);
         ft.setCycleCount(1);
         ft.setAutoReverse(true);
         ft.play();
 
         Path path = new Path();
-        path.getElements().add (new MoveTo(20f, 0f));
-        path.getElements().add (new LineTo(20f, -180f));
+        path.getElements().add (new MoveTo(40f, 0f));
 
+        path.getElements().add (new LineTo(40f, -150f));
         PathTransition pat=new PathTransition();
-        pat.setDuration(Duration.millis(1000));
+        pat.setDuration(Duration.millis(1200));
         pat.setNode(label);
         pat.setPath(path);
-        pat.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+//        pat.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
         pat.setCycleCount(1);
         pat.setAutoReverse(true);
         pat.play();
