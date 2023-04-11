@@ -48,9 +48,9 @@ public class WanderingController extends ContentController {
     }
 
     private void loadFont() {
-        w_engFont = Font.loadFont(Objects.requireNonNull(getClass().getResource("Alte DIN 1451 Mittelschrift gepraegt Regular.ttf")).toExternalForm(), 90);
-        w_znFont = Font.loadFont(getClass().getResource("znFont.ttf").toExternalForm(), 36);
-        w_engTextFont = Font.loadFont(getClass().getResource("znFont.ttf").toExternalForm(), 18);
+        w_engFont = Font.loadFont(Objects.requireNonNull(getClass().getResource("MainContent/font/Alte DIN 1451 Mittelschrift gepraegt Regular.ttf")).toExternalForm(), 90);
+        w_znFont = Font.loadFont(getClass().getResource("MainContent/font/znFont.ttf").toExternalForm(), 36);
+        w_engTextFont = Font.loadFont(getClass().getResource("MainContent/font/znFont.ttf").toExternalForm(), 18);
     }
 
     //传参初始化

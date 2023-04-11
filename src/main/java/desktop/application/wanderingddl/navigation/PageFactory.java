@@ -1,6 +1,5 @@
 package desktop.application.wanderingddl.navigation;
 
-import desktop.application.wanderingddl.SaverAndLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 

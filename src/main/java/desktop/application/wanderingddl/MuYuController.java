@@ -25,8 +25,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Random;
@@ -90,7 +94,7 @@ public class MuYuController extends ContentController {
     //设置完启动入口
     public void newInit(){
         try {
-            setMode("line1");
+            setMode("line1","2");
             setWidth(200);
             this.start(stage);
         }catch (Exception e){
@@ -98,14 +102,17 @@ public class MuYuController extends ContentController {
         }
     }
     //  设置背景色，可透明
-    private void setMode(String mode) {
-        nowMode = new MuYuMode(mode);
+    private void setMode(String mode,String soundmode) {
+        nowMode = new MuYuMode(mode,soundmode);
     }
     private  void setWidth(double width) {
         this.width = width;
     }
-    private void changemode(){
 
+    /**
+     * 随机木鱼
+     */
+    private void changemode(){
         String[] modes = new String[]{"line1","line2","gold","red","wood"};
         int index = new Random().nextInt(5);
         nowMode.updateMode(modes[index]);
@@ -157,6 +164,7 @@ public class MuYuController extends ContentController {
         FlowPane labels=new FlowPane(Orientation.VERTICAL);
         labels.setHgap(0);
         header.getChildren().add(labels);
+//        敲击木鱼事件
         header.setOnMouseClicked(event -> {
             System.out.println("plus");
             count++;cntlab.setText(String.valueOf(count));
@@ -167,7 +175,7 @@ public class MuYuController extends ContentController {
             header.setPrefHeight(200);
             header.setPrefWidth(200);
 //            敲击声音
-            dadada();
+            dadada("2");
 //            木鱼点击放缩动画
             ScaleTransition st = new ScaleTransition(Duration.millis(100), header);
             st.setFromX(1);
@@ -202,13 +210,18 @@ public class MuYuController extends ContentController {
         });
         return header;
     }
-    public void dadada(){
-        String url = getClass().getResource("muyu1.mp3").toString();
-        Media media = new Media(url);
-        MediaPlayer player = new MediaPlayer(media);
-        player.setCycleCount(1);
-        player.play();
-    }
+
+    /**
+     * 播放敲木鱼音频
+     * @param index 音频种类编号，可选1-5
+     */
+public void dadada(String index) {
+    String filename = "src/main/resources/desktop/application/wanderingddl/ContentSrc/MuyuSound/muyu"+index+".mp3";
+    Media hit = new Media(new File(filename).toURI().toString());
+    MediaPlayer mediaPlayer = new MediaPlayer(hit);
+    mediaPlayer.play();
+
+}
     /**
      * 功德+1动画
      * @param header
@@ -261,15 +274,17 @@ class MuYuMode {
     Image headImg;
     Image lineImg;
     Image bottomImg=null;
-    int count;
+    int count;             //敲击次数
     double picWidth;
     double headRatio;
     double lineRatio;
     double bottomRatio;
-    String mode;
-    public MuYuMode(String index) {
+    String mode;            //木鱼种类
+    String soundmode;       //声音种类
+    public MuYuMode(String index,String soundmode) {
         super();
         this.mode = index;
+        this.soundmode=soundmode;
         this.count=0;
         loadImage();
         setSize();

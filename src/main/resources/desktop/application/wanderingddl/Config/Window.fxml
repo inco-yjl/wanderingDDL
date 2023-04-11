@@ -30,7 +30,7 @@
                      </image></ImageView>
                </graphic>
             </Button>
-            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#ToRipplePage" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
+            <Button fx:id="answerBookPage" layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#ToAnswerBookPage" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
                <graphic>
                   <ImageView fitHeight="65.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -1,18 +1,11 @@
 package desktop.application.wanderingddl;
 
-import com.alibaba.fastjson2.JSON;
-import com.alibaba.fastjson2.JSONArray;
-import com.alibaba.fastjson2.JSONPathTypedMultiNamesPrefixIndex1;
 import desktop.application.wanderingddl.navigation.PageFactory;
-import desktop.application.wanderingddl.tools.CreateFileUtil;
-import desktop.application.wanderingddl.tools.DragUtil;
+import desktop.application.wanderingddl.tools.*;
 
-import desktop.application.wanderingddl.tools.FontLoader;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.css.Style;
-import javafx.css.Stylesheet;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -22,34 +15,31 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import javax.swing.*;
+
 import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import javafx.scene.media.*;
 
-//import net.sf.json.JSONArray;
-//import net.sf.json.JSONObject;
 
 public class ApplicationController extends Application {
     static Stage stage;
     static BorderPane window;
     public Button wanderingPage;
     public Button toDoListPage;
+    public Button answerBookPage;
     private boolean[] newRoute = new boolean[]{true, true, true};
     @Override
     public void start(Stage stage) throws IOException {
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("Config/source/icon.png")));
+        stage.setTitle("WanderingDDL");
         ApplicationController.stage = stage;
         Parent root = FXMLLoader.load(getClass().getResource("Config/Window.fxml"));
         HBox windowMenu = (HBox) FXMLLoader.load(getClass().getResource("Config/Menubar.fxml"));
@@ -57,14 +47,12 @@ public class ApplicationController extends Application {
         VBox mainContent = (VBox) FXMLLoader.load(getClass().getResource("Config/Content.fxml"));
         Pane wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
         Pane toDoListPageContent = new ToDoPageContent().getToDoPageContent();
+        Pane answerBookPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/AnswerBookPage.fxml"));
 
-
-        Node[] pages = {wanderingPageContent, toDoListPageContent};
+        Node[] pages = {wanderingPageContent, toDoListPageContent,answerBookPageContent};
         PageFactory.setPages(pages);
 
         initWanderingSelect();
-
-
 
         createScene(root, windowMenu, mainContent);
 
@@ -169,7 +157,6 @@ public class ApplicationController extends Application {
 
     public void createScene(Parent root, HBox windowMenu, VBox mainContent) {
 
-
         BorderPane window = (BorderPane) root;
         ApplicationController.window = window;
         window.setTop(windowMenu);
@@ -193,23 +180,20 @@ public class ApplicationController extends Application {
         stage.setIconified(true);
     }
 
-
-    @FXML
-    protected void ToWanderingPage() {
-        //选中
-        wanderingPage.setStyle("-fx-background-color: #7c9fcc;");
-        toDoListPage.setStyle("-fx-background-color: rgba(176,196,222,1);");
-        routePage(0);
-        System.out.println("wanderingDDL");
+    private void setButtonPressed(int index){
+        ButtonStyleController.setPressed(index,wanderingPage,toDoListPage,answerBookPage);
     }
     @FXML
-    protected void ToRipplePage() {
+    protected void ToWanderingPage() {
+        routePage(0);
+    }
+    @FXML
+    protected void ToAnswerBookPage() {
+        routePage(2);
     }
 
     @FXML
     private void ToDoListPage() {
-        toDoListPage.setStyle("-fx-background-color: #7c9fcc;");
-        wanderingPage.setStyle("-fx-background-color: rgba(176,196,222,1);");
         routePage(1);
     }
     @FXML
@@ -248,7 +232,6 @@ public class ApplicationController extends Application {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
     }
-
     private String Chi2Eng(String sentences) {
         switch (sentences) {
             case "小时              ":
@@ -266,6 +249,7 @@ public class ApplicationController extends Application {
     }
 
     private void routePage(int index) {
+        setButtonPressed(index);
         Node node = PageFactory.createPageService(index);
         if(newRoute[index]) {
             SaverAndLoader.tool.loadPage(node,index);

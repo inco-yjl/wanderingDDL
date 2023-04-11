@@ -1,0 +1,12 @@
+.book-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.book-button:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.book-button:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
