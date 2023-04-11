@@ -42,6 +42,7 @@ public class MuYuController extends ContentController {
     private MuYuMode nowMode;                   //木鱼模板：可选1,2
     private double width;
     int count;
+    private HBox header;
     private int ifsumMode;                      //选择是否计数总功德，默认显示
     private Label cntlab;                       //功德数标签
     private Label titlab;
@@ -116,6 +117,14 @@ public class MuYuController extends ContentController {
         String[] modes = new String[]{"line1","line2","gold","red","wood"};
         int index = new Random().nextInt(5);
         nowMode.updateMode(modes[index]);
+        BackgroundImage bImg = new BackgroundImage(nowMode.headImg,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(45,45,true,true,true,false));
+        header.setPrefWidth(width);
+        header.setPrefHeight(width*nowMode.headRatio);
+        header.setBackground(new Background(bImg));
     }
 
     @Override
@@ -149,7 +158,7 @@ public class MuYuController extends ContentController {
 
 
     private HBox getHeader() {
-        HBox header = new HBox();
+        header = new HBox();
 
         BackgroundImage bImg = new BackgroundImage(nowMode.headImg,
                 BackgroundRepeat.NO_REPEAT,
@@ -300,7 +309,8 @@ class MuYuMode {
     }
     public void updateMode(String mode){
         this.mode=mode;
-        headImg = new Image(getClass().getResource("ContentSrc/MuyuImg/muyu-"+mode+".png").toExternalForm());
+        loadImage();
+
     }
     private void setSize(){
         picWidth = headImg.getWidth();
