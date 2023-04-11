@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -37,6 +38,8 @@ public class ApplicationController extends Application {
     private boolean[] newRoute = new boolean[]{true, true, true};
     @Override
     public void start(Stage stage) throws IOException {
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("Config/source/icon.png")));
+        stage.setTitle("WanderingDDL");
         ApplicationController.stage = stage;
         Parent root = FXMLLoader.load(getClass().getResource("Config/Window.fxml"));
         HBox windowMenu = (HBox) FXMLLoader.load(getClass().getResource("Config/Menubar.fxml"));
@@ -50,8 +53,6 @@ public class ApplicationController extends Application {
         PageFactory.setPages(pages);
 
         initWanderingSelect();
-
-
 
         createScene(root, windowMenu, mainContent);
 
