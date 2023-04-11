@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
@@ -38,20 +39,18 @@ import java.util.Random;
 
 public class MuYuController extends ContentController {
     static private MuYuController muYuController;
-    private final Stage stage = new Stage();
     private MuYuMode nowMode;                   //木鱼模板：可选1,2
     private double width;
     int count;
     private HBox header;
-    private int ifsumMode;                      //选择是否计数总功德，默认显示
     private Label cntlab;                       //功德数标签
     private Label titlab;
-    private Button modebtn;
+    private boolean ifSum=false;     //选择是否计数总功德
+    private boolean ifRandom;
     private MuYuController(){
         super();
         this.setStage();
         this.count=0;
-        this.ifsumMode=1;
     }
     public static MuYuController getInstance(){
         if(muYuController==null){
@@ -64,7 +63,7 @@ public class MuYuController extends ContentController {
      *  功德计数设置更新
      */
     private void updatesumMode(){
-        if(ifsumMode==0){
+        if(!ifSum){
             cntlab.setVisible(false);
             cntlab.setManaged(false);
             titlab.setVisible(false);
@@ -76,26 +75,12 @@ public class MuYuController extends ContentController {
             titlab.setManaged(true);
         }
     }
-
-    /**
-     *  打开功德计数
-     */
-    private void opencnt(){
-        this.ifsumMode=1;
-        updatesumMode();
-    }
-
-    /**
-     *  关闭功德计数
-     */
-    private void closecnt(){
-        this.ifsumMode=0;
-        updatesumMode();
-    }
     //设置完启动入口
-    public void newInit(){
+    public void newInit(boolean ifSum,boolean ifRandom,String mode){
         try {
-            setMode("line1","2");
+            this.ifSum = ifSum;
+            this.ifRandom = ifRandom;
+            setMode(mode,"2");
             setWidth(200);
             this.start(stage);
         }catch (Exception e){
@@ -125,27 +110,25 @@ public class MuYuController extends ContentController {
         header.setPrefWidth(width);
         header.setPrefHeight(width*nowMode.headRatio);
         header.setBackground(new Background(bImg));
+        if(index==1){
+            setEffect(header);
+        }else header.setEffect(null);
     }
 
     @Override
     public void start(Stage stage) throws IOException {
         Pane all = new Pane();
         VBox vBox = new VBox();
-        titlab=new Label("功德：");
-        cntlab=new Label(String.valueOf(count));
-        modebtn=new Button("随机木鱼");
+        initabels();
+
         HBox hBox=new HBox();
         hBox.getChildren().addAll(titlab,cntlab);
-
-        vBox.getChildren().addAll(hBox,modebtn,getHeader());
-        modebtn.setOnAction(event -> {
-            System.out.println("change"+nowMode.mode);
-            changemode();
-        });
-        if(nowMode.bottomImg!=null){
-            vBox.getChildren().add(getFooter());
-        }
+        if(ifRandom)
+        vBox.getChildren().addAll(hBox,getModebtn(),getHeader());
+        else
+            vBox.getChildren().addAll(hBox,getHeader());
         all.getChildren().addAll(vBox);
+        all.setStyle("-fx-background-color: transparent;");
         Scene scene = new Scene(all, width+20, width*nowMode.headRatio+150);
         scene.setFill(null);
 
@@ -154,9 +137,23 @@ public class MuYuController extends ContentController {
         if(!stage.isShowing())
             stage.show();
         MinWindow.getInstance().listen(stage);
+        updatesumMode();
     }
-
-
+    private Button getModebtn(){
+        Button modebtn=new Button("随机木鱼");
+        modebtn.setStyle("-fx-cursor: hand");
+        modebtn.setOnAction(event -> {
+            System.out.println("change"+nowMode.mode);
+            changemode();
+        });
+        return modebtn;
+    }
+    private void initabels(){
+        titlab=new Label("功德：");
+        cntlab=new Label(String.valueOf(count));
+        titlab.setStyle("-fx-background-color: rgba(255,255,255,0.5)");
+        cntlab.setStyle("-fx-background-color: rgba(255,255,255,0.5)");
+    }
     private HBox getHeader() {
         header = new HBox();
 
@@ -165,6 +162,9 @@ public class MuYuController extends ContentController {
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(45,45,true,true,true,false));
+        if(nowMode.mode=="line2")
+            setEffect(header);
+        else header.setEffect(null);
         header.setPrefWidth(width);
         header.setPrefHeight(width*nowMode.headRatio);
         header.setBackground(new Background(bImg));
@@ -196,6 +196,7 @@ public class MuYuController extends ContentController {
             st.play();
 
             Label label = new Label("功德+1");
+            label.setStyle("-fx-background-color: rgba(255,255,255,0.5)");
             labels.getChildren().add(label);
             label.setLayoutX(40);
             label.setLayoutY(0);
@@ -262,32 +263,21 @@ public void dadada(String index) {
 //        pt.play();
 
     }
-    private HBox getFooter() {
-        HBox footer = new HBox();
-        BackgroundImage bImg = new BackgroundImage(nowMode.bottomImg,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.CENTER,
-                new BackgroundSize(45,45,true,true,true,false));
-        footer.setPrefWidth(width);
-        footer.setPrefHeight(width*nowMode.headRatio);
-        footer.setBackground(new Background(bImg));
-        return footer;
-    }
 
+    private void setEffect(HBox muyu) {
+        DropShadow ds = new DropShadow();
+        ds.setOffsetY(0f);
+        ds.setColor(Color.valueOf("#aaaaaa"));
+        muyu.setEffect(ds);
+    }
 
 
 }
 
 class MuYuMode {
     Image headImg;
-    Image lineImg;
-    Image bottomImg=null;
     int count;             //敲击次数
-    double picWidth;
     double headRatio;
-    double lineRatio;
-    double bottomRatio;
     String mode;            //木鱼种类
     String soundmode;       //声音种类
     public MuYuMode(String index,String soundmode) {
@@ -296,29 +286,17 @@ class MuYuMode {
         this.soundmode=soundmode;
         this.count=0;
         loadImage();
-        setSize();
     }
     public void loadImage(){
         headImg = new Image(getClass().getResource("ContentSrc/MuyuImg/muyu-"+mode+".png").toExternalForm());
-        lineImg =  new Image(getClass().getResource("ContentSrc/MuyuImg/muyu-"+mode+".png").toExternalForm());
-        try {
-            bottomImg = new Image(getClass().getResource("ContentSrc/todoImg/bottom-"+mode+".png").toExternalForm());
-        }catch (Exception e){
-            //no bottom
-        }
+        headRatio = headImg.getHeight()/headImg.getWidth();
     }
     public void updateMode(String mode){
         this.mode=mode;
         loadImage();
 
     }
-    private void setSize(){
-        picWidth = headImg.getWidth();
-        headRatio = headImg.getHeight()/picWidth;
-        lineRatio = lineImg.getHeight()/picWidth;
-        if(bottomImg!=null)bottomRatio=bottomImg.getHeight()/picWidth;
-        else bottomRatio = lineRatio;
-    }
+
 
 
 

@@ -35,7 +35,8 @@ public class ApplicationController extends Application {
     public Button wanderingPage;
     public Button toDoListPage;
     public Button answerBookPage;
-    private boolean[] newRoute = new boolean[]{true, true, true};
+    public Button muyuPage;
+    private boolean[] newRoute = new boolean[]{true, true, true,true};
     @Override
     public void start(Stage stage) throws IOException {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("Config/source/icon.png")));
@@ -48,8 +49,9 @@ public class ApplicationController extends Application {
         Pane wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
         Pane toDoListPageContent = new ToDoPageContent().getToDoPageContent();
         Pane answerBookPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/AnswerBookPage.fxml"));
+        Pane muYuPageContent = new MuYuPageContent().getMuYuPageContent();
 
-        Node[] pages = {wanderingPageContent, toDoListPageContent,answerBookPageContent};
+        Node[] pages = {wanderingPageContent, toDoListPageContent,answerBookPageContent,muYuPageContent};
         PageFactory.setPages(pages);
 
         initWanderingSelect();
@@ -181,7 +183,7 @@ public class ApplicationController extends Application {
     }
 
     private void setButtonPressed(int index){
-        ButtonStyleController.setPressed(index,wanderingPage,toDoListPage,answerBookPage);
+        ButtonStyleController.setPressed(index,wanderingPage,toDoListPage,answerBookPage,muyuPage);
     }
     @FXML
     protected void ToWanderingPage() {
@@ -198,12 +200,7 @@ public class ApplicationController extends Application {
     }
     @FXML
     private void MuyuPage(){
-
-        System.out.println("tomuyu");
-//        muyuPage.setStyle("-fx-background-color: #7c9fcc;");
-//        routePage(2);
-        MuYuController.getInstance().newInit();
-        System.out.println("tomuyu2");
+        routePage(3);
     }
     @FXML
     protected void openWanderingUI() {

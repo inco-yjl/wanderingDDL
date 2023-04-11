@@ -466,7 +466,7 @@
     },
     {
         "id": 97,
-        "chinese": "不要浪费你的时间了",
+        "chinese": "你浪费了你的时间",
         "english": ""
     },
     {
@@ -1171,8 +1171,8 @@
     },
     {
         "id": 238,
-        "chinese": "你将需要适应",
-        "english": "You Will Need To Accommodate"
+        "chinese": "你需要放松一下",
+        "english": "Just relax"
     },
     {
         "id": 239,
@@ -1366,8 +1366,8 @@
     },
     {
         "id": 277,
-        "chinese": "你需要考虑其他方法",
-        "english": "You'll Need To Consider Other Ways"
+        "chinese": "你需要多睡觉",
+        "english": ""
     },
     {
         "id": 278,
@@ -2951,8 +2951,8 @@
     },
     {
         "id": 595,
-        "chinese": "情况将很快发生改变",
-        "english": "The Circumstances Will Change Very Quickly"
+        "chinese": "你不能改变它",
+        "english": ""
     },
     {
         "id": 596,
@@ -2961,8 +2961,8 @@
     },
     {
         "id": 597,
-        "chinese": "情况很快就会发生变化",
-        "english": "The Circumstances Will Change Very Quickly"
+        "chinese": "这很正常",
+        "english": ""
     },
     {
         "id": 598,
@@ -4980,19 +4980,9 @@
         "english": "This Is A Good Time To Make A New Plan"
     },
     {
-        "id": 1001,
-        "chinese": "这是一个很好的时机，来制定新计划",
-        "english": "This Is A Good Time To Make A New Plan"
-    },
-    {
-        "id": 1002,
-        "chinese": "这是一个很好的时间来制定计划",
-        "english": "It's Good Time To Make Plans"
-    },
-    {
         "id": 1003,
-        "chinese": "这是一个机会",
-        "english": ""
+        "chinese": "这是一个好机会",
+        "english": "This is a good opportunity"
     },
     {
         "id": 1004,
@@ -5478,5 +5468,35 @@
         "id": 1100,
         "chinese": "默默无闻",
         "english": ""
+    },
+    {
+        "id": 1101,
+        "chinese": "这是一个坏主意",
+        "english": ""
+    },
+    {
+        "id": 1102,
+        "chinese": "你做得很好",
+        "english": "Well done!"
+    },
+    {
+        "id": 1103,
+        "chinese": "没有关系",
+        "english":"It doesn't matter"
+    },
+    {
+        "id": 1104,
+        "chinese": "开什么玩笑",
+        "english": ""
+    },
+    {
+        "id": 1105,
+        "chinese": "你已经走了很远",
+        "english": ""
+    },
+    {
+        "id": 1106,
+        "chinese": "这是一个新的开始",
+        "english": "This is a fresh start"
     }
 ]
