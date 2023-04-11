@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/style/AnswerBook.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/AnswerBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/AnswerBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/tools/SaverAndLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/tools/SaverAndLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Alte DIN 1451 Mittelschrift gepraegt Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/font/Alte DIN 1451 Mittelschrift gepraegt Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/style/window.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/style/window.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/AnswerBooks/allAnswers.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/AnswerBooks/allAnswers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/AnswerBookPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/AnswerBookPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/todoListQfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/font/todoListQfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/znFont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/MainContent/font/znFont.ttf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +147,7 @@
       <workItem from="1680872762667" duration="8159000" />
       <workItem from="1680954415338" duration="2420000" />
       <workItem from="1681135530406" duration="3332000" />
-      <workItem from="1681185686704" duration="6451000" />
+      <workItem from="1681185686704" duration="8223000" />
     </task>
     <servers />
   </component>
