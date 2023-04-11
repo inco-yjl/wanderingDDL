@@ -39,7 +39,7 @@ public class ToDoListController extends ContentController {
         this.setStage();
     }
     private void loadFont(){
-        qfont = Font.loadFont(getClass().getResource("todoListQfont.ttf").toExternalForm() ,80);
+        qfont = Font.loadFont(getClass().getResource("MainContent/font/todoListQfont.ttf").toExternalForm() ,80);
     }
     public static ToDoListController getInstance(){
         if(toDoListController==null){

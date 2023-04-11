@@ -36,7 +36,7 @@ public class SaverAndLoader {
         }
     }
     private void loadAnswerBook(){
-        JSONArray jsa = read("src/main/resources/desktop/application/wanderingddl/ContentSrc/AnswerBooks","allAnswers");
+        JSONArray jsa = read("src/main/resources/desktop/application/wanderingddl/ContentSrc/AnswerBooks/","allAnswers");
         AnswerBookController.setAnswers(jsa);
     }
 

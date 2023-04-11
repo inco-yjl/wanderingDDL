@@ -156,7 +156,6 @@ public class ApplicationController extends Application {
 
     public void createScene(Parent root, HBox windowMenu, VBox mainContent) {
 
-
         BorderPane window = (BorderPane) root;
         ApplicationController.window = window;
         window.setTop(windowMenu);
@@ -232,7 +231,6 @@ public class ApplicationController extends Application {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
     }
-
     private String Chi2Eng(String sentences) {
         switch (sentences) {
             case "小时              ":
