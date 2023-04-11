@@ -12,4 +12,6 @@ module desktop.application.wanderingddl {
 
     opens desktop.application.wanderingddl to javafx.fxml;
     exports desktop.application.wanderingddl;
+    exports desktop.application.wanderingddl.tools;
+    opens desktop.application.wanderingddl.tools to javafx.fxml;
 }
