@@ -4,6 +4,7 @@ import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import desktop.application.wanderingddl.navigation.PageFactory;
 import javafx.animation.FadeTransition;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -46,7 +47,6 @@ public class AnswerBookController {
         font = Font.loadFont(getClass().getResource("MainContent/font/Acme.ttf").toExternalForm() ,27);
     }
     public void showAnswer(){
-        System.out.println(1);
         Pane all = new Pane();
         all.setPrefHeight(600);
         all.setPrefWidth(502);
@@ -60,6 +60,7 @@ public class AnswerBookController {
         vBox.getChildren().addAll(getLabels());
         vBox.setLayoutX(75);
         vBox.setLayoutY(150);
+        vBox.setPadding(new Insets(10));
         vBox.setAlignment(Pos.CENTER);
         vBox.setMinHeight(160);
         setEffect(vBox);
