@@ -3,6 +3,7 @@ package desktop.application.wanderingddl.tools;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import desktop.application.wanderingddl.AnswerBookController;
+import desktop.application.wanderingddl.MuYuController;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -33,6 +34,7 @@ public class SaverAndLoader {
             case 0 -> loadWanderingInput(node);
             case 1 -> loadToDoInput(node);
             case 2 -> loadAnswerBook();
+            case 3 -> loadMerit();
             default -> {
             }
         }
@@ -58,6 +60,11 @@ public class SaverAndLoader {
         ((Label) all.lookup("#6")).setText(Chi2Eng(jsa.get(3).toString()));//days
         ((TextField) all.lookup("#4")).setText(jsa.get(4).toString());
         ((TextField) all.lookup("#7")).setText(jsa.get(5).toString());
+    }
+    public void loadMerit(){
+        JSONObject jsonObject = read("MuYuMerit");
+        int count =(int)jsonObject.get("last-merit");
+        MuYuController.getInstance().setCount(count);
     }
     private String Chi2Eng(String sentences) {
         switch (sentences) {
@@ -106,6 +113,11 @@ public class SaverAndLoader {
         jsonObject.put("last-modified",jsonstr);
         jsonObject.put("time-stamp", nowDate.toString());
         save(jsonObject,"wanderingDDL");
+    }
+    public void saveMuYuMerit(int number) {
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("last-merit",number);
+        save(jsonObject,"MuYuMerit");
     }
     private void save(JSONObject jsonObject, String filePath){
         try{ BufferedWriter bw = new BufferedWriter(new FileWriter(pathHead+filePath+".json"));

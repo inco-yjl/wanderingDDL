@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.util.LinkedList;
 
@@ -29,11 +30,12 @@ public class MuYuPageContent {
         pageContent = new Pane();
         pageContent.setPrefHeight(600);
         pageContent.setPrefWidth(502);
-        pageContent.getChildren().addAll(getCheckBox(),getCheckBox2(),getRadioGroup(),getStartButton());
-        pageContent.setStyle("-fx-text-fill: rgba(47,79,79);-fx-font-size: 14px");
+        pageContent.getChildren().addAll(getCheckBox(),getCheckBox2(),getCheckBox3(),getRadioGroup(),getStartButton());
+        pageContent.setStyle("-fx-font-size: 14px");
     }
     public CheckBox getCheckBox(){
         CheckBox checkBox = new CheckBox("记录功德总数");
+        checkBox.setTextFill(Color.valueOf("#092053"));
         checkBox.setId("ifSum");
         checkBox.setLayoutX(20);
         checkBox.setLayoutY(30);
@@ -42,9 +44,19 @@ public class MuYuPageContent {
     }
     public CheckBox getCheckBox2(){
         CheckBox checkBox = new CheckBox("随机样式");
+        checkBox.setTextFill(Color.valueOf("#092053"));
         checkBox.setId("ifRandome");
         checkBox.setLayoutX(20);
         checkBox.setLayoutY(70);
+        checkBox.setAlignment(Pos.TOP_LEFT);
+        return checkBox;
+    }
+    public CheckBox getCheckBox3() {
+        CheckBox checkBox = new CheckBox("清空积累的功德");
+        checkBox.setTextFill(Color.valueOf("#092053"));
+        checkBox.setId("ifclear");
+        checkBox.setLayoutX(200);
+        checkBox.setLayoutY(30);
         checkBox.setAlignment(Pos.TOP_LEFT);
         return checkBox;
     }
@@ -59,6 +71,7 @@ public class MuYuPageContent {
     private HBox getColorChoices(){
         HBox lineChoices = new HBox();
         Label label = new Label("■极致色彩");
+        label.setTextFill(Color.valueOf("#092053"));
         VBox choices = new VBox();
         HBox sqaure = new HBox();
         sqaure.setPrefHeight(15);
@@ -70,6 +83,7 @@ public class MuYuPageContent {
     private HBox getLineChoices(){
         HBox lineChoices = new HBox();
         Label label = new Label("■简约线条");
+        label.setTextFill(Color.valueOf("#092053"));
         VBox choices = new VBox();
         HBox sqaure = new HBox();
         sqaure.setPrefHeight(15);
@@ -82,6 +96,7 @@ public class MuYuPageContent {
     public HBox getChoice(String loadMode,String hint) {
         HBox choice = new HBox();
         RadioButton radioButton = new RadioButton(hint);
+        radioButton.setTextFill(Color.valueOf("#092053"));
         radioButton.setToggleGroup(toggleGroup);
         radios.push(new MuYuRadio(radioButton,loadMode));
         if(radios.size()==1)
@@ -97,6 +112,7 @@ public class MuYuPageContent {
     private void openMuYu(){
         CheckBox ifSum = (CheckBox) pageContent.getChildren().get(0);
         CheckBox ifRandomm = (CheckBox) pageContent.getChildren().get(1);
+        CheckBox ifClear = (CheckBox) pageContent.getChildren().get(2);
         String mode ="line1";
         for(MuYuRadio muYuRadio:radios){
             if(muYuRadio.radio.isSelected()){
@@ -104,7 +120,7 @@ public class MuYuPageContent {
                 break;
             }
         }
-        MuYuController.getInstance().newInit(ifSum.isSelected(),ifRandomm.isSelected(),mode);
+        MuYuController.getInstance().newInit(ifSum.isSelected(),ifRandomm.isSelected(),ifClear.isSelected(),mode);
     }
     private Button getStartButton(){
         Button startButton = new Button("确定");

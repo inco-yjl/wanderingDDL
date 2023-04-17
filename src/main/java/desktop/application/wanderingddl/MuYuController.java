@@ -2,6 +2,7 @@ package desktop.application.wanderingddl;
 
 import desktop.application.wanderingddl.MinWindow;
 import desktop.application.wanderingddl.tools.DragUtil;
+import desktop.application.wanderingddl.tools.SaverAndLoader;
 import javafx.animation.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -24,6 +25,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
 import javax.sound.sampled.AudioInputStream;
@@ -58,7 +60,9 @@ public class MuYuController extends ContentController {
         }
         return muYuController;
     }
-
+    public void setCount(int count) {
+        this.count = count;
+    }
     /**
      *  功德计数设置更新
      */
@@ -76,10 +80,11 @@ public class MuYuController extends ContentController {
         }
     }
     //设置完启动入口
-    public void newInit(boolean ifSum,boolean ifRandom,String mode){
+    public void newInit(boolean ifSum,boolean ifRandom,boolean ifClear,String mode){
         try {
             this.ifSum = ifSum;
             this.ifRandom = ifRandom;
+            if(ifClear)this.count=0;
             setMode(mode,"2");
             setWidth(200);
             this.start(stage);
@@ -112,6 +117,8 @@ public class MuYuController extends ContentController {
         header.setBackground(new Background(bImg));
         if(index==1){
             setEffect(header);
+        }else if(index==0){
+            setEffect2(header);
         }else header.setEffect(null);
     }
 
@@ -164,6 +171,8 @@ public class MuYuController extends ContentController {
                 new BackgroundSize(45,45,true,true,true,false));
         if(nowMode.mode.equals("line2"))
             setEffect(header);
+        else if(nowMode.mode.equals("line1")){
+            setEffect2(header);}
         else header.setEffect(null);
         header.setPrefWidth(width);
         header.setPrefHeight(width*nowMode.headRatio);
@@ -270,7 +279,12 @@ public void dadada(String index) {
         ds.setColor(Color.valueOf("#aaaaaa"));
         muyu.setEffect(ds);
     }
-
+    private void setEffect2(HBox muyu) {
+        DropShadow ds = new DropShadow();
+        ds.setOffsetY(0f);
+        ds.setColor(Color.valueOf("#333333"));
+        muyu.setEffect(ds);
+    }
 
 }
 

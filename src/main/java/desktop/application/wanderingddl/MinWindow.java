@@ -12,9 +12,11 @@ import java.awt.event.MouseEvent;
 import java.net.URL;
 
 
-
+import desktop.application.wanderingddl.tools.SaverAndLoader;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * 自定义系统托盘(单例模式)
@@ -95,6 +97,7 @@ public class MinWindow {
         showListener = e -> Platform.runLater(() -> showStage(ApplicationController.stage));
         //行为事件: 点击"退出"按钮, 就退出系统
         exitListener = e -> {
+            SaverAndLoader.tool.saveMuYuMerit(MuYuController.getInstance().count);
             System.exit(0);
         };
         //鼠标行为事件: 单机显示stage
