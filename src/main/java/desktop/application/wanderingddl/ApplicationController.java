@@ -96,7 +96,7 @@ public class ApplicationController extends Application {
         textField_1.setId("4");
         textField_1.setLayoutX(52);
         textField_1.setLayoutY(200);
-        textField_1.setPrefHeight(25);
+        textField_1.setPrefHeight(38);
         textField_1.setPrefWidth(140);
         textField_1.getStyleClass().add("start-textField");
         textField_1.getStylesheets().addAll((getClass().getResource("MainContent/style/start.css").toExternalForm()));
@@ -112,7 +112,7 @@ public class ApplicationController extends Application {
 
         Label label_days = new Label("days");
         label_days.setId("6");
-        label_days.setLayoutX(230);
+        label_days.setLayoutX(225);
         label_days.setLayoutY(205);
         label_days.getStyleClass().add("hint");
         label_days.getStylesheets().addAll((getClass().getResource("MainContent/style/start.css").toExternalForm()));
@@ -121,9 +121,9 @@ public class ApplicationController extends Application {
 
         TextField textField_2 = new TextField(",wait for it patiently");
         textField_2.setId("7");
-        textField_2.setLayoutX(280);
+        textField_2.setLayoutX(290);
         textField_2.setLayoutY(200);
-        textField_2.setPrefHeight(25);
+        textField_2.setPrefHeight(38);
         textField_2.setPrefWidth(150);
         textField_2.getStyleClass().add("start-textField");
         textField_2.getStylesheets().addAll((getClass().getResource("MainContent/style/start.css").toExternalForm()));
@@ -132,13 +132,18 @@ public class ApplicationController extends Application {
             @Override
             public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
                 label_x.setText(newValue.toString());
+                String timeCount = label_days.getText();
+                if(isSingle(label_x))label_days.setText(singleVer(timeCount));
+                else label_days.setText(pluralVer(timeCount));
             }
         });
 
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 select_ddl.setText(((MenuItem) e.getSource()).getText());
-                label_days.setText(Chi2Eng(((MenuItem) e.getSource()).getText()));
+                String timeCount = ((MenuItem) e.getSource()).getText();
+                if(isSingle(label_x))label_days.setText(singleVer(timeCount));
+                else label_days.setText(pluralVer(timeCount));
             }
         };
 
@@ -149,7 +154,25 @@ public class ApplicationController extends Application {
 
         PageFactory.addNode(0,spinner,select_ddl,textField_1,label_x,label_days,textField_2);
     }
-
+    private boolean isSingle(Label label) {
+        System.out.println(label.getText());
+        String str= label.getText();
+        int number = Integer.parseInt(str);
+        if(number<2) return true;
+        else return  false;
+    }
+    private String singleVer(String timeCount){
+        timeCount = Chi2Eng(timeCount);
+        if(timeCount.charAt(timeCount.length()-1)=='s') {
+            return timeCount.substring(0,timeCount.length()-1);
+        }else return timeCount;
+    }
+    private String pluralVer(String timeCount){
+        timeCount = Chi2Eng(timeCount);
+        if(timeCount.charAt(timeCount.length()-1)=='s') {
+            return timeCount;
+        }else return timeCount+"s";
+    }
     private String connectSentences(String[] sentences) {
         String result = new String("");
         for (int i = 0; i < sentences.length; i++)

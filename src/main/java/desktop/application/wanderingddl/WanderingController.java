@@ -1,11 +1,9 @@
 package desktop.application.wanderingddl;
 
 import desktop.application.wanderingddl.tools.DragUtil;
-import javafx.application.Application;
-import javafx.geometry.Bounds;
-import javafx.geometry.Insets;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
@@ -18,11 +16,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 //TODO:联系时钟
 public class WanderingController extends ContentController {
@@ -46,7 +44,14 @@ public class WanderingController extends ContentController {
         }
         return wanderingController;
     }
-
+    public void countDown(){
+        int originNumber = Integer.parseInt(texts[2].getText());
+        if(originNumber>0)originNumber--;
+        if(stage.isShowing()) {
+            Pane all = (Pane) stage.getScene().getRoot();
+            ((Label)all.lookup("#countDownNumber")).setText(originNumber+"");//x
+        }
+    }
     private void loadFont() {
         w_engFont = Font.loadFont(Objects.requireNonNull(getClass().getResource("MainContent/font/Alte DIN 1451 Mittelschrift gepraegt Regular.ttf")).toExternalForm(), 90);
         w_znFont = Font.loadFont(getClass().getResource("MainContent/font/znFont.ttf").toExternalForm(), 36);
@@ -70,9 +75,31 @@ public class WanderingController extends ContentController {
             for(int i =0;i<5;i++)
                 strings[i]=sentences[i];
             this.start(stage);
+            addTimer(sentences[3]);
         }catch (Exception e){
             System.out.println(e);
         }
+    }
+    protected void addTimer(String timeCount) {
+        int period = 3600*1000;
+        if(timeCount.equals("天")) {
+            System.out.println(1);
+            period = period*24;
+        }
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        countDown();
+                    }
+
+                });
+            }
+        }, period, period);
+
     }
     @Override
     public void start(Stage stage) throws IOException {
@@ -138,6 +165,7 @@ public class WanderingController extends ContentController {
     }
 
     private void setNumFont(Label label) {
+        label.setId("countDownNumber");
         label.setAlignment(Pos.TOP_RIGHT);
         label.setFont(w_engFont);
         label.setPrefHeight(80);

@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="wanderingDDL.main">
+    <output-path>$PROJECT_DIR$/out/artifacts/wanderingDDL_main</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="desktop.application.wanderingddl.ApplicationController" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="WanderingDDL" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="wanderingDDL_main.jar">
+        <element id="module-output" name="wanderingDDL.main" />
+      </element>
+    </root>
+  </artifact>
+</component>

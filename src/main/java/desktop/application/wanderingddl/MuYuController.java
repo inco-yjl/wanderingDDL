@@ -162,7 +162,7 @@ public class MuYuController extends ContentController {
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(45,45,true,true,true,false));
-        if(nowMode.mode=="line2")
+        if(nowMode.mode.equals("line2"))
             setEffect(header);
         else header.setEffect(null);
         header.setPrefWidth(width);

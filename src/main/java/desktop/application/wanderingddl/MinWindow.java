@@ -34,9 +34,9 @@ public class MinWindow {
         Platform.setImplicitExit(false);
         //菜单项(打开)中文乱码的问题是编译器的锅,如果使用IDEA,需要在Run-Edit Configuration在LoginApplication中的VM Options中添加-Dfile.encoding=GBK
         //如果使用Eclipse,需要右键Run as-选择Run Configuration,在第二栏Arguments选项中的VM Options中添加-Dfile.encoding=GBK
-        showItem = new MenuItem("设置");
+        showItem = new MenuItem("setting");
         //菜单项(退出)
-        exitItem = new MenuItem("退出");
+        exitItem = new MenuItem("quit");
         //此处不能选择ico格式的图片,要使用16*16的png格式的图片
         URL url = MinWindow.class.getResource("Config/source/icon.png");
         Image image = Toolkit.getDefaultToolkit().getImage(url);

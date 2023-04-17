@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="322.0" maxWidth="502.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="500.0" style="-fx-max-height: 320px; -fx-max-width: 500px;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController">
+<Pane maxHeight="322.0" maxWidth="502.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="500.0" style="-fx-max-height: 320px; -fx-max-width: 500px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.application.wanderingddl.ApplicationController">
     <children>
         <TextField fx:id="0" layoutX="145.0" layoutY="42.0" prefHeight="38.0" prefWidth="241.0" styleClass="start-textField" stylesheets="@style/start.css" />
         <TextField fx:id="1" layoutX="144.0" layoutY="95.0" prefHeight="38.0" prefWidth="241.0" styleClass="start-textField" stylesheets="@style/start.css" />
 
 
-        <Button layoutX="104.0" layoutY="243.0" mnemonicParsing="false" onAction="#openWanderingUI" prefHeight="30.0" prefWidth="116.0" styleClass="start-btn" stylesheets="@style/start.css" text="确定" />
+        <Button layoutX="103.0" layoutY="261.0" mnemonicParsing="false" onAction="#openWanderingUI" prefHeight="30.0" prefWidth="116.0" styleClass="start-btn" stylesheets="@style/start.css" text="确定" />
         <Label layoutX="52.0" layoutY="52.0" styleClass="hint" stylesheets="@style/start.css" text="第一排提示字" textFill="#092053">
             <font>
                 <Font name="Consolas" size="13.0" />
@@ -28,7 +28,7 @@
                 <Font name="Consolas" size="13.0" />
             </font>
         </Label>
-      <Button layoutX="282.0" layoutY="243.0" mnemonicParsing="false" onAction="#openWanderingUI_with_ji" prefHeight="30.0" prefWidth="116.0" styleClass="start-btn" stylesheets="@style/start.css" text="大声地确定" />
+      <Button layoutX="281.0" layoutY="261.0" mnemonicParsing="false" onAction="#openWanderingUI_with_ji" prefHeight="30.0" prefWidth="116.0" styleClass="start-btn" stylesheets="@style/start.css" text="大声地确定" />
 
     </children>
 </Pane>
