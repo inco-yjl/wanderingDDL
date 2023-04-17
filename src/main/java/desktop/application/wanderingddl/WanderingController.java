@@ -81,12 +81,18 @@ public class WanderingController extends ContentController {
         }
     }
     protected void addTimer(String timeCount) {
-        int period = 3600*1000;
-        if(timeCount.equals("天")) {
-            System.out.println(1);
-            period = period*24;
+        int period = 1000;
+        switch (timeCount) {
+            case "分" -> period = period * 60;
+            case "小时" -> period = period * 60 * 60;
+            case "天" -> {
+                System.out.println(1);
+                period = period * 24;
+            }
+            case "周", "年" -> {
+                return;
+            }
         }
-
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {

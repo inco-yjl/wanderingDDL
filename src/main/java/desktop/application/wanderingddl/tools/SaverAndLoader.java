@@ -76,6 +76,10 @@ public class SaverAndLoader {
                 return " weeks";
             case "月":
                 return " months";
+            case "秒":
+                return "seconds";
+            case "分":
+                return "minutes";
             default:
                 break;
         }
@@ -87,14 +91,13 @@ public class SaverAndLoader {
         Date nowDate = new Date();
         long time=0;
         long between = nowDate.getTime() - saveDate.getTime();
-        if(timeCount.equals("days")) {
-           time = between/(24*60*60*1000);
-        } else if (timeCount.equals("hours")){
-            time=between/(60*60*1000);
-        }else if(timeCount.equals("weeks")) {
-            time = between/(24*60*60*1000*7);
-        } else if (timeCount.equals("months")) {
-            time = between/(24*60*60*1000*7*30);
+        switch (timeCount) {
+            case "seconds" -> time = between / 1000;
+            case "minutes" -> time = between / (1000 * 60);
+            case "hours" -> time = between / (60 * 60 * 1000);
+            case "days" -> time = between / (24 * 60 * 60 * 1000);
+            case "weeks" -> time = between / (24 * 60 * 60 * 1000 * 7);
+            case "months" -> time = between / (24L * 60 * 60 * 1000 * 7 * 30);
         }
         int finalNumber = originNumber-(int)time;
         if(finalNumber<0) finalNumber=0;
