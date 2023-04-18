@@ -36,8 +36,9 @@ public class ApplicationController extends Application {
     public Button toDoListPage;
     public Button answerBookPage;
     public Button muyuPage;
-    private static int nowIndex=-1;
-    private static boolean[] newRoute = new boolean[]{true, true, true,true};
+    private static int nowIndex = -1;
+    private static boolean[] newRoute = new boolean[]{true, true, true, true};
+
     @Override
     public void start(Stage stage) throws IOException {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("Config/source/icon.png")));
@@ -52,7 +53,7 @@ public class ApplicationController extends Application {
         Pane answerBookPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/AnswerBookPage.fxml"));
         Pane muYuPageContent = new MuYuPageContent().getMuYuPageContent();
 
-        Node[] pages = {wanderingPageContent, toDoListPageContent,answerBookPageContent,muYuPageContent};
+        Node[] pages = {wanderingPageContent, toDoListPageContent, answerBookPageContent, muYuPageContent};
         PageFactory.setPages(pages);
 
         initWanderingSelect();
@@ -134,7 +135,7 @@ public class ApplicationController extends Application {
             public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
                 label_x.setText(newValue.toString());
                 String timeCount = label_days.getText();
-                if(isSingle(label_x))label_days.setText(singleVer(timeCount));
+                if (isSingle(label_x)) label_days.setText(singleVer(timeCount));
                 else label_days.setText(pluralVer(timeCount));
             }
         });
@@ -143,7 +144,7 @@ public class ApplicationController extends Application {
             public void handle(ActionEvent e) {
                 select_ddl.setText(((MenuItem) e.getSource()).getText());
                 String timeCount = ((MenuItem) e.getSource()).getText();
-                if(isSingle(label_x))label_days.setText(singleVer(timeCount));
+                if (isSingle(label_x)) label_days.setText(singleVer(timeCount));
                 else label_days.setText(pluralVer(timeCount));
             }
         };
@@ -153,27 +154,31 @@ public class ApplicationController extends Application {
         weeks.setOnAction(event);
         months.setOnAction(event);
 
-        PageFactory.addNode(0,spinner,select_ddl,textField_1,label_x,label_days,textField_2);
+        PageFactory.addNode(0, spinner, select_ddl, textField_1, label_x, label_days, textField_2);
     }
+
     private boolean isSingle(Label label) {
         System.out.println(label.getText());
-        String str= label.getText();
+        String str = label.getText();
         int number = Integer.parseInt(str);
-        if(number<2) return true;
-        else return  false;
+        if (number < 2) return true;
+        else return false;
     }
-    private String singleVer(String timeCount){
+
+    private String singleVer(String timeCount) {
         timeCount = Chi2Eng(timeCount);
-        if(timeCount.charAt(timeCount.length()-1)=='s') {
-            return timeCount.substring(0,timeCount.length()-1);
-        }else return timeCount;
+        if (timeCount.charAt(timeCount.length() - 1) == 's') {
+            return timeCount.substring(0, timeCount.length() - 1);
+        } else return timeCount;
     }
-    private String pluralVer(String timeCount){
+
+    private String pluralVer(String timeCount) {
         timeCount = Chi2Eng(timeCount);
-        if(timeCount.charAt(timeCount.length()-1)=='s') {
+        if (timeCount.charAt(timeCount.length() - 1) == 's') {
             return timeCount;
-        }else return timeCount+"s";
+        } else return timeCount + "s";
     }
+
     private String connectSentences(String[] sentences) {
         String result = new String("");
         for (int i = 0; i < sentences.length; i++)
@@ -206,13 +211,15 @@ public class ApplicationController extends Application {
         stage.setIconified(true);
     }
 
-    private void setButtonPressed(int index){
-        ButtonStyleController.setPressed(index,wanderingPage,toDoListPage,answerBookPage,muyuPage);
+    private void setButtonPressed(int index) {
+        ButtonStyleController.setPressed(index, wanderingPage, toDoListPage, answerBookPage, muyuPage);
     }
+
     @FXML
     protected void ToWanderingPage() {
         routePage(0);
     }
+
     @FXML
     protected void ToAnswerBookPage() {
         routePage(2);
@@ -222,10 +229,12 @@ public class ApplicationController extends Application {
     private void ToDoListPage() {
         routePage(1);
     }
+
     @FXML
-    private void MuyuPage(){
+    private void MuyuPage() {
         routePage(3);
     }
+
     @FXML
     protected void openWanderingUI() {
         String[] sentences = new String[6];
@@ -238,7 +247,7 @@ public class ApplicationController extends Application {
         String strings_5 = ((TextField) window.getRight().lookup("#7")).getText();
         sentences[4] = strings_4 + " " + sentences[2] + strings_3 + " " + strings_5;
         WanderingController.getInstance().newInit(sentences);
-        SaverAndLoader.tool.saveWanderingInput(new String[]{sentences[0],sentences[1],sentences[2],sentences[3],strings_4,strings_5});
+        SaverAndLoader.tool.saveWanderingInput(new String[]{sentences[0], sentences[1], sentences[2], sentences[3], strings_4, strings_5});
     }
 
     @FXML
@@ -253,6 +262,7 @@ public class ApplicationController extends Application {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
     }
+
     private String Chi2Eng(String sentences) {
         switch (sentences) {
             case "小时              ":
@@ -268,6 +278,7 @@ public class ApplicationController extends Application {
         }
         return sentences;
     }
+
     /**
      * 在倒计时关闭时也要自动更新输入界面；分为当前即为page0和不是两种情况，重新load
      * 对于木鱼，功德是一个实例变量，一定是最新的
@@ -282,16 +293,17 @@ public class ApplicationController extends Application {
                 node = new ToDoPageContent(SaverAndLoader.tool.loadToDoInput()).pageContent;
                 PageFactory.setPage(node);
             }
+
             window.setRight(node);
         } else {
-            newRoute[index]=true;
+            newRoute[index] = true;
         }
     }
-
     private void routePage(int index) {
         nowIndex = index;
         setButtonPressed(index);
         Node node = PageFactory.createPageService(index);
+
         if(newRoute[index] && index==1) {
             node = new ToDoPageContent(SaverAndLoader.tool.loadToDoInput()).pageContent;
             PageFactory.setPage(node);
@@ -303,7 +315,14 @@ public class ApplicationController extends Application {
         }
         window.setRight(node);
     }
+
     public static void main(String[] args) {
+        try {
+            String exe_name = System.getProperty("MY_EXECUTABLENAME");
+            ShortCutUtil.setAppStartup(exe_name);
+        } catch (Exception e) {
+            
+        }
         launch();
     }
 }
