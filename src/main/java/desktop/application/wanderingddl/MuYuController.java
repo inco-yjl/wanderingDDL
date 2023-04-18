@@ -141,9 +141,10 @@ public class MuYuController extends ContentController {
 
         stage.setScene(scene);
         DragUtil.addDragListener(stage,all);
-        if(!stage.isShowing())
+        if(!stage.isShowing()) {
+            MinWindow.getInstance().listen(3);
             stage.show();
-        MinWindow.getInstance().listen(stage);
+        }
         updatesumMode();
     }
     private Button getModebtn(){

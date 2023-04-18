@@ -36,7 +36,8 @@ public class ApplicationController extends Application {
     public Button toDoListPage;
     public Button answerBookPage;
     public Button muyuPage;
-    private boolean[] newRoute = new boolean[]{true, true, true,true};
+    private static int nowIndex=-1;
+    private static boolean[] newRoute = new boolean[]{true, true, true,true};
     @Override
     public void start(Stage stage) throws IOException {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("Config/source/icon.png")));
@@ -181,7 +182,6 @@ public class ApplicationController extends Application {
     }
 
     public void createScene(Parent root, HBox windowMenu, VBox mainContent) {
-
         BorderPane window = (BorderPane) root;
         ApplicationController.window = window;
         window.setTop(windowMenu);
@@ -193,6 +193,7 @@ public class ApplicationController extends Application {
         stage.setScene(scene);
         DragUtil.addDragListener(stage, window); //窗口拖拽
         stage.show();
+        MinWindow.getInstance();
     }
 
     @FXML
@@ -227,7 +228,7 @@ public class ApplicationController extends Application {
     }
     @FXML
     protected void openWanderingUI() {
-        String[] sentences = new String[5];
+        String[] sentences = new String[6];
         sentences[0] = ((TextField) window.getRight().lookup("#0")).getText();//某某作业
         sentences[1] = ((TextField) window.getRight().lookup("#1")).getText();//还有
         sentences[2] = ((Spinner) window.getRight().lookup("#2")).getValue().toString();//x
@@ -267,12 +268,27 @@ public class ApplicationController extends Application {
         }
         return sentences;
     }
+    /**
+     * 在倒计时关闭时也要自动更新输入界面；分为当前即为page0和不是两种情况，重新load
+     * 对于木鱼，功德是一个实例变量，一定是最新的
+     */
+    public static void reloadPage(int index) {
+        if(nowIndex == index) {
+            Node node = PageFactory.createPageService(index);
+            SaverAndLoader.tool.loadPage(node,index);
+            window.setRight(node);
+        } else {
+            newRoute[index]=true;
+        }
+    }
 
     private void routePage(int index) {
+        nowIndex = index;
         setButtonPressed(index);
         Node node = PageFactory.createPageService(index);
         if(newRoute[index]) {
             SaverAndLoader.tool.loadPage(node,index);
+            newRoute[index] = false;
         }
         window.setRight(node);
     }

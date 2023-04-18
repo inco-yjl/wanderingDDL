@@ -117,6 +117,16 @@ public class SaverAndLoader {
         jsonObject.put("time-stamp", nowDate.toString());
         save(jsonObject,"wanderingDDL");
     }
+    public void saveWanderingInput(String data){
+        Date nowDate = new Date();
+        JSONObject jsonObject = read("wanderingDDL");
+
+        JSONArray jsonstr = jsonObject.getJSONArray("last-modified");
+        jsonstr.set(2,data);
+        jsonObject.put("last-modified",jsonstr);
+        jsonObject.put("time-stamp", nowDate.toString());
+        save(jsonObject,"wanderingDDL");
+    }
     public void saveMuYuMerit(int number) {
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("last-merit",number);

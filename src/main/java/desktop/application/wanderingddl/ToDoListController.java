@@ -94,7 +94,7 @@ public class ToDoListController extends ContentController {
         DragUtil.addDragListener(stage,all);
         if(!stage.isShowing())
             stage.show();
-        MinWindow.getInstance().listen(stage);
+        MinWindow.getInstance().listen(2);
         setDeleters();
     }
 

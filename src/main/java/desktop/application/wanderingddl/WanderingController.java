@@ -1,6 +1,7 @@
 package desktop.application.wanderingddl;
 
 import desktop.application.wanderingddl.tools.DragUtil;
+import desktop.application.wanderingddl.tools.SaverAndLoader;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -22,7 +23,6 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
-//TODO:联系时钟
 public class WanderingController extends ContentController {
     private Font w_engFont;
     private Font w_znFont;
@@ -46,9 +46,12 @@ public class WanderingController extends ContentController {
     }
     public void countDown(){
         int originNumber = Integer.parseInt(texts[2].getText());
-        if(originNumber>0)originNumber--;
         if(stage.isShowing()) {
             Pane all = (Pane) stage.getScene().getRoot();
+            Label engText = (Label)all.lookup("#engText");
+            String originText = engText.getText();
+            originText.replace(originNumber+"",(originNumber-1+""));
+            if(originNumber>0)originNumber--;
             ((Label)all.lookup("#countDownNumber")).setText(originNumber+"");//x
         }
     }
@@ -80,14 +83,14 @@ public class WanderingController extends ContentController {
             System.out.println(e);
         }
     }
+
     protected void addTimer(String timeCount) {
         int period = 1000;
         switch (timeCount) {
             case "分" -> period = period * 60;
             case "小时" -> period = period * 60 * 60;
             case "天" -> {
-                System.out.println(1);
-                period = period * 24;
+                period = period * 60 * 60 * 24;
             }
             case "周", "年" -> {
                 return;
@@ -122,14 +125,17 @@ public class WanderingController extends ContentController {
         all.setStyle("-fx-background-color: transparent;");
 
         DragUtil.addDragListener(stage,all);
-        if(!stage.isShowing())
+        if(!stage.isShowing()){
             stage.show();
-        MinWindow.getInstance().listen(stage);
+            MinWindow.getInstance().listen(1);
+        }
         stage.setX(Screen.getPrimary().getBounds().getWidth() - 480);
         stage.setY(Screen.getPrimary().getBounds().getHeight() - 262);
 
     }
-
+    public void saveData(){
+        SaverAndLoader.tool.saveWanderingInput(texts[2].getText());
+    }
     private HBox getHbox() {
         HBox hbox = new HBox();
         hbox.setAlignment(Pos.TOP_RIGHT);
@@ -208,6 +214,7 @@ public class WanderingController extends ContentController {
         scene.setFill(null);
         stage.setScene(scene);
         stage.show();
+        MinWindow.getInstance().listen(1);
         VBox leftVbox = (VBox)hBox.getChildren().get(0);//left
         VBox rightbox = (VBox)hBox.getChildren().get(2);
         startX = leftVbox.getChildren().get(1).getBoundsInParent().getMaxX()-leftVbox.getChildren().get(1).getLayoutBounds().getWidth();
@@ -234,6 +241,7 @@ public class WanderingController extends ContentController {
 
     private Label getEngText() {
         Label label = new Label(strings[4].toUpperCase());
+        label.setId("engText");
         setTextFont(label);
         label.setWrapText(true);
         label.setPrefWidth(engLength+30);//设置固定宽度，以控制自动换行
