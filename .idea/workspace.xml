@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="wanderingDDL.main:jar" />
+      <artifact name="wanderingDDL:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,11 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/wanderingDDL/11.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/wanderingDDL_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ShortCutUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/MuYuMerit.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/MuYuMerit.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wanderingDDL" beforeDir="false" afterPath="$PROJECT_DIR$/wanderingDDL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/wanderingDDL.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/wanderingDDL.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,12 +102,12 @@
     "Repository.Attach.Sources": "false",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/code/java/wanderingDDL",
+    "last_opened_file_path": "E:/",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel",
@@ -259,6 +260,7 @@
       <workItem from="1681719129333" duration="5622000" />
       <workItem from="1681733298932" duration="3873000" />
       <workItem from="1681785684698" duration="13838000" />
+      <workItem from="1681810134257" duration="2057000" />
     </task>
     <servers />
   </component>
