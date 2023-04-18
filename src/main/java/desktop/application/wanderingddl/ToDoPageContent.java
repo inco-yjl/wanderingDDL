@@ -17,10 +17,20 @@ public class ToDoPageContent {
     ScrollPane scrollPane;
     VBox allItems;
     LinkedList<String> items;
+    private LinkedList<ToDoItem> toDoItems ;
     int mode;
     public ToDoPageContent() {
         super();
         initItems();
+        initPane();
+    }
+    public ToDoPageContent(LinkedList<ToDoItem> toDoItems) {
+        super();
+        this.toDoItems = toDoItems;
+        items  = new LinkedList<String>();
+        for(ToDoItem toDoItem:this.toDoItems) {
+            items.add(toDoItem.getText());
+        }
         initPane();
     }
     public Pane getToDoPageContent(){
@@ -28,6 +38,7 @@ public class ToDoPageContent {
     }
     private void initItems(){
         items  = new LinkedList<String>();
+        toDoItems = new LinkedList<ToDoItem>();
     }
     private void initPane() {
         pageContent = new Pane();
@@ -35,7 +46,7 @@ public class ToDoPageContent {
         pageContent.setMaxWidth(502);
         setScrollPane();
 
-        pageContent.getChildren().addAll(scrollPane,getRadioGroup(),getStartButton());
+        pageContent.getChildren().addAll(scrollPane,getCheckBox(),getRadioGroup(),getStartButton());
         pageContent.getStylesheets().add((getClass().getResource("MainContent/style/start.css").toExternalForm()));
 
     }
@@ -48,6 +59,14 @@ public class ToDoPageContent {
         setAllItems();
         scrollPane.setContent(allItems);
     }
+    private CheckBox getCheckBox(){
+        CheckBox checkBox = new CheckBox("移除已完成事项");
+        checkBox.setTextFill(Color.valueOf("#092053"));
+        checkBox.setId("ifRemove");
+        checkBox.setLayoutY(310);
+        checkBox.setLayoutX(60);
+        return checkBox;
+    }
     private HBox getRadioGroup(){
         HBox radiogroup = new HBox();
         VBox mode1 = new VBox();
@@ -57,7 +76,7 @@ public class ToDoPageContent {
         mode1.getChildren().addAll(radioButtons[0],getModeImg()[0]);
         mode2.getChildren().addAll(radioButtons[1],getModeImg()[1]);
 
-        radiogroup.setLayoutX(140);
+        radiogroup.setLayoutX(200);
         radiogroup.setLayoutY(310);
         separator.setPrefWidth(70);
         radiogroup.getChildren().addAll(mode2,separator,mode1);
@@ -102,6 +121,9 @@ public class ToDoPageContent {
         allItems = new VBox();
         allItems.setPrefWidth(483);
         allItems.getChildren().add(getHeader());
+        for(int i=1;i<toDoItems.size();i++) {
+            addItem(i);
+        }
         allItems.setPrefHeight(items.size()*40);
     }
     private HBox getHeader() {
@@ -112,7 +134,7 @@ public class ToDoPageContent {
         HBox square = new HBox();
         square.setPrefWidth(20);
 
-        header.getChildren().addAll(getTitle(),getInput(),square,getAddButton());
+        header.getChildren().addAll(getTitle(),getInput(0),square,getAddButton());
         return header;
     }
     private Label getTitle(){
@@ -128,9 +150,15 @@ public class ToDoPageContent {
         title.setPrefWidth(110);
         return title;
     }
-    private TextField getInput(){
+
+    private TextField getInput(int index) {
         TextField input = new TextField();
-        items.add("");
+        if(toDoItems.size()>=index+1) {
+            input.setText(toDoItems.get(index).getText());
+        }else {
+            items.add("");
+            toDoItems.add(new ToDoItem(""));
+        }
         return input;
     }
     private Button getAddButton(){
@@ -152,8 +180,23 @@ public class ToDoPageContent {
         minusButton.setOnAction(e->{
             allItems.getChildren().remove(item);
             items.remove(index);
+            toDoItems.remove(index);
         });
         return minusButton;
+    }
+    private void addItem(int index) {
+        if(index==10){
+            return;
+        }
+        HBox item= new HBox();
+        item.setAlignment(Pos.CENTER);
+        item.setMinHeight(40);
+
+        HBox square = new HBox();
+        square.setPrefWidth(20);
+
+        item.getChildren().addAll(getSpace(),getInput(index),square,getMinusButton(item));
+        allItems.getChildren().add(item);
     }
     private void addItem(){
         if (items.size()==10) {
@@ -166,7 +209,7 @@ public class ToDoPageContent {
         HBox square = new HBox();
         square.setPrefWidth(20);
 
-        item.getChildren().addAll(getSpace(),getInput(),square,getMinusButton(item));
+        item.getChildren().addAll(getSpace(),getInput(toDoItems.size()),square,getMinusButton(item));
         allItems.getChildren().add(item);
     }
     private void openToDoList(){
@@ -178,8 +221,9 @@ public class ToDoPageContent {
             if(strings[i]==null) {
                 strings[i]="";
             }
+            toDoItems.get(i).setText(strings[i]);
         }
-        ToDoListController.getInstance().newInit(strings,mode);
+        ToDoListController.getInstance().newInit(toDoItems,mode, ((CheckBox)pageContent.lookup("#ifRemove")).isSelected());
     }
 
     private Button getStartButton(){
@@ -196,3 +240,4 @@ public class ToDoPageContent {
     }
 
 }
+

@@ -274,8 +274,14 @@ public class ApplicationController extends Application {
      */
     public static void reloadPage(int index) {
         if(nowIndex == index) {
-            Node node = PageFactory.createPageService(index);
-            SaverAndLoader.tool.loadPage(node,index);
+            Node node;
+            if(index==0) {
+                node= PageFactory.createPageService(index);
+                SaverAndLoader.tool.loadPage(node,index);
+            } else {
+                node = new ToDoPageContent(SaverAndLoader.tool.loadToDoInput()).pageContent;
+                PageFactory.setPage(node);
+            }
             window.setRight(node);
         } else {
             newRoute[index]=true;
@@ -286,7 +292,12 @@ public class ApplicationController extends Application {
         nowIndex = index;
         setButtonPressed(index);
         Node node = PageFactory.createPageService(index);
-        if(newRoute[index]) {
+        if(newRoute[index] && index==1) {
+            node = new ToDoPageContent(SaverAndLoader.tool.loadToDoInput()).pageContent;
+            PageFactory.setPage(node);
+            newRoute[index] = false;
+        }
+        else if(newRoute[index]) {
             SaverAndLoader.tool.loadPage(node,index);
             newRoute[index] = false;
         }

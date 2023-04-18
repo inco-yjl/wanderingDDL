@@ -188,11 +188,13 @@ class SingleWindow{
        WanderingController.getInstance().saveData();
         Platform.runLater(() ->{
             ApplicationController.reloadPage(0);
-                WanderingController.getInstance().closeStage();
+            WanderingController.getInstance().closeStage();
         });
     }
     private void saveToDo(){
+        ToDoListController.getInstance().saveData();
         Platform.runLater(() ->{
+            ApplicationController.reloadPage(1);
             ToDoListController.getInstance().closeStage();
         });
     }

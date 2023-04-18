@@ -4,16 +4,17 @@ import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import desktop.application.wanderingddl.AnswerBookController;
 import desktop.application.wanderingddl.MuYuController;
+import desktop.application.wanderingddl.ToDoItem;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
 
 import java.io.*;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+
 
 public class SaverAndLoader {
     private String  pathHead ="src/main/resources/desktop/application/wanderingddl/Cache/";
@@ -32,7 +33,7 @@ public class SaverAndLoader {
     public void loadPage(Node node, int index) {
         switch (index) {
             case 0 -> loadWanderingInput(node);
-            case 1 -> loadToDoInput(node);
+            case 1 -> loadToDoInput();
             case 2 -> loadAnswerBook();
             case 3 -> loadMerit();
             default -> {
@@ -44,7 +45,21 @@ public class SaverAndLoader {
         AnswerBookController.setAnswers(jsa);
     }
 
-    public void loadToDoInput(Node node) {}
+    public LinkedList<ToDoItem> loadToDoInput() {
+        JSONObject jsonObject = read("ToDoList");
+        JSONArray jsonArray = jsonObject.getJSONArray("toDoItems");
+
+        LinkedList<ToDoItem> toDoItems = new LinkedList<ToDoItem>();
+        for(int i=0;i<jsonArray.size();i++) {
+            JSONObject object=jsonArray.getJSONObject(i);
+            final ToDoItem toDoItem = new ToDoItem(object.getString("text"));
+            if(object.getString("checked").equals("true")){
+                toDoItem.setChecked();
+            }
+            toDoItems.add(toDoItem);
+        }
+        return toDoItems;
+    }
 
     public void loadWanderingInput(Node node){
         JSONObject jsonObject = read("wanderingDDL");
@@ -126,6 +141,12 @@ public class SaverAndLoader {
         jsonObject.put("last-modified",jsonstr);
         jsonObject.put("time-stamp", nowDate.toString());
         save(jsonObject,"wanderingDDL");
+    }
+    public void saveToDoItems(LinkedList<ToDoItem> toDoItems){
+        JSONArray jsonArray = JSONArray.from(toDoItems);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("toDoItems",jsonArray);
+        save(jsonObject,"ToDoList");
     }
     public void saveMuYuMerit(int number) {
         JSONObject jsonObject=new JSONObject();

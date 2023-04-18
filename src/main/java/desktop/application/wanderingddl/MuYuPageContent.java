@@ -40,6 +40,7 @@ public class MuYuPageContent {
         checkBox.setLayoutX(20);
         checkBox.setLayoutY(30);
         checkBox.setAlignment(Pos.TOP_LEFT);
+        checkBox.setSelected(true);
         return checkBox;
     }
     public CheckBox getCheckBox2(){

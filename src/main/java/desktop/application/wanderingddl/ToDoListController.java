@@ -1,8 +1,12 @@
 package desktop.application.wanderingddl;
 
 import desktop.application.wanderingddl.tools.DragUtil;
+import desktop.application.wanderingddl.tools.SaverAndLoader;
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.VPos;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -16,11 +20,16 @@ import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 
-//  TODO:两种模式，完成的移除/完成的仍显示
+
+//  两种模式，完成的移除/完成的仍显示
 //  多种模板
 public class ToDoListController extends ContentController {
     static private ToDoListController toDoListController;
@@ -33,6 +42,7 @@ public class ToDoListController extends ContentController {
     private ToDoMode nowMode;
     private double width;
     private Font qfont;
+    private boolean ifRemove;
     private ToDoListController(){
         super();
         this.loadFont();
@@ -48,23 +58,51 @@ public class ToDoListController extends ContentController {
         return toDoListController;
     }
     //设置完启动入口
-    public void newInit(String[] sentences,int mode){
-        try {
+    public void newInit(LinkedList<ToDoItem> toDoItems,int mode,boolean ifRemove){
+
             //获取传参
-            toDoItems = new LinkedList<>();
-            for(int i=sentences.length-1;i>=0;i--) {
-                String string = sentences[i];
-                toDoItems.push(new ToDoItem(string));
+            this.toDoItems = toDoItems;
+            this.ifRemove = ifRemove;
+            if(ifRemove) {
+                for(ToDoItem toDoItem:toDoItems){
+                    toDoItem.setUnCheckd();
+                }
             }
             setMode(mode);
             setWidth(300);
             setTexts();
+        try {
             this.start(stage);
         }catch (Exception e){
             System.out.println(e);
         }
     }
-    //  设置背景色，可透明
+    private void setAnimation(Node node){
+        FadeTransition ft = new FadeTransition(Duration.millis(1000),node);
+        ft.setFromValue(1.0);
+        ft.setToValue(0.0);
+        ft.play();
+    }
+    protected void addTimer(Text text) {
+        int period = 1100;
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        removeTotalLy(text);
+                    }
+
+                });
+            }
+        }, period);
+
+    }
+    public void saveData(){
+        toDoItems.removeIf(ToDoItem::isChecked);
+        SaverAndLoader.tool.saveToDoItems(toDoItems);
+    }
 
     private void setMode(int mode) {
         nowMode = new ToDoMode(mode);
@@ -88,6 +126,7 @@ public class ToDoListController extends ContentController {
         }
         all.getChildren().addAll(vBox);
         Scene scene = new Scene(all, width, width*nowMode.headRatio+toDoItems.size()* nowMode.lineRatio*width+ nowMode.bottomRatio*width);
+        stage.setHeight(scene.getHeight());
         scene.setFill(null);
 
         stage.setScene(scene);
@@ -96,6 +135,7 @@ public class ToDoListController extends ContentController {
             stage.show();
         MinWindow.getInstance().listen(2);
         setDeleters();
+        addDeleters(all);
     }
 
     //头部图片
@@ -125,7 +165,62 @@ public class ToDoListController extends ContentController {
         footer.setBackground(new Background(bImg));
         return footer;
     }
-    private void done(int i) {
+    public int findIndex(Text text) {
+        int index=-1;
+        for(int i=0;i<this.texts.length;i++) {
+            if (this.texts[i].equals(text))return i;
+        }
+       return index;
+    }
+    private void done(Text text,int abIndex) {
+        int i=findIndex(text);
+        System.out.print(text.getText()+" delete");
+        System.out.print(i);
+        if(ifRemove) {
+            //i是相对顺序
+            hideDelete(i,abIndex);
+        }else {
+            showDelete(i);
+        }
+    }
+    private void removeTotalLy(Text text) {
+        int i=findIndex(text);
+        Node root= stage.getScene().getRoot();
+        Pane all = (Pane) root;
+        stage.setHeight(stage.getScene().getHeight()- nowMode.lineRatio*width);
+        all.getChildren().remove(deleters[i]);
+        all.getChildren().remove(checks[i]);
+        ((VBox)all.getChildren().get(0)).getChildren().remove(i+1);
+        Text[] first=new Text[]{};
+        if(i>0)
+            first = Arrays.copyOfRange(texts,0,i);
+        Text[] last = new Text[]{};
+        if(this.texts.length>i+1)
+            last = Arrays.copyOfRange(texts,i+1,texts.length);
+
+        this.texts = Arrays.copyOf(first, first.length+last.length);
+        System.arraycopy(last, 0, texts, first.length, last.length);
+        System.out.println(this.texts.length);
+        for(Text text1:texts){
+            System.out.print(text1.getText()+" ");
+        }
+        System.out.println(texts.length);
+    }
+    private void hideDelete(int i,int abIndex) {
+        System.out.println(i);
+        Node root= stage.getScene().getRoot();
+        Pane all = (Pane) root;
+        toDoItems.get(abIndex).setChecked();
+        if(nowMode.mode==2) {
+            all.getChildren().add(checks[i]);
+            setAnimation(checks[i]);
+        }
+        all.getChildren().add(deleters[i]);
+        setAnimation(deleters[i]);
+        setAnimation(texts[i]);
+        addTimer(texts[i]);
+    }
+    private void showDelete(int i){
         Node root= stage.getScene().getRoot();
         Pane all = (Pane) root;
         if(toDoItems.get(i).isChecked()) {
@@ -141,7 +236,18 @@ public class ToDoListController extends ContentController {
             all.getChildren().add(deleters[i]);
             toDoItems.get(i).setChecked();
         }
-
+    }
+    private void addDeleters(Pane all){
+        for(int i=0;i<toDoItems.size();i++){
+            if(toDoItems.get(i).isChecked()) {
+                if(nowMode.mode==2) {
+                    if(!all.getChildren().contains(checks[i]))
+                        all.getChildren().add(checks[i]);
+                }
+                if(!all.getChildren().contains(deleters[i]))
+                    all.getChildren().add(deleters[i]);
+            }
+        }
     }
     //  删除线，样式的删除线有问题，遂手写
     //  根据checked判断
@@ -206,7 +312,6 @@ public class ToDoListController extends ContentController {
     //  初始化所有代办事件文字
     private void setTexts() {
         texts = new Text[toDoItems.size()];
-
         for(int i=0;i<texts.length;i++){
             texts[i] = new Text(toDoItems.get(i).getText());
             texts[i].setFont(qfont);
@@ -217,35 +322,15 @@ public class ToDoListController extends ContentController {
             }
             texts[i].setStyle("-fx-font-size: 26px;-fx-cursor: hand;");
             int now_index =i;
+            Text text = texts[now_index];
             texts[i].setOnMouseClicked(event->{
-                done(now_index);
+                done(text,now_index);
             });
         }
     }
 
 }
-class ToDoItem {
-    private boolean checked;
-    private String item;
-    public ToDoItem(String item) {
-        super();
-        this.item=item;
-        this.checked = false;
-    }
-    public boolean isChecked(){
-        return checked;
-    }
-    public void setChecked() {
-        this.checked = true;
-    }
-    public void setUnCheckd() {
-        this.checked = false;
-    }
-    public String getText() {
-        return item;
-    }
 
-}
 
 class ToDoMode {
     Image headImg;
