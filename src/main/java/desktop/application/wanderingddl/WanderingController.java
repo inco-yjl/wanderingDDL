@@ -92,7 +92,7 @@ public class WanderingController extends ContentController {
             case "天" -> {
                 period = period * 60 * 60 * 24;
             }
-            case "周", "年" -> {
+            case "月","周", "年" -> {
                 return;
             }
         }
