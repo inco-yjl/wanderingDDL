@@ -151,7 +151,6 @@ public class MuYuController extends ContentController {
         Button modebtn=new Button("随机木鱼");
         modebtn.setStyle("-fx-cursor: hand");
         modebtn.setOnAction(event -> {
-            System.out.println("change"+nowMode.mode);
             changemode();
         });
         return modebtn;
@@ -185,12 +184,7 @@ public class MuYuController extends ContentController {
         header.getChildren().add(labels);
 //        敲击木鱼事件
         header.setOnMouseClicked(event -> {
-            System.out.println("plus");
             count++;cntlab.setText(String.valueOf(count));
-            System.out.println("X:"+header.getLayoutX());
-            System.out.println("y:"+header.getLayoutY());
-            System.out.println("xl:"+header.getWidth());;
-            System.out.println("yl:"+header.getHeight());
             header.setPrefHeight(200);
             header.setPrefWidth(200);
 //            敲击声音

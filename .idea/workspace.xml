@@ -12,15 +12,8 @@
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
       <change afterPath="$PROJECT_DIR$/wanderingDDL/11.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ContentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MinWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MinWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/WanderingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/tools/SaverAndLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/tools/SaverAndLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/MuYuMerit.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/MuYuMerit.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/wanderingDDL.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/wanderingDDL.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wanderingDDL" beforeDir="false" afterPath="$PROJECT_DIR$/wanderingDDL" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,7 +258,7 @@
       <workItem from="1681465404018" duration="3032000" />
       <workItem from="1681719129333" duration="5622000" />
       <workItem from="1681733298932" duration="3873000" />
-      <workItem from="1681785684698" duration="12613000" />
+      <workItem from="1681785684698" duration="13838000" />
     </task>
     <servers />
   </component>
