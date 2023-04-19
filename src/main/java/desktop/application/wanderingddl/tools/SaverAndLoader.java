@@ -47,9 +47,12 @@ public class SaverAndLoader {
 
     public LinkedList<ToDoItem> loadToDoInput() {
         JSONObject jsonObject = read("ToDoList");
-        JSONArray jsonArray = jsonObject.getJSONArray("toDoItems");
-
         LinkedList<ToDoItem> toDoItems = new LinkedList<ToDoItem>();
+        if(jsonObject==null)
+            return toDoItems;
+        JSONArray jsonArray = jsonObject.getJSONArray("toDoItems");
+        if(jsonArray==null)
+            return toDoItems;
         for(int i=0;i<jsonArray.size();i++) {
             JSONObject object=jsonArray.getJSONObject(i);
             final ToDoItem toDoItem = new ToDoItem(object.getString("text"));
@@ -63,8 +66,9 @@ public class SaverAndLoader {
 
     public void loadWanderingInput(Node node){
         JSONObject jsonObject = read("wanderingDDL");
+        if(jsonObject==null)return;
         JSONArray jsa=jsonObject.getJSONArray("last-modified");
-
+        if(jsa==null)return;
         Pane all = (Pane)node;
         System.out.println(jsa);
         ((TextField) all.lookup("#0")).setText(jsa.get(0).toString());//某某作业
@@ -78,8 +82,13 @@ public class SaverAndLoader {
     }
     public void loadMerit(){
         JSONObject jsonObject = read("MuYuMerit");
-        int count =(int)jsonObject.get("last-merit");
-        MuYuController.getInstance().setCount(count);
+        if(jsonObject==null)return;
+        try{
+            int count =(int)jsonObject.get("last-merit");
+            MuYuController.getInstance().setCount(count);
+        }catch (Exception e) {
+            return;
+        }
     }
     private String Chi2Eng(String sentences) {
         switch (sentences) {
@@ -119,6 +128,7 @@ public class SaverAndLoader {
         return finalNumber;
 
     }
+
     public void saveWanderingInput(String[] data){
         WanderingItem[] list = new WanderingItem[data.length];
         for (int i = 0; i < data.length; i++) {

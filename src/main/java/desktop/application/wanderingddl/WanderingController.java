@@ -66,7 +66,7 @@ public class WanderingController extends ContentController {
         for (int i = 0; i < 4; i++) {
             if (strings[i].length() > 0) {
                 texts[i] = new Label(strings[i]);
-            }else texts[i]= new Label("11");
+            }else texts[i]= new Label("");
         }
         texts[4] = new Label(" ");
         setZnFont(new Label[]{texts[0], texts[1], texts[3], texts[4]});//text4是空的占位label
@@ -88,7 +88,7 @@ public class WanderingController extends ContentController {
         int period = 1000;
         switch (timeCount) {
             case "分" -> period = period * 60;
-            case "小时" -> period = period * 60 * 60;
+            case "小时              " -> period = period * 60 * 60;
             case "天" -> {
                 period = period * 60 * 60 * 24;
             }
