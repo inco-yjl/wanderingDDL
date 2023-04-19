@@ -83,8 +83,8 @@ public class ApplicationController extends Application {
         MenuItem weeks = new MenuItem("星期");
         MenuItem months = new MenuItem("月");
         MenuItem minutes = new MenuItem("分钟");
-//        MenuItem seconds = new MenuItem("秒");
-        select_ddl.getItems().addAll(hours, days, weeks, months,minutes);
+        MenuItem seconds = new MenuItem("秒");
+        select_ddl.getItems().addAll(hours, days, weeks, months,minutes,seconds);
         select_ddl.setId("3");
         select_ddl.setLayoutX(264);
         select_ddl.setLayoutY(149);
@@ -156,7 +156,7 @@ public class ApplicationController extends Application {
         weeks.setOnAction(event);
         months.setOnAction(event);
         minutes.setOnAction(event);
-//        seconds.setOnAction(event);
+        seconds.setOnAction(event);
 
         PageFactory.addNode(0, spinner, select_ddl, textField_1, label_x, label_days, textField_2);
     }
