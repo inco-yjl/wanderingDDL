@@ -9,9 +9,12 @@ module desktop.application.wanderingddl {
     requires java.desktop;
     requires com.alibaba.fastjson2;
     requires javafx.media;
-
+    requires java.scripting;
+    requires org.openjdk.nashorn;
     opens desktop.application.wanderingddl to javafx.fxml;
     exports desktop.application.wanderingddl;
     exports desktop.application.wanderingddl.tools;
     opens desktop.application.wanderingddl.tools to javafx.fxml;
+
+
 }

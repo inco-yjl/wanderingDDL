@@ -131,7 +131,7 @@ public class MuYuController extends ContentController {
         HBox hBox=new HBox();
         hBox.getChildren().addAll(titlab,cntlab);
         if(ifRandom)
-        vBox.getChildren().addAll(hBox,getModebtn(),getHeader());
+            vBox.getChildren().addAll(hBox,getModebtn(),getHeader());
         else
             vBox.getChildren().addAll(hBox,getHeader());
         all.getChildren().addAll(vBox);
@@ -229,13 +229,13 @@ public class MuYuController extends ContentController {
      * 播放敲木鱼音频
      * @param index 音频种类编号，可选1-5
      */
-public void dadada(String index) {
-    String filename = "src/main/resources/desktop/application/wanderingddl/ContentSrc/MuyuSound/muyu"+index+".mp3";
-    Media hit = new Media(new File(filename).toURI().toString());
-    MediaPlayer mediaPlayer = new MediaPlayer(hit);
-    mediaPlayer.play();
+    public void dadada(String index) {
+        String filename = "src/main/resources/desktop/application/wanderingddl/ContentSrc/MuyuSound/muyu"+index+".mp3";
+        Media hit = new Media(new File(filename).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
 
-}
+    }
     /**
      * 功德+1动画
      * @param header
