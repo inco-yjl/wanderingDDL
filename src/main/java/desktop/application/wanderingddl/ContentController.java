@@ -2,16 +2,23 @@
 package desktop.application.wanderingddl;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ContentController extends Application {
     Stage stage = new Stage();
     public void start(Stage stage) throws IOException {
 
+    }
+    public void closeStage(){
+        stage.close();
     }
     public void newInit(String[] strings){
         try {
@@ -33,5 +40,7 @@ public class ContentController extends Application {
         stage.setX(Screen.getPrimary().getBounds().getWidth()-480);
         stage.setY(Screen.getPrimary().getBounds().getHeight()-262);
         stage.setAlwaysOnTop(true);
-    }
+    }// 假设方法 someJavafxFun 位于 JavaFX 的某个组件的定义中
+
+
 }

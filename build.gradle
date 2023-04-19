@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'desktop.application.wanderingddl'
-    mainClass = 'desktop.application.wanderingddl.HelloApplication'
+    mainClass = 'desktop.application.wanderingddl.ApplicationController'
 }
 
 javafx {

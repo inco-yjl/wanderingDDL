@@ -1,11 +1,10 @@
 package desktop.application.wanderingddl;
 
 import desktop.application.wanderingddl.tools.DragUtil;
-import javafx.application.Application;
-import javafx.geometry.Bounds;
-import javafx.geometry.Insets;
+import desktop.application.wanderingddl.tools.SaverAndLoader;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
@@ -18,13 +17,12 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
-//TODO:联系时钟
 public class WanderingController extends ContentController {
     private Font w_engFont;
     private Font w_znFont;
@@ -46,7 +44,17 @@ public class WanderingController extends ContentController {
         }
         return wanderingController;
     }
-
+    public void countDown(){
+        int originNumber = Integer.parseInt(texts[2].getText());
+        if(stage.isShowing()) {
+            Pane all = (Pane) stage.getScene().getRoot();
+            Label engText = (Label)all.lookup("#engText");
+            String originText = engText.getText();
+            originText.replace(originNumber+"",(originNumber-1+""));
+            if(originNumber>0)originNumber--;
+            ((Label)all.lookup("#countDownNumber")).setText(originNumber+"");//x
+        }
+    }
     private void loadFont() {
         w_engFont = Font.loadFont(Objects.requireNonNull(getClass().getResource("MainContent/font/Alte DIN 1451 Mittelschrift gepraegt Regular.ttf")).toExternalForm(), 90);
         w_znFont = Font.loadFont(getClass().getResource("MainContent/font/znFont.ttf").toExternalForm(), 36);
@@ -70,9 +78,37 @@ public class WanderingController extends ContentController {
             for(int i =0;i<5;i++)
                 strings[i]=sentences[i];
             this.start(stage);
+            addTimer(sentences[3]);
         }catch (Exception e){
             System.out.println(e);
         }
+    }
+
+    protected void addTimer(String timeCount) {
+        int period = 1000;
+        switch (timeCount) {
+            case "分" -> period = period * 60;
+            case "小时" -> period = period * 60 * 60;
+            case "天" -> {
+                period = period * 60 * 60 * 24;
+            }
+            case "月","周", "年" -> {
+                return;
+            }
+        }
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        countDown();
+                    }
+
+                });
+            }
+        }, period, period);
+
     }
     @Override
     public void start(Stage stage) throws IOException {
@@ -89,14 +125,17 @@ public class WanderingController extends ContentController {
         all.setStyle("-fx-background-color: transparent;");
 
         DragUtil.addDragListener(stage,all);
-        if(!stage.isShowing())
+        if(!stage.isShowing()){
             stage.show();
-        MinWindow.getInstance().listen(stage);
+            MinWindow.getInstance().listen(1);
+        }
         stage.setX(Screen.getPrimary().getBounds().getWidth() - 480);
         stage.setY(Screen.getPrimary().getBounds().getHeight() - 262);
 
     }
-
+    public void saveData(){
+        SaverAndLoader.tool.saveWanderingInput(texts[2].getText());
+    }
     private HBox getHbox() {
         HBox hbox = new HBox();
         hbox.setAlignment(Pos.TOP_RIGHT);
@@ -138,6 +177,7 @@ public class WanderingController extends ContentController {
     }
 
     private void setNumFont(Label label) {
+        label.setId("countDownNumber");
         label.setAlignment(Pos.TOP_RIGHT);
         label.setFont(w_engFont);
         label.setPrefHeight(80);
@@ -174,6 +214,7 @@ public class WanderingController extends ContentController {
         scene.setFill(null);
         stage.setScene(scene);
         stage.show();
+        MinWindow.getInstance().listen(1);
         VBox leftVbox = (VBox)hBox.getChildren().get(0);//left
         VBox rightbox = (VBox)hBox.getChildren().get(2);
         startX = leftVbox.getChildren().get(1).getBoundsInParent().getMaxX()-leftVbox.getChildren().get(1).getLayoutBounds().getWidth();
@@ -200,6 +241,7 @@ public class WanderingController extends ContentController {
 
     private Label getEngText() {
         Label label = new Label(strings[4].toUpperCase());
+        label.setId("engText");
         setTextFont(label);
         label.setWrapText(true);
         label.setPrefWidth(engLength+30);//设置固定宽度，以控制自动换行

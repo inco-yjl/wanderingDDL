@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="wanderingDDL:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wanderingDDL/11.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MinWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MinWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuPageContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuPageContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoPageContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoPageContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/navigation/PageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/navigation/PageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/tools/SaverAndLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/tools/SaverAndLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/ToDoList.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/ToDoList.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wanderingDDL" beforeDir="false" afterPath="$PROJECT_DIR$/wanderingDDL" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +49,13 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="wanderingDDL" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="wanderingDDL" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -51,8 +68,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Sass File" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -83,26 +100,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config" />
-  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\Config" />
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc\MuyuSound" />
       <recent name="E:\projects\wanderingDDL\src\main\java\desktop\application\wanderingddl" />
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\MuyuImg" />
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc.muyuImg" />
+      <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\Config\style" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project\wanderingDDL\src\main\resources" />
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc" />
       <recent name="E:\projects\wanderingDDL\src\main\java\desktop\application\wanderingddl" />
       <recent name="E:\project\wanderingDDL\src\main\resources\desktop\application\wanderingddl\MainContent\font" />
       <recent name="E:\project\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc\" />
-      <recent name="E:\projects\wanderingDDL\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.wanderingDDL [build]">
     <configuration name="ApplicationController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="desktop.application.wanderingddl.ApplicationController" />
       <module name="wanderingDDL.main" />
@@ -117,6 +131,82 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="wanderingDDL [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="wanderingDDL [installDist]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="installDist" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="wanderingDDL [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.wanderingDDL [build]" />
+      <item itemvalue="Gradle.wanderingDDL [installDist]" />
+      <item itemvalue="Gradle.wanderingDDL [run]" />
+      <item itemvalue="应用程序.ApplicationController" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.wanderingDDL [build]" />
+        <item itemvalue="Gradle.wanderingDDL [run]" />
+        <item itemvalue="Gradle.wanderingDDL [installDist]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -143,7 +233,18 @@
       <workItem from="1680872762667" duration="8159000" />
       <workItem from="1680954415338" duration="2420000" />
       <workItem from="1681135530406" duration="3332000" />
-      <workItem from="1681185686704" duration="6451000" />
+      <workItem from="1681185686704" duration="8223000" />
+      <workItem from="1681210485325" duration="9240000" />
+      <workItem from="1681221284516" duration="2259000" />
+      <workItem from="1681223563962" duration="1498000" />
+      <workItem from="1681225723756" duration="68000" />
+      <workItem from="1681226034941" duration="149000" />
+      <workItem from="1681226650235" duration="1339000" />
+      <workItem from="1681465404018" duration="3032000" />
+      <workItem from="1681719129333" duration="5622000" />
+      <workItem from="1681733298932" duration="3873000" />
+      <workItem from="1681785684698" duration="13859000" />
+      <workItem from="1681804499289" duration="11354000" />
     </task>
     <servers />
   </component>

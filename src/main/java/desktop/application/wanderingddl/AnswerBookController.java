@@ -34,7 +34,7 @@ public class AnswerBookController {
     }
     public static String[] getAnswer() {
         Random random = new Random();
-        int index = random.nextInt(1096);
+        int index = random.nextInt(1100);
         JSONObject answerOj = JSONObject.from(answers.get(index));
         String chineText = answerOj.getString("chinese");
         String engText = answerOj.getString("english");

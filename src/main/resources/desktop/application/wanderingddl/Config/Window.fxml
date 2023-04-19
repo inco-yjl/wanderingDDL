@@ -39,7 +39,7 @@
                </graphic>
             </Button>
             <!--    add Muyu jump    -->
-            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#MuyuPage" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
+            <Button fx:id="muyuPage"  layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#MuyuPage" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
                <graphic>
                   <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -48,15 +48,6 @@
                </graphic>
             </Button>
 
-            <!--    add Live2d jump    -->
-            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#Live2dPage" prefHeight="107.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@style/menu.css">
-               <graphic>
-                  <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ContentSrc/MuyuImg/muyu-line2.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
 
 
          </children>

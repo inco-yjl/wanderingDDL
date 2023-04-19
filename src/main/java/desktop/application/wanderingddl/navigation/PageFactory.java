@@ -10,6 +10,9 @@ public class PageFactory {
     public static Node createPageService(int index) {
         return pages[index];
     }
+    public static void setPage(Node node) {
+        pages[1] = node;
+    }
     public static void setPages(Node[] pages) {
         PageFactory.pages = pages;
     }
