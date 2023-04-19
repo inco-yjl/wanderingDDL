@@ -176,8 +176,8 @@ public class ToDoPageContent {
         minusButton.setPrefWidth(30);
         minusButton.setPrefHeight(30);
         minusButton.getStyleClass().add("add-btn");
-        int index =items.size()-1;
         minusButton.setOnAction(e->{
+            int index = allItems.getChildren().indexOf(item);
             allItems.getChildren().remove(item);
             items.remove(index);
             toDoItems.remove(index);
