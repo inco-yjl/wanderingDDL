@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="453.0" prefHeight="453.0" prefWidth="700.0" style="-fx-max-height: 320px;" styleClass="window" stylesheets="@style/window.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+     fx:controller="desktop.application.wanderingddl.Live2dController">
+<!--    <fx:script source="autoload.js"/>-->
+    <fx:script source="source/L2Dwidget.min.js"/>
+    <fx:script source="source/L2Dwidget.0.min.js"/>
+    <fx:script source="load.js"/>
+    <Label layoutX="52.0" layoutY="52.0" styleClass="hint" text="第一排提示字" textFill="#092053">
+    </Label>
+</BorderPane>

@@ -48,7 +48,7 @@ public class ApplicationController extends Application {
         Pane wanderingPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/WanderingPage.fxml"));
         Pane toDoListPageContent = new ToDoPageContent().getToDoPageContent();
         Pane answerBookPageContent = (Pane) FXMLLoader.load(getClass().getResource("MainContent/AnswerBookPage.fxml"));
-
+//        Pane live2dPageContent=(Pane) FXMLLoader.load(getClass().getResource("MainContent/Live2dPage.fxml"));
         Node[] pages = {wanderingPageContent, toDoListPageContent,answerBookPageContent};
         PageFactory.setPages(pages);
 
@@ -204,6 +204,12 @@ public class ApplicationController extends Application {
 //        routePage(2);
         MuYuController.getInstance().newInit();
         System.out.println("tomuyu2");
+    }
+    @FXML
+    private void Live2dPage(){
+        System.out.println("tolive2d");
+        Live2dController.getInstance().newInit();
+        System.out.println("go to live2d");
     }
     @FXML
     protected void openWanderingUI() {

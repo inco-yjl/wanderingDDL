@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="desktop.application.wanderingddl.Live2dController"
+            prefHeight="400.0" prefWidth="600.0">
+<!--    <fx:script source="autoload.js">-->
+<!--    </fx:script>-->
+    <Label layoutX="52.0" layoutY="52.0" styleClass="hint" stylesheets="@style/start.css" text="第一排提示字" textFill="#092053">
+    </Label>
+</AnchorPane>

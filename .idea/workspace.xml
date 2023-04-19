@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/MuYuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config/Window.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +35,11 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="wanderingDDL" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="wanderingDDL" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -42,8 +51,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Sass File" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -75,15 +84,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/ContentSrc/MuyuSound" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Config" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\Config" />
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc\MuyuSound" />
       <recent name="E:\projects\wanderingDDL\src\main\java\desktop\application\wanderingddl" />
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\MuyuImg" />
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc.muyuImg" />
-      <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\Config\style" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc" />

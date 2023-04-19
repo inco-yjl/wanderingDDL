@@ -47,6 +47,7 @@ public class MuYuController extends ContentController {
     private Label cntlab;                       //功德数标签
     private Label titlab;
     private Button modebtn;
+    private Button soundbtn;
     private MuYuController(){
         super();
         this.setStage();
@@ -127,6 +128,14 @@ public class MuYuController extends ContentController {
         header.setBackground(new Background(bImg));
     }
 
+    /**
+     * 随机声音
+     */
+    private void changesound(){
+        String[] soundmodes = new String[]{"1","2","3","4","5"};
+        int index = new Random().nextInt(5);
+        nowMode.updateSoundMode(soundmodes[index]);
+    }
     @Override
     public void start(Stage stage) throws IOException {
         Pane all = new Pane();
@@ -134,13 +143,18 @@ public class MuYuController extends ContentController {
         titlab=new Label("功德：");
         cntlab=new Label(String.valueOf(count));
         modebtn=new Button("随机木鱼");
+        soundbtn=new Button("随机音效");
         HBox hBox=new HBox();
         hBox.getChildren().addAll(titlab,cntlab);
 
-        vBox.getChildren().addAll(hBox,modebtn,getHeader());
+        vBox.getChildren().addAll(hBox,modebtn,soundbtn,getHeader());
         modebtn.setOnAction(event -> {
             System.out.println("change"+nowMode.mode);
             changemode();
+        });
+        soundbtn.setOnAction(event -> {
+            System.out.println("changesound"+nowMode.soundmode);
+            changesound();
         });
         if(nowMode.bottomImg!=null){
             vBox.getChildren().add(getFooter());
@@ -184,7 +198,7 @@ public class MuYuController extends ContentController {
             header.setPrefHeight(200);
             header.setPrefWidth(200);
 //            敲击声音
-            dadada("2");
+            dadada(nowMode.soundmode);
 //            木鱼点击放缩动画
             ScaleTransition st = new ScaleTransition(Duration.millis(100), header);
             st.setFromX(1);
@@ -311,6 +325,9 @@ class MuYuMode {
         this.mode=mode;
         loadImage();
 
+    }
+    public void updateSoundMode(String mode){
+        this.soundmode=soundmode;
     }
     private void setSize(){
         picWidth = headImg.getWidth();
