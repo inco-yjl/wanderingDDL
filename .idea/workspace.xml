@@ -110,7 +110,7 @@
       <recent name="E:\project\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc\" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.ApplicationController">
+  <component name="RunManager" selected="Application.ApplicationController">
     <configuration name="ApplicationController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="desktop.application.wanderingddl.ApplicationController" />
       <module name="wanderingDDL.main" />
@@ -189,10 +189,10 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.ApplicationController" />
       <item itemvalue="Gradle.wanderingDDL [build]" />
       <item itemvalue="Gradle.wanderingDDL [installDist]" />
       <item itemvalue="Gradle.wanderingDDL [run]" />
-      <item itemvalue="应用程序.ApplicationController" />
     </list>
     <recent_temporary>
       <list>
