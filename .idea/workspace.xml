@@ -12,18 +12,8 @@
     <list default="true" id="d4e81892-8296-4e0c-b694-ce8b69ccc1b4" name="变更" comment="">
       <change afterPath="$PROJECT_DIR$/wanderingDDL/11.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/Live2dController.java" beforeDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoPageContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoPageContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/ToDoList.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/ToDoList.json" afterDir="false" />
->>>>>>> 8b0ade8badc9452d15fc4bfc9d53f41c29db28cd
-=======
-      <change beforePath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoPageContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop/application/wanderingddl/ToDoPageContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/ToDoList.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/ToDoList.json" afterDir="false" />
->>>>>>> 8b0ade8badc9452d15fc4bfc9d53f41c29db28cd
       <change beforePath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/wanderingDDL.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop/application/wanderingddl/Cache/wanderingDDL.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wanderingDDL" beforeDir="false" afterPath="$PROJECT_DIR$/wanderingDDL" afterDir="false" />
     </list>
@@ -104,10 +94,8 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-=======
   <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
+    &quot;keyToString&quot;: {
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
@@ -125,9 +113,8 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;6e99fa19007301fd0a16e56a4919fca7&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
->>>>>>> 8b0ade8badc9452d15fc4bfc9d53f41c29db28cd
+    }
+    }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\projects\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc\MuyuSound" />
@@ -144,7 +131,7 @@
       <recent name="E:\project\wanderingDDL\src\main\resources\desktop\application\wanderingddl\ContentSrc\" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.ApplicationController">
+  <component name="RunManager" selected="Application.ApplicationController">
     <configuration name="ApplicationController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="desktop.application.wanderingddl.ApplicationController" />
       <module name="wanderingDDL.main" />
@@ -223,13 +210,14 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.ApplicationController" />
       <item itemvalue="Gradle.wanderingDDL [build]" />
       <item itemvalue="Gradle.wanderingDDL [installDist]" />
       <item itemvalue="Gradle.wanderingDDL [run]" />
-      <item itemvalue="应用程序.ApplicationController" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ApplicationController" />
         <item itemvalue="Gradle.wanderingDDL [build]" />
         <item itemvalue="Gradle.wanderingDDL [run]" />
         <item itemvalue="Gradle.wanderingDDL [installDist]" />
