@@ -32,6 +32,7 @@ public class WanderingController extends ContentController {
     private Label[] texts = new Label[5]; //距离xxx,还有大概,30,space,天
     private double startX;
     private double engLength;
+    private Timer timer;
 
     private WanderingController() {
         super();
@@ -52,7 +53,7 @@ public class WanderingController extends ContentController {
             Pane all = (Pane) stage.getScene().getRoot();
             Label engText = (Label) all.lookup("#engText");
             String originText = engText.getText();
-            originText.replace(originNumber + "", (originNumber - 1 + ""));
+            engText.setText(originText.replace(originNumber + "", (originNumber - 1 + "")));
             if (originNumber > 0) originNumber--;
             ((Label) all.lookup("#countDownNumber")).setText(originNumber + "");//x
         }
@@ -104,7 +105,9 @@ public class WanderingController extends ContentController {
                 return;
             }
         }
-        Timer timer = new Timer();
+        if(timer!=null)
+            timer.cancel();
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {
                 Platform.runLater(new Runnable() {
