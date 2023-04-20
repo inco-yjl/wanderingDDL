@@ -78,13 +78,14 @@ public class ApplicationController extends Application {
         MenuButton select_ddl = new MenuButton();
 
         //  没什么意义，拉长一点
+        MenuItem seconds = new MenuItem("秒");
+        MenuItem minutes = new MenuItem("分钟");
         MenuItem hours = new MenuItem("小时              ");
         MenuItem days = new MenuItem("天");
         MenuItem weeks = new MenuItem("星期");
         MenuItem months = new MenuItem("月");
-        MenuItem minutes = new MenuItem("分钟");
-        MenuItem seconds = new MenuItem("秒");
-        select_ddl.getItems().addAll(hours, days, weeks, months,minutes,seconds);
+
+        select_ddl.getItems().addAll(seconds, minutes, hours, days, weeks, months);
         select_ddl.setId("3");
         select_ddl.setLayoutX(264);
         select_ddl.setLayoutY(149);
@@ -278,9 +279,9 @@ public class ApplicationController extends Application {
             case "月":
                 return " months";
             case "分钟":
-                return  "minutes";
+                return " minutes";
             case "秒":
-                return "seconds";
+                return " seconds";
             default:
                 break;
         }
@@ -292,11 +293,11 @@ public class ApplicationController extends Application {
      * 对于木鱼，功德是一个实例变量，一定是最新的
      */
     public static void reloadPage(int index) {
-        if(nowIndex == index) {
+        if (nowIndex == index) {
             Node node;
-            if(index==0) {
-                node= PageFactory.createPageService(index);
-                SaverAndLoader.tool.loadPage(node,index);
+            if (index == 0) {
+                node = PageFactory.createPageService(index);
+                SaverAndLoader.tool.loadPage(node, index);
             } else {
                 node = new ToDoPageContent(SaverAndLoader.tool.loadToDoInput()).pageContent;
                 PageFactory.setPage(node);
@@ -307,18 +308,18 @@ public class ApplicationController extends Application {
             newRoute[index] = true;
         }
     }
+
     private void routePage(int index) {
         nowIndex = index;
         setButtonPressed(index);
         Node node = PageFactory.createPageService(index);
 
-        if(newRoute[index] && index==1) {
+        if (newRoute[index] && index == 1) {
             node = new ToDoPageContent(SaverAndLoader.tool.loadToDoInput()).pageContent;
             PageFactory.setPage(node);
             newRoute[index] = false;
-        }
-        else if(newRoute[index]) {
-            SaverAndLoader.tool.loadPage(node,index);
+        } else if (newRoute[index]) {
+            SaverAndLoader.tool.loadPage(node, index);
             newRoute[index] = false;
         }
         window.setRight(node);

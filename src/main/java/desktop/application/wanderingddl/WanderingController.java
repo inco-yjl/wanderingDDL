@@ -27,34 +27,37 @@ public class WanderingController extends ContentController {
     private Font w_engFont;
     private Font w_znFont;
     private Font w_engTextFont;
-    private String[] strings=new String[5];
+    private String[] strings = new String[5];
     static private WanderingController wanderingController;
     private Label[] texts = new Label[5]; //距离xxx,还有大概,30,space,天
-    private  double startX ;
+    private double startX;
     private double engLength;
 
-    private WanderingController(){
+    private WanderingController() {
         super();
         this.loadFont();
         this.setStage();
     }
-    public static WanderingController getInstance(){
-        if(wanderingController==null){
-            wanderingController=new WanderingController();
+
+    public static WanderingController getInstance() {
+        if (wanderingController == null) {
+            wanderingController = new WanderingController();
         }
         return wanderingController;
     }
-    public void countDown(){
+
+    public void countDown() {
         int originNumber = Integer.parseInt(texts[2].getText());
-        if(stage.isShowing()) {
+        if (stage.isShowing()) {
             Pane all = (Pane) stage.getScene().getRoot();
-            Label engText = (Label)all.lookup("#engText");
+            Label engText = (Label) all.lookup("#engText");
             String originText = engText.getText();
-            originText.replace(originNumber+"",(originNumber-1+""));
-            if(originNumber>0)originNumber--;
-            ((Label)all.lookup("#countDownNumber")).setText(originNumber+"");//x
+            originText.replace(originNumber + "", (originNumber - 1 + ""));
+            if (originNumber > 0) originNumber--;
+            ((Label) all.lookup("#countDownNumber")).setText(originNumber + "");//x
         }
     }
+
     private void loadFont() {
         w_engFont = Font.loadFont(Objects.requireNonNull(getClass().getResource("MainContent/font/Alte DIN 1451 Mittelschrift gepraegt Regular.ttf")).toExternalForm(), 90);
         w_znFont = Font.loadFont(getClass().getResource("MainContent/font/znFont.ttf").toExternalForm(), 36);
@@ -66,20 +69,21 @@ public class WanderingController extends ContentController {
         for (int i = 0; i < 4; i++) {
             if (strings[i].length() > 0) {
                 texts[i] = new Label(strings[i]);
-            }else texts[i]= new Label("");
+            } else texts[i] = new Label("");
         }
         texts[4] = new Label(" ");
         setZnFont(new Label[]{texts[0], texts[1], texts[3], texts[4]});//text4是空的占位label
         setNumFont(texts[2]);
     }
+
     @Override
-    public void newInit(String[] sentences){
+    public void newInit(String[] sentences) {
         try {
-            for(int i =0;i<5;i++)
-                strings[i]=sentences[i];
+            for (int i = 0; i < 5; i++)
+                strings[i] = sentences[i];
             this.start(stage);
             addTimer(sentences[3]);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -87,12 +91,16 @@ public class WanderingController extends ContentController {
     protected void addTimer(String timeCount) {
         int period = 1000;
         switch (timeCount) {
-            case "分" -> period = period * 60;
-            case "小时              " -> period = period * 60 * 60;
+            case "分钟" -> {
+                period = period * 60;
+            }
+            case "小时              " -> {
+                period = period * 60 * 60;
+            }
             case "天" -> {
                 period = period * 60 * 60 * 24;
             }
-            case "月","周", "年" -> {
+            case "月", "星期" -> {
                 return;
             }
         }
@@ -110,6 +118,7 @@ public class WanderingController extends ContentController {
         }, period, period);
 
     }
+
     @Override
     public void start(Stage stage) throws IOException {
         //设置字体
@@ -120,12 +129,12 @@ public class WanderingController extends ContentController {
         initLengths(all);
 
 
-        all.getChildren().addAll(getEngText(),getSeparater());
+        all.getChildren().addAll(getEngText(), getSeparater());
 
         all.setStyle("-fx-background-color: transparent;");
 
-        DragUtil.addDragListener(stage,all);
-        if(!stage.isShowing()){
+        DragUtil.addDragListener(stage, all);
+        if (!stage.isShowing()) {
             stage.show();
             MinWindow.getInstance().listen(1);
         }
@@ -133,9 +142,11 @@ public class WanderingController extends ContentController {
         stage.setY(Screen.getPrimary().getBounds().getHeight() - 262);
 
     }
-    public void saveData(){
+
+    public void saveData() {
         SaverAndLoader.tool.saveWanderingInput(texts[2].getText());
     }
+
     private HBox getHbox() {
         HBox hbox = new HBox();
         hbox.setAlignment(Pos.TOP_RIGHT);
@@ -146,12 +157,13 @@ public class WanderingController extends ContentController {
 
         return hbox;
     }
+
     private VBox getLeft() {
         VBox left = new VBox();
         Rectangle bottom = new Rectangle();
         bottom.setHeight(17);
         left.setAlignment(Pos.BOTTOM_RIGHT);
-        left.getChildren().addAll(texts[0], texts[1],bottom);
+        left.getChildren().addAll(texts[0], texts[1], bottom);
         return left;
     }
 
@@ -160,7 +172,7 @@ public class WanderingController extends ContentController {
         Rectangle bottom = new Rectangle();
         bottom.setHeight(17);
         right.setAlignment(Pos.BOTTOM_RIGHT);
-        right.getChildren().addAll(texts[4], texts[3],bottom);
+        right.getChildren().addAll(texts[4], texts[3], bottom);
         return right;
     }
 
@@ -215,24 +227,25 @@ public class WanderingController extends ContentController {
         stage.setScene(scene);
         stage.show();
         MinWindow.getInstance().listen(1);
-        VBox leftVbox = (VBox)hBox.getChildren().get(0);//left
-        VBox rightbox = (VBox)hBox.getChildren().get(2);
-        startX = leftVbox.getChildren().get(1).getBoundsInParent().getMaxX()-leftVbox.getChildren().get(1).getLayoutBounds().getWidth();
-        engLength = rightbox.getBoundsInParent().getMaxX()-startX;
+        VBox leftVbox = (VBox) hBox.getChildren().get(0);//left
+        VBox rightbox = (VBox) hBox.getChildren().get(2);
+        startX = leftVbox.getChildren().get(1).getBoundsInParent().getMaxX() - leftVbox.getChildren().get(1).getLayoutBounds().getWidth();
+        engLength = rightbox.getBoundsInParent().getMaxX() - startX;
 
     }
+
     private Rectangle getSeparater() {
         Rectangle rectangle = new Rectangle();
-        double evH = strings[4].length() * 18/ (engLength+30);
+        double evH = strings[4].length() * 18 / (engLength + 30);
         //计算理想高度
-        rectangle.setHeight(evH  * 18 + 30);
+        rectangle.setHeight(evH * 18 + 30);
         rectangle.setWidth(6);
         rectangle.setFill(Paint.valueOf("#ff0000"));
 
         if (startX <= 0) {
             rectangle.setX(0);
         } else {
-            rectangle.setX(startX-10);
+            rectangle.setX(startX - 10);
         }
 
         rectangle.setY(58);
@@ -244,10 +257,10 @@ public class WanderingController extends ContentController {
         label.setId("engText");
         setTextFont(label);
         label.setWrapText(true);
-        label.setPrefWidth(engLength+30);//设置固定宽度，以控制自动换行
+        label.setPrefWidth(engLength + 30);//设置固定宽度，以控制自动换行
         if (startX <= 0) {
             label.setLayoutX(10);
-        }else {
+        } else {
             label.setLayoutX(startX);
         }
         label.setLayoutY(86);
