@@ -242,6 +242,7 @@ public class ApplicationController extends Application {
 
     @FXML
     protected void openWanderingUI() {
+        try{
         String[] sentences = new String[6];
         sentences[0] = ((TextField) window.getRight().lookup("#0")).getText();//某某作业
         sentences[1] = ((TextField) window.getRight().lookup("#1")).getText();//还有
@@ -250,10 +251,14 @@ public class ApplicationController extends Application {
         String strings_3 = Chi2Eng(sentences[3]);
         String strings_4 = ((TextField) window.getRight().lookup("#4")).getText();
         String strings_5 = ((TextField) window.getRight().lookup("#7")).getText();
-        sentences[4] = strings_4 + " " + sentences[2] + strings_3 + " " + strings_5;
+        sentences[4] = strings_4 + " " + sentences[2] +" " + strings_3 + " " + strings_5;
         WanderingController.getInstance().newInit(sentences);
         SaverAndLoader.tool.saveWanderingInput(new String[]{sentences[0], sentences[1], sentences[2], sentences[3], strings_4, strings_5});
-    }
+
+        }catch (Exception e) {
+            System.out.print("no input, hahaha");
+        }
+     }
 
     @FXML
     protected void openWanderingUI_with_ji() {

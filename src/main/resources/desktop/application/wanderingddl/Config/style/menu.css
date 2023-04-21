@@ -10,3 +10,10 @@
     -fx-background-color:#94b2d7;
     -fx-text-fill: #fff;
 }
+.final-menu {
+    -fx-background-radius: 0 0 0 10px ;
+    -fx-background-color:rgba(176,196,222,1);
+    -fx-text-fill: rgb(191, 192, 194);
+    -fx-border-radius: 0;
+}
+
